@@ -1,4 +1,6 @@
 *.class
+*.out
+*.hex
 
 # Package Files #
 *.jar
