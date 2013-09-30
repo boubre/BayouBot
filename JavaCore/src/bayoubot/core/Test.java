@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.bluetooth.DiscoveryListener;
 import javax.bluetooth.RemoteDevice;
+import javax.bluetooth.ServiceRecord;
 
 import bayoubot.core.comms.BluetoothDeviceFinder;
 import bayoubot.core.comms.BluetoothDeviceFinderCallback;
@@ -43,10 +44,14 @@ public class Test {
 			try {
 				System.out.println("\tAddress: " + rd.getBluetoothAddress());
 				System.out.println("\tName: " + rd.getFriendlyName(true));
-				System.out.println("--------------------");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			for(ServiceRecord sr : bdfc.getServices().get(rd)) {
+				System.out.println("\t\tServiceURL: " + 
+						sr.getConnectionURL(ServiceRecord.NOAUTHENTICATE_NOENCRYPT, false));
+			}
+			System.out.println("--------------------");
 		}
 		switch (bdfc.getDiscoveryType()) {
 		case DiscoveryListener.INQUIRY_COMPLETED:
