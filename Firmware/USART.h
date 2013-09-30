@@ -13,6 +13,7 @@
 
 void USART_init(void);
 unsigned char USART_sendStr(const char*);
+unsigned char USART_sendChar(char);
 unsigned char USART_available(void);
 char USART_readChar(void);
 

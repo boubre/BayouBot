@@ -39,6 +39,22 @@ unsigned char USART_sendStr(const char* str) {
   return rv;
 }
 
+/* Send a character via USART. Will return a SUCCESS or FAILURE value.
+ * The character is placed in a buffer and is transmitted via interrupts.
+ * Refuses to commit to sending the string if the buffer does not have space.
+ */
+unsigned char USART_sendChar(char c) {
+  unsigned char rv = FAILURE;
+  ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+    if (txBuf.count + 1 < CB_STR32_SIZE) {
+      Util_writeChar(&txBuf, c);
+      rv = SUCCESS;
+      UCSR0B |= (1 << UDRIE0); //Turn on Empty data interrupts
+    }
+  }
+  return rv;
+}
+
 /* True if there is a character waiting in the Rx buffer.
  */
 unsigned char USART_available(void) {

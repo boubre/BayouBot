@@ -5,6 +5,13 @@
 int main(void) { 
   init();
   
+  while (1) {
+    while (USART_available() != 0) {
+      USART_sendChar(USART_readChar());
+    }
+    _delay_ms(1);
+  }
+  /*
   //led bits for D2 and D3
   unsigned char led1 = 1 << 2;
   unsigned char led2 = 1 << 3;
@@ -17,6 +24,7 @@ int main(void) {
       PORTD ^= (led1 | led2);
       _delay_ms(500);
   }
+  */
 
   return 1;
 }
