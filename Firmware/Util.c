@@ -48,7 +48,7 @@ char Util_readChar(volatile CircularBuffer_Str32* cb) {
  */
 unsigned char Util_writeStr(volatile CircularBuffer_Str32* cb, const char* str, int start, int size) {
   unsigned char count = 0;
-  while(Util_isFull(cb) == 0 && start < size) {
+  while(Util_isFull(cb) == 0 && count < size) {
     Util_writeChar(cb, str[start + count]);
     count++;
   }

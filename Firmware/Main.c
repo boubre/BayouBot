@@ -1,15 +1,18 @@
 #include "Main.h"
 
+char str[32];
+
 /* This is the main loop of the AVR's programming
  */
 int main(void) { 
   init();
   
+  DDRD |= (1 << 2) | (1 << 3);
+  DDRD &= ~(1 << 4);
   while (1) {
-    while (USART_available() != 0) {
+    if (USART_available() > 0) {
       USART_sendChar(USART_readChar());
     }
-    _delay_ms(1);
   }
   /*
   //led bits for D2 and D3

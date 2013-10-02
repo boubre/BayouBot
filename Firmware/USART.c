@@ -55,12 +55,12 @@ unsigned char USART_sendChar(char c) {
   return rv;
 }
 
-/* True if there is a character waiting in the Rx buffer.
+/* Return the number of characters available to read
  */
 unsigned char USART_available(void) {
   unsigned char rv;
   ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
-    rv = !Util_isEmpty(&rxBuf);
+    rv = rxBuf.count;
   }
   return rv;
 }
@@ -83,7 +83,7 @@ char USART_readChar(void) {
 ISR(USART_UDRE_vect) {
   UDR0 = Util_readChar(&txBuf);
   if (Util_isEmpty(&txBuf)) {
-    UCSR0B ^= (1 << UDRIE0); //Turn off Empty data interrupts
+    UCSR0B &= ~(1 << UDRIE0); //Turn off Empty data interrupts
   }
 }
 
