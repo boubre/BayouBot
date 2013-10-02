@@ -1,10 +1,16 @@
 package bayoubot.core;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 
 import javax.bluetooth.DiscoveryListener;
 import javax.bluetooth.RemoteDevice;
 import javax.bluetooth.ServiceRecord;
+import javax.microedition.io.Connector;
+import javax.microedition.io.StreamConnection;
 
 import bayoubot.core.comms.BluetoothDeviceFinder;
 import bayoubot.core.comms.BluetoothDeviceFinderCallback;
@@ -12,13 +18,15 @@ import bayoubot.core.comms.BluetoothDeviceFinderListener;
 
 public class Test {
 	private static boolean complete = false;
+	private static String URL;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		BluetoothDeviceFinder bdf = new BluetoothDeviceFinder();
 		bdf.registerListener(new BluetoothDeviceFinderListener() {
 			@Override
 			public void discoveryComplete(BluetoothDeviceFinderCallback bdfc) {
 				printResults(bdfc);
+				getURL(bdfc);
 				complete = true;
 			}
 		});
@@ -32,7 +40,28 @@ public class Test {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Program Completed!");
+		System.out.println("Lookup Completed!");
+		System.out.println("Connecting to: " + URL);
+		StreamConnection sc = (StreamConnection)Connector.open(URL);
+		BufferedReader btIn = new BufferedReader(new InputStreamReader(sc.openInputStream()));
+		PrintWriter btOut = new PrintWriter(new OutputStreamWriter(sc.openOutputStream()));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Connected...");
+		while (true) {
+			System.out.print("> ");
+			String in = br.readLine();
+			if (in.equalsIgnoreCase("EXIT")) break;
+			btOut.print(in + ";");
+			btOut.flush();
+			System.out.print("BayouBot: ");
+			int c = -1;
+			while (c != ';') {
+				if (c != -1) System.out.print((char)c);
+				c = btIn.read();
+			}
+			System.out.println();
+		}
+		sc.close();
 	}
 	
 	public static void printResults(BluetoothDeviceFinderCallback bdfc) {
@@ -67,6 +96,17 @@ public class Test {
 		default:
 			System.out.println("Unknown Response Code.");
 			break;
+		}
+	}
+	
+	private static void getURL(BluetoothDeviceFinderCallback bdfc) {
+		for (RemoteDevice rd : bdfc.getServices().keySet()) {
+			try {
+				if (rd.getFriendlyName(false).equals("BayouBot")) {
+					URL = bdfc.getServices().get(rd).get(0).getConnectionURL(ServiceRecord.NOAUTHENTICATE_NOENCRYPT, false);
+					break;
+				}
+			} catch (IOException e) {e.printStackTrace();}
 		}
 	}
 }
