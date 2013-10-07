@@ -1,0 +1,52 @@
+\documentclass[letterpaper,titlepage]{article}
+\begin{document}
+	\title{BayoutBot Instruction Reference}
+	\author{Brandon Oubre}
+	\date{\today}
+	\maketitle
+	
+	\newcommand{\instrDesc}[2]{
+		\textbf{#1} \\
+		#2 \\
+	}
+
+	\section*{AVR Pin Numbering}
+	\begin{tabular}{l | c | l}
+	\textbf{AVR Pin} & \textbf{BayouBot Pin} & \textbf{Function} \\
+	D0 (2) & - & Reserved for Rx with Bluetooth \\
+	D1 (3) & - & Reserved for Tx with Bluetooth \\
+	D2 (4) & 0 & GPIO \\
+	D3 (5) & 1 & GPIO \\
+	D4 (6) & 2 & GPIO \\
+	B6 (9) & 3 & GPIO \\
+	B7 (10) & 4 & GPIO \\
+	D5 (11) & 5 & GPIO \\
+	D6 (12) & 6 & GPIO \\
+	D7 (13) & 7 & GPIO \\
+	B0 (14) & 8 & GPIO \\
+	B1 (15) & 9 & GPIO \\
+	B2 (16) & 10 & GPIO \\
+	B3 (17) & - & Unused \\
+	B4 (18) & - & Unused \\
+	B5 (19) & - & Unused \\
+	C0 (23) & 11 & GPIO \\
+	C1 (24) & 12 & GPIO \\
+	C2 (25) & 13 & GPIO \\
+	C3 (26) & 14 & GPIO \\
+	C4 (27) & 15 & GPIO \\
+	C5 (28) & 16 & GPIO \\
+	\end{tabular}
+	\clearpage
+
+	\section*{Instruction Table}
+	\begin{tabular}{l | c | l | c}
+	\textbf{Command} & \textbf{Byte} & \textbf{Arguments} & \textbf{Length} \\
+	Set INPUT & 0x01 & The pin to set as an input & 2 \\
+	Set OUTPUT & 0x02 & The pin to set as an output & 2\\
+	HIGH & 0x03 & The pin to set HIGH & 2 \\
+	LOW & 0x04 & The pin to set LOW & 2 \\
+	READ & 0x05 & The pin to read. & 2 \\
+	\end{tabular} \\
+	\instrDesc{Set INPUT}{The BayouBot will assign the argument pin as an input pin.  Consult the pin numbering table for a list of acceptable BayoutBot GPIO pins.}	
+	\clearpage
+\end{document}
