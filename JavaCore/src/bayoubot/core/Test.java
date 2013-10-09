@@ -1,10 +1,6 @@
 package bayoubot.core;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 
 import javax.bluetooth.DiscoveryListener;
 import javax.bluetooth.RemoteDevice;
@@ -17,8 +13,9 @@ import bayoubot.core.comms.BluetoothDeviceFinderCallback;
 import bayoubot.core.comms.BluetoothDeviceFinderListener;
 
 public class Test {
-	private static boolean complete = false;
 	private static String URL;
+	
+	private static Object lock = new Object();
 	
 	public static void main(String[] args) throws IOException {
 		BluetoothDeviceFinder bdf = new BluetoothDeviceFinder();
@@ -27,41 +24,36 @@ public class Test {
 			public void discoveryComplete(BluetoothDeviceFinderCallback bdfc) {
 				printResults(bdfc);
 				getURL(bdfc);
-				complete = true;
+				lock.notifyAll();
 			}
 		});
 		Thread finderThread = new Thread(bdf);
 		finderThread.start();
 		
-		while(!complete) {
+		try {
+			synchronized(lock) {
+				lock.wait();
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("Lookup Completed!");
+		System.out.println("Connecting to: " + URL);
+		BayouBot bb = new BayouBot((StreamConnection)Connector.open(URL));
+		System.out.println("Connected...");
+		bb.setPinMode(Pin.PIN_0, PinMode.OUTPUT);
+		while (true) {
 			try {
+				bb.setPinState(Pin.PIN_0, PinState.HIGH);
 				Thread.sleep(500);
-			} catch (InterruptedException e) { 
+				bb.setPinState(Pin.PIN_0, PinState.LOW);
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Lookup Completed!");
-		System.out.println("Connecting to: " + URL);
-		StreamConnection sc = (StreamConnection)Connector.open(URL);
-		BufferedReader btIn = new BufferedReader(new InputStreamReader(sc.openInputStream()));
-		PrintWriter btOut = new PrintWriter(new OutputStreamWriter(sc.openOutputStream()));
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Connected...");
-		while (true) {
-			System.out.print("> ");
-			String in = br.readLine();
-			if (in.equalsIgnoreCase("EXIT")) break;
-			btOut.print(in + ";");
-			btOut.flush();
-			System.out.print("BayouBot: ");
-			int c = -1;
-			while (c != ';') {
-				if (c != -1) System.out.print((char)c);
-				c = btIn.read();
-			}
-			System.out.println();
-		}
-		sc.close();
+		// bb.close();
 	}
 	
 	public static void printResults(BluetoothDeviceFinderCallback bdfc) {
