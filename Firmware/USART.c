@@ -76,6 +76,14 @@ char USART_readChar(void) {
   return rv;
 }
 
+char USART_peek(void) {
+  char rv;
+  ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+    rv = Util_peek(&rxBuf);
+  }
+  return rv;
+}
+
 /* ISR for empty tx data. 
  * Will send next byte in tx buffer.
  * Should turn itself off once there is no more data to transmit.

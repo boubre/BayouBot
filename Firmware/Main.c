@@ -7,27 +7,11 @@ char str[32];
 int main(void) { 
   init();
   
-  DDRD |= (1 << 2) | (1 << 3);
-  DDRD &= ~(1 << 4);
   while (1) {
     if (USART_available() > 0) {
-      USART_sendChar(USART_readChar());
+      Interpreter_execute();
     }
   }
-  /*
-  //led bits for D2 and D3
-  unsigned char led1 = 1 << 2;
-  unsigned char led2 = 1 << 3;
-  
-  // Set led pins as outputs
-  DDRD |= led1 | led2;
-  
-  PORTD ^= led1;
-  while (1) {
-      PORTD ^= (led1 | led2);
-      _delay_ms(500);
-  }
-  */
 
   return 1;
 }
@@ -36,4 +20,5 @@ int main(void) {
  */
 void init(void) {
   USART_init();
+  Interpreter_init();
 }

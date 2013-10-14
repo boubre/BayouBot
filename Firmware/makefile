@@ -2,12 +2,14 @@ PROJECT=BayouBot
 
 SOURCES=Main.c \
 	USART.c \
-	Util.c
+	Util.c \
+	Interpreter.c
 
 HEADERS=Main.h \
 	USART.h \
 	Util.h \
-	Global.h
+	Global.h \
+	Interpreter.h
 
 $(PROJECT).hex: $(PROJECT).out
 	avr-objcopy -j .text -j .data -O ihex $(PROJECT).out $(PROJECT).hex

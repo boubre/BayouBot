@@ -20,5 +20,6 @@ unsigned char Util_isFull(volatile CircularBuffer_Str32*);
 void Util_writeChar(volatile CircularBuffer_Str32*, char);
 char Util_readChar(volatile CircularBuffer_Str32*);
 unsigned char Util_writeStr(volatile CircularBuffer_Str32*, const char*, int, int);
+char Util_peek(volatile CircularBuffer_Str32*);
 
 #endif

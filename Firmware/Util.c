@@ -54,3 +54,10 @@ unsigned char Util_writeStr(volatile CircularBuffer_Str32* cb, const char* str, 
   }
   return count;
 }
+
+/* Read a character from the circuluar buffer, but do not increment the read position.
+ * Should call Util_isEmpty() before this to see if a valid value will be returned.
+ */
+char Util_peek(volatile CircularBuffer_Str32* cb) {
+  return cb->data[cb->readPos];
+}
