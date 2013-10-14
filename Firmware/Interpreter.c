@@ -22,6 +22,12 @@ void Interpreter_execute(void) {
   
   switch(instr[0]) {
     case 0x00:
+      DDRB |= 0xFF;
+      DDRC |= 0xFF;
+      DDRD |= 0xFF;
+      PORTB |= 0x00;
+      PORTC |= 0x00;
+      PORTD |= 0x00;
       break;
     case 0x01:
       DDRB |= instr[1];
@@ -60,6 +66,27 @@ void Interpreter_execute(void) {
       PORTD &= ~instr[1];
       break;
     case 0x0d:
+      switch (instr[1])
+      {
+	case 0x00:
+	  USART_sendChar((char)DDRB);
+	  break;
+	case 0x01:
+	  USART_sendChar((char)DDRC);
+	  break;
+	case 0x02:
+	  USART_sendChar((char)DDRD);
+	  break;
+	case 0x03:
+	  USART_sendChar((char)PINB);
+	  break;
+	case 0x04:
+	  USART_sendChar((char)PINC);
+	  break;
+	case 0x05:
+	  USART_sendChar((char)PIND);
+	  break;
+      }
       break;
   }
 }
