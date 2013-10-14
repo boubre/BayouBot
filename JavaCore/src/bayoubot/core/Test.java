@@ -13,9 +13,8 @@ import bayoubot.core.comms.BluetoothDeviceFinderCallback;
 import bayoubot.core.comms.BluetoothDeviceFinderListener;
 
 public class Test {
+	private static boolean complete = false;
 	private static String URL;
-	
-	private static Object lock = new Object();
 	
 	public static void main(String[] args) throws IOException {
 		BluetoothDeviceFinder bdf = new BluetoothDeviceFinder();
@@ -24,18 +23,18 @@ public class Test {
 			public void discoveryComplete(BluetoothDeviceFinderCallback bdfc) {
 				printResults(bdfc);
 				getURL(bdfc);
-				lock.notifyAll();
+				complete = true;
 			}
 		});
 		Thread finderThread = new Thread(bdf);
 		finderThread.start();
 		
-		try {
-			synchronized(lock) {
-				lock.wait();
+		while (!complete) {
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
-		} catch (InterruptedException e) {
-			e.printStackTrace();
 		}
 		
 		System.out.println("Lookup Completed!");

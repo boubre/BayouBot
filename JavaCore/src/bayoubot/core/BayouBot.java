@@ -20,7 +20,7 @@ public class BayouBot {
 	
 	public void setPinMode(Pin pin, PinMode mode) {
 		Instruction instr = null;
-		byte[] arg = { (byte)(0x00 << pin.getPortBit()) };
+		byte[] arg = { (byte)(1 << pin.getPortBit()) };
 		if (mode == PinMode.OUTPUT) {
 			switch (pin.getPort()) {
 			case B:
@@ -65,7 +65,7 @@ public class BayouBot {
 	
 	public void setPinState(Pin pin, PinState state) {
 		Instruction instr = null;
-		byte[] arg = { (byte)(0x00 << pin.getPortBit()) };
+		byte[] arg = { (byte)(1 << pin.getPortBit()) };
 		if (state == PinState.HIGH) {
 			switch (pin.getPort()) {
 			case B:
