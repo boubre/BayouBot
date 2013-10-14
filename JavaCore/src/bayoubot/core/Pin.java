@@ -1,5 +1,8 @@
 package bayoubot.core;
 
+/**
+ * A GPIO pin that is mapped to a port and bit on the AVR.
+ */
 public enum Pin {
 	//Make sure to keep this in increasing numerical order
 	PIN_0(Port.D, 2),
@@ -22,6 +25,9 @@ public enum Pin {
 	
 	public static final int NUM_PINS = Pin.values().length;
 	
+	/**
+	 * The port of the GPIO pin.
+	 */
 	public enum Port {
 		B, C, D;
 	}
@@ -34,14 +40,26 @@ public enum Pin {
 		this.portBit = portBit;
 	}
 	
+	/**
+	 * @return The port the pin is on.
+	 */
 	public Port getPort() {
 		return port;
 	}
 	
+	/**
+	 * @return The bit of the port the pin is.
+	 */
 	public int getPortBit() {
 		return portBit;
 	}
 	
+	/**
+	 * Find a pin given an integer. ie 13 returns PIN_13
+	 * @param pin An integer representation of a {@link Pin}.
+	 * @return A corresponding {@link Pin}.
+	 * @throws IllegalArgumentException The argument is < 0 or >= NUM_PINS
+	 */
 	public Pin getPin(int pin) throws IllegalArgumentException {
 		if (pin < 0 || pin >= NUM_PINS) {
 			throw new IllegalArgumentException("Pin " + pin + " is not valid.");

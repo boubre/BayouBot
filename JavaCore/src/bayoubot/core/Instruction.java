@@ -1,5 +1,8 @@
 package bayoubot.core;
 
+/**
+ * Represents an instruction that can be sent to the AVR firmware.
+ */
 public enum Instruction {
 	SET_DDRB((byte)0x01, 1),
 	SET_DDRC((byte)0x02, 1),
@@ -24,14 +27,26 @@ public enum Instruction {
 		this.nArgs = nArgs;
 	}
 	
+	/**
+	 * @return The byte representing the firmware command.
+	 */
 	public byte getCommand() {
 		return command;
 	}
 	
+	/**
+	 * @return The number of bytes the firmware expects as arguments.
+	 */
 	public int getNumArgs() {
 		return nArgs;
 	}
 	
+	/**
+	 * Make an instruction byte[] to send to the firmware given and instruction and its arguments.
+	 * @param instr The instruction.
+	 * @param args Arguments to the instruction.
+	 * @return A byte[] ready to be sent to the AVR.
+	 */
 	public static byte[] makeInstruction(Instruction instr, byte[] args) {
 		byte[] instrStr = new byte[instr.nArgs + 1];
 		instrStr[0] = instr.getCommand();

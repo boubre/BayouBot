@@ -41,12 +41,11 @@ public class Test {
 		System.out.println("Connecting to: " + URL);
 		BayouBot bb = new BayouBot((StreamConnection)Connector.open(URL));
 		System.out.println("Connected...");
-		bb.setPinMode(Pin.PIN_0, PinMode.OUTPUT);
+		bb.setPinMode(Pin.PIN_2, PinMode.INPUT);
 		while (true) {
 			try {
-				bb.setPinState(Pin.PIN_0, PinState.HIGH);
-				Thread.sleep(500);
-				bb.setPinState(Pin.PIN_0, PinState.LOW);
+				PinState state = bb.queryPinState(Pin.PIN_2);
+				System.out.println(state.name());
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();

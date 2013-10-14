@@ -15,6 +15,10 @@ import javax.bluetooth.RemoteDevice;
 import javax.bluetooth.ServiceRecord;
 import javax.bluetooth.UUID;
 
+/**
+ * A class that can find Bluetooth Devices without blocking and will notify
+ * recipients when the search is complete via a callback.
+ */
 public class BluetoothDeviceFinder implements Runnable, DiscoveryListener {
 	private static final UUID SERIAL_UUID = new UUID(0x1101);
 	private Object lock;
@@ -25,6 +29,9 @@ public class BluetoothDeviceFinder implements Runnable, DiscoveryListener {
 	
 	private List<BluetoothDeviceFinderListener> listeners;
 
+	/**
+	 * Create a new device finder.
+	 */
 	public BluetoothDeviceFinder() {
 		lock = new Object();
 		vDevices = new Vector<RemoteDevice>();
@@ -32,6 +39,10 @@ public class BluetoothDeviceFinder implements Runnable, DiscoveryListener {
 		listeners = new LinkedList<BluetoothDeviceFinderListener>();
 	}
 	
+	/**
+	 * Register a listener that will be notified when the finder has finished its search.
+	 * @param listener The listener to register.
+	 */
 	public void registerListener(BluetoothDeviceFinderListener listener) {
 		listeners.add(listener);
 	}
