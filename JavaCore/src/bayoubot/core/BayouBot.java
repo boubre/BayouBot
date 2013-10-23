@@ -214,6 +214,41 @@ public class BayouBot {
 	}
 	
 	/**
+	 * Tell the BayouBot to begin a left turn.
+	 */
+	public void turnLeft() {
+		//TODO Implement logic once H-Bridge arrives
+	}
+	
+	/**
+	 * Tell the BayouBot to begin a right turn.
+	 */
+	public void turnRight() {
+		//TODO Implement logic once H-Bridge arrives
+	}
+	
+	/**
+	 * Tell the BayouBot to move forward.
+	 */
+	public void moveForward() {
+		//TODO Implement logic once H-Bridge arrives
+	}
+	
+	/**
+	 * Tell the BayouBot to move backwards
+	 */
+	public void moveBackward() {
+		//TODO Implement logic once H-Bridge arrives
+	}
+	
+	/**
+	 * Stop the BayouBot's motors.
+	 */
+	public void stop() {
+		//TODO Implement logic once H-Bridge arrives
+	}
+	
+	/**
 	 * Properly close the given BayouBot connecion.
 	 */
 	public void close() {
