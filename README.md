@@ -1,4 +1,4 @@
 BayouBot
 ========
 
-Software for controlling an inexpensive education robot.
+Software for controlling an inexpensive educational robot.
