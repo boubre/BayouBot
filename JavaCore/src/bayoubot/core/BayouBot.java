@@ -25,6 +25,26 @@ public class BayouBot {
 		this.bbConnection = bbConnection;
 		this.bbRead = new BufferedReader(new InputStreamReader(bbConnection.openInputStream()));
 		this.bbWrite = bbConnection.openDataOutputStream();
+		init();
+	}
+	
+	/**
+	 * Initialize special pins, such as drive pins.
+	 */
+	protected void init() {
+		//Set drive pins (13-16) to outputs.
+		Instruction instr = Instruction.SET_DDRC;
+		byte pins = (byte)0;
+		for (int pin = 13; pin <= 16; pin++) {
+			pins |= (byte)Pin.getPin(pin).getPortBit();
+		}
+		try {
+			bbWrite.write(Instruction.makeInstruction(instr, new byte[] { pins }));
+			bbWrite.flush();
+		} catch (IOException e) {
+			System.err.println("Could not send command!!!");
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -213,39 +233,145 @@ public class BayouBot {
 		}
 	}
 	
+	/*
+	 * For drive functions, the following conventions apply:
+	 * PIN_13: Right Backwards
+	 * PIN_14: Right Forwards
+	 * PIN_15: Left Backwards
+	 * PIN_16: Left Forwards
+	 */
+	
 	/**
 	 * Tell the BayouBot to begin a left turn.
 	 */
 	public void turnLeft() {
-		//TODO Implement logic once H-Bridge arrives
+		//Clear all drive pins
+		Instruction clearInstr = Instruction.CLEAR_PORTC;
+		byte clearPins = (byte)0;
+		for (int pin = 13; pin <= 16; pin++) {
+			clearPins |= (byte)Pin.getPin(pin).getPortBit();
+		}
+
+		//Set forward drive ports
+		Instruction driveInstr = Instruction.SET_PORTC;
+		byte setPins = (byte)0;
+		setPins |= (byte)Pin.PIN_15.getPortBit();
+		setPins |= (byte)Pin.PIN_14.getPortBit();
+
+		//Send instructions
+		try {
+			bbWrite.write(Instruction.makeInstruction(clearInstr, new byte[] { clearPins }));
+			bbWrite.write(Instruction.makeInstruction(driveInstr, new byte[] { setPins }));
+			bbWrite.flush();
+		} catch (IOException e) {
+			System.err.println("Could not send command!!!");
+			e.printStackTrace();
+		}
 	}
 	
 	/**
 	 * Tell the BayouBot to begin a right turn.
 	 */
 	public void turnRight() {
-		//TODO Implement logic once H-Bridge arrives
+		//Clear all drive pins
+		Instruction clearInstr = Instruction.CLEAR_PORTC;
+		byte clearPins = (byte)0;
+		for (int pin = 13; pin <= 16; pin++) {
+			clearPins |= (byte)Pin.getPin(pin).getPortBit();
+		}
+
+		//Set forward drive ports
+		Instruction driveInstr = Instruction.SET_PORTC;
+		byte setPins = (byte)0;
+		setPins |= (byte)Pin.PIN_16.getPortBit();
+		setPins |= (byte)Pin.PIN_13.getPortBit();
+
+		//Send instructions
+		try {
+			bbWrite.write(Instruction.makeInstruction(clearInstr, new byte[] { clearPins }));
+			bbWrite.write(Instruction.makeInstruction(driveInstr, new byte[] { setPins }));
+			bbWrite.flush();
+		} catch (IOException e) {
+			System.err.println("Could not send command!!!");
+			e.printStackTrace();
+		}
 	}
 	
 	/**
 	 * Tell the BayouBot to move forward.
 	 */
 	public void moveForward() {
-		//TODO Implement logic once H-Bridge arrives
+		//Clear all drive pins
+		Instruction clearInstr = Instruction.CLEAR_PORTC;
+		byte clearPins = (byte)0;
+		for (int pin = 13; pin <= 16; pin++) {
+			clearPins |= (byte)Pin.getPin(pin).getPortBit();
+		}
+		
+		//Set forward drive ports
+		Instruction driveInstr = Instruction.SET_PORTC;
+		byte setPins = (byte)0;
+		setPins |= (byte)Pin.PIN_16.getPortBit();
+		setPins |= (byte)Pin.PIN_14.getPortBit();
+
+		//Send instructions
+		try {
+			bbWrite.write(Instruction.makeInstruction(clearInstr, new byte[] { clearPins }));
+			bbWrite.write(Instruction.makeInstruction(driveInstr, new byte[] { setPins }));
+			bbWrite.flush();
+		} catch (IOException e) {
+			System.err.println("Could not send command!!!");
+			e.printStackTrace();
+		}
 	}
 	
 	/**
 	 * Tell the BayouBot to move backwards
 	 */
 	public void moveBackward() {
-		//TODO Implement logic once H-Bridge arrives
+		//Clear all drive pins
+		Instruction clearInstr = Instruction.CLEAR_PORTC;
+		byte clearPins = (byte)0;
+		for (int pin = 13; pin <= 16; pin++) {
+			clearPins |= (byte)Pin.getPin(pin).getPortBit();
+		}
+
+		//Set forward drive ports
+		Instruction driveInstr = Instruction.SET_PORTC;
+		byte setPins = (byte)0;
+		setPins |= (byte)Pin.PIN_15.getPortBit();
+		setPins |= (byte)Pin.PIN_13.getPortBit();
+
+		//Send instructions
+		try {
+			bbWrite.write(Instruction.makeInstruction(clearInstr, new byte[] { clearPins }));
+			bbWrite.write(Instruction.makeInstruction(driveInstr, new byte[] { setPins }));
+			bbWrite.flush();
+		} catch (IOException e) {
+			System.err.println("Could not send command!!!");
+			e.printStackTrace();
+		}
 	}
 	
 	/**
 	 * Stop the BayouBot's motors.
 	 */
 	public void stop() {
-		//TODO Implement logic once H-Bridge arrives
+		//Clear all drive pins
+		Instruction clearInstr = Instruction.CLEAR_PORTC;
+		byte clearPins = (byte)0;
+		for (int pin = 13; pin <= 16; pin++) {
+			clearPins |= (byte)Pin.getPin(pin).getPortBit();
+		}
+		
+		//Send instructions
+		try {
+			bbWrite.write(Instruction.makeInstruction(clearInstr, new byte[] { clearPins }));
+			bbWrite.flush();
+		} catch (IOException e) {
+			System.err.println("Could not send command!!!");
+			e.printStackTrace();
+		}
 	}
 	
 	/**

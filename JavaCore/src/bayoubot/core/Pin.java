@@ -60,7 +60,7 @@ public enum Pin {
 	 * @return A corresponding {@link Pin}.
 	 * @throws IllegalArgumentException The argument is < 0 or >= NUM_PINS
 	 */
-	public Pin getPin(int pin) throws IllegalArgumentException {
+	public static Pin getPin(int pin) throws IllegalArgumentException {
 		if (pin < 0 || pin >= NUM_PINS) {
 			throw new IllegalArgumentException("Pin " + pin + " is not valid.");
 		}
