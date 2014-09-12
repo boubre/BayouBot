@@ -149,6 +149,8 @@
 <wire x1="0" y1="73.66" x2="83.82" y2="73.66" width="0.6096" layer="20"/>
 <wire x1="83.82" y1="73.66" x2="83.82" y2="0" width="0.6096" layer="20"/>
 <wire x1="83.82" y1="0" x2="0" y2="0" width="0.6096" layer="20"/>
+<text x="35.56" y="69.85" size="2.54" layer="25">BayouBot</text>
+<text x="38.1" y="66.04" size="2.1844" layer="25">Rev 0.1</text>
 </plain>
 <libraries>
 <library name="SparkFun-Capacitors">
