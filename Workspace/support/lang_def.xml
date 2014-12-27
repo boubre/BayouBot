@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE BlockLangDef SYSTEM "lang_def.dtd">
+
+<!-- 
+This document describes every BlockGenus, BlockDrawer, and BlockFamily in the BayouBot Workspace
+
+Note: For BlockGenus, if genus A relies on another genus B, that genus B must be 
+specified in the xml file before genus A is specified.  We impose this requirement so 
+that sanity checks can be made regarding the validity of a default argument when the
+BlockGenuses are first loaded. 
+-->
+
+<BlockLangDef>
+	<BlockConnectorShapes>
+		<BlockConnectorShape shape-type="number" shape-number="1"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="number-list" shape-number="2"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="number-inv" shape-number="3"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="boolean" shape-number="4"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="boolean-list" shape-number="5"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="boolean-inv" shape-number="6"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="string" shape-number="7"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="string-list" shape-number="8"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="string-inv" shape-number="9"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="poly" shape-number="10"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="poly-list" shape-number="11"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="poly-inv" shape-number="12"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="proc-param" shape-number="13"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="cmd" shape-number="14"></BlockConnectorShape>
+	</BlockConnectorShapes>
+	
+	<!--
+	BLOCK GENUSES
+	-->
+	<BlockGenuses>
+		<BlockGenus name="number" kind="data" initlabel="1" editable-label="yes" is-label-value="yes" color="255 0 255">
+			<description>
+				<text>
+					Reports the number shown.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="number" position-type="mirror"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="vm-cmd-name" value="eval-num"></LangSpecProperty>
+				<LangSpecProperty key="is-monitorable" value="yes"></LangSpecProperty>
+			</LangSpecProperties>
+		</BlockGenus>
+	</BlockGenuses>
+	
+	<!--
+	BLOCK FAMILIES
+	-->
+	<BlockFamilies>
+	</BlockFamilies>
+	
+	<!--
+	BLOCK DRAWERS
+	-->
+	<BlockDrawerSets>	
+		<BlockDrawerSet name="factory" type="stack" location="southwest" window-per-drawer="no" drawer-draggable="no" >
+			<BlockDrawer name="Constants" type="factory" button-color="102 129 255">
+				<BlockGenusMember>number</BlockGenusMember>
+			</BlockDrawer>
+		</BlockDrawerSet>
+	</BlockDrawerSets>
+	
+	<!--
+	PAGES
+	-->
+	<Pages drawer-with-page="yes">
+		<Page page-name="Setup" page-width="400"></Page>
+		<Page page-name="Runtime" page-width="1200"></Page>
+	</Pages>
+</BlockLangDef>

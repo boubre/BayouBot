@@ -44,6 +44,7 @@ public class WorkspaceController {
                 System.getProperty("user.dir"));*/
                 
     private static String LANG_DEF_FILEPATH;
+    private static final String VERSION = "0.1";
     
     private static Element langDefRoot;
     
@@ -337,7 +338,7 @@ public class WorkspaceController {
      * Loads the programming project specified in the projectContents String, 
      * which is associated with the language definition file contained in the 
      * specified langDefContents.  All the blocks contained in projectContents
-     * must have an associted block genus defined in langDefContents.
+     * must have an associated block genus defined in langDefContents.
      * 
      * If the langDefContents have any workspace settings such as pages or 
      * drawers and projectContents has workspace settings as well, the 
@@ -492,12 +493,12 @@ public class WorkspaceController {
         System.out.println("Creating GUI...");
         
         //Create and set up the window.
-        JFrame frame = new JFrame("WorkspaceDemo");
+        JFrame frame = new JFrame("BayouBot Workspace v" + VERSION);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        int inset = 50;
 //        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         
-        frame.setBounds(100, 100, 500, 500);
+        frame.setBounds(0, 0, 800, 600);
         
         //create search bar
         SearchBar searchBar = new SearchBar("Search blocks", "Search for blocks in the drawers and workspace", workspace);
@@ -530,7 +531,7 @@ public class WorkspaceController {
             public void run() { 
                 //TODO grab file path from args array
                 
-                LANG_DEF_FILEPATH = "/evo_lang_def.xml";
+                LANG_DEF_FILEPATH = "support/lang_def.xml";
                 
                 //Create a new WorkspaceController 
                 WorkspaceController wc = new WorkspaceController();
