@@ -19,12 +19,20 @@ public class Console {
 	private JPanel panel;
 	private StringBuilder content;
 	
+	/**
+	 * Used to retrieve a singleton instance of this class.
+	 * Will create a new instance on the first call.
+	 * @return The singleton instance of this class.
+	 */
 	public static Console getInstance() {
 		if (instance == null)
 			instance = new Console();
 		return instance;
 	}
 	
+	/**
+	 * Create a new console.
+	 */
 	private Console() {
 		content = new StringBuilder();
 		
@@ -43,21 +51,35 @@ public class Console {
 		panel.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 	}
 	
+	/**
+	 * @return The outer JPanel of the console. (Use to add the console to the workspace.)
+	 */
 	public JPanel getPanel() {
 		return panel;
 	}
 	
+	/**
+	 * Clear the console text.
+	 */
 	public void clear() {
 		content.setLength(0);
 		content.append("<html><head></head><body>");
 		textPane.setText(content.toString());
 	}
 	
+	/**
+	 * Append the given html string to the console.
+	 * @param s The html string to append.
+	 */
 	public void append(String s) {
 		content.append(s);
 		textPane.setText(content.toString());
 	}
 	
+	/**
+	 * Append the given html string to the console, followed by a new line (html br tag).
+	 * @param s The html string to append.
+	 */
 	public void appendLine(String s) {
 		content.append(s);
 		content.append("<br />");
