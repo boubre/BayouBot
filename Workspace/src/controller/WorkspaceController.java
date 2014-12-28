@@ -1,13 +1,22 @@
 package controller;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -47,6 +56,7 @@ public class WorkspaceController {
                 System.getProperty("user.dir"));*/
                 
     private static String LANG_DEF_FILEPATH;
+    private static final String IMAGE_FOLDER = "support/images/";
     private static final String VERSION = "0.1";
     
     private static Element langDefRoot;
@@ -66,6 +76,8 @@ public class WorkspaceController {
     
     //flag to indicate if a workspace has been loaded/initialized 
     private boolean workspaceLoaded = false;
+    
+    private Map<String, Image> loadedImages;
     
     /**
      * Constructs a WorkspaceController instance that manages the
@@ -492,14 +504,18 @@ public class WorkspaceController {
      * this method should be invoked from the
      * event-dispatching thread.
      */
-    private static void createAndShowGUI(WorkspaceController wc) {
+    private void createAndShowGUI() {
         System.out.println("Creating GUI...");
         
         //Create and set up the window.
         JFrame frame = new JFrame("BayouBot Workspace v" + VERSION);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        int inset = 50;
-//        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        frame.addWindowListener(new WindowAdapter() {
+        	@Override
+        	public void windowClosing(WindowEvent e) {
+        		exitRoutine(e.getComponent());
+        	}
+        });
         
         frame.setBounds(0, 0, 800, 600);
         frame.setLayout(new GridBagLayout());
@@ -507,7 +523,7 @@ public class WorkspaceController {
         
         //create search bar
         SearchBar searchBar = new SearchBar("Search blocks", "Search for blocks in the drawers and workspace", workspace);
-        for(SearchableContainer con : wc.getAllSearchableContainers()){
+        for(SearchableContainer con : getAllSearchableContainers()){
             searchBar.addSearchableContainer(con);
         }
         
@@ -518,10 +534,20 @@ public class WorkspaceController {
             }
         });*/
         
+        JButton executeBtn = new JButton(new ImageIcon(loadedImages.get("play")));
+        executeBtn.setPreferredSize(new Dimension(32, 32));
+        executeBtn.addActionListener(ae -> {startProgramExecution();});
+        
+        JButton stopExecBtn = new JButton(new ImageIcon(loadedImages.get("stop")));
+        stopExecBtn.setPreferredSize(new Dimension(32, 32));
+        stopExecBtn.addActionListener(ae -> {stopProgramExecution();});
+        
         JPanel topPane = new JPanel();
-        searchBar.getComponent().setPreferredSize(new Dimension(130, 23));
+        searchBar.getComponent().setPreferredSize(new Dimension(230, 23));
         topPane.add(searchBar.getComponent());
         //topPane.add(saveButton);
+        topPane.add(executeBtn);
+        topPane.add(stopExecBtn);
         
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -530,7 +556,7 @@ public class WorkspaceController {
         frame.add(topPane, gbc);
         
         gbc.gridy = 1;
-        frame.add(wc.getWorkspacePanel(), gbc);
+        frame.add(getWorkspacePanel(), gbc);
         
         gbc.gridy = 2;
         gbc.fill  = GridBagConstraints.HORIZONTAL;
@@ -552,9 +578,10 @@ public class WorkspaceController {
                 //Create a new WorkspaceController 
                 WorkspaceController wc = new WorkspaceController();
                 
+                wc.loadImages();
                 wc.setLangDefFilePath(LANG_DEF_FILEPATH);
                 wc.loadFreshWorkspace();
-                createAndShowGUI(wc);
+                wc.createAndShowGUI();
             }
         });
     }
@@ -570,8 +597,46 @@ public class WorkspaceController {
 				wc.setLangDefFilePath(langDefFilePath);
 
                 wc.loadFreshWorkspace();
-                createAndShowGUI(wc);
+                wc.createAndShowGUI();
             }
         });
+	}
+	
+	public void loadImages() {
+		assert loadedImages == null : "Images already loaded.";
+		loadedImages = new HashMap<>();
+		try {
+			Image img = ImageIO.read(new File(IMAGE_FOLDER + "Play.png"));
+			img = img.getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+			loadedImages.put("play", img);
+			
+			img = ImageIO.read(new File(IMAGE_FOLDER + "Stop.png"));
+			img = img.getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+			loadedImages.put("stop", img);
+		} catch (IOException ex) {
+			System.err.println("Failed to load image.");
+			ex.printStackTrace();
+			System.exit(1);
+		}
+	}
+	
+	private void startProgramExecution() {
+		Console.getInstance().clear();
+		Console.getInstance().appendLine("<b>Parsing Program...</b>");
+		//TODO: Parse
+		Console.getInstance().appendLine("<b>Beginning Execution...</b>");
+		//TODO: Run Interpreter
+	}
+	
+	private void stopProgramExecution() {
+		//TODO: Halt program execution thread
+	}
+	
+	private void exitRoutine(Component c) {
+		Console.getInstance().appendLine("<b>Shutting down workspace and ending programs...</b>");
+		System.out.println("Shutting Down...");
+		stopProgramExecution();
+		c.setVisible(false);
+		System.exit(0);
 	}
 }

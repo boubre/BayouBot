@@ -7,6 +7,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
+import javax.swing.SwingUtilities;
 import javax.swing.border.BevelBorder;
 
 /**
@@ -60,8 +61,16 @@ public class Console {
 	
 	/**
 	 * Clear the console text.
+	 * (This method will correctly invoke later on the event dispatcher thread.)
 	 */
 	public void clear() {
+		SwingUtilities.invokeLater(() -> { invokeClear(); });
+	}
+	
+	/**
+	 * Implementation of clear(). Should only be called from the event dispatcher thread.
+	 */
+	private void invokeClear() {
 		content.setLength(0);
 		content.append("<html><head></head><body>");
 		textPane.setText(content.toString());
@@ -69,18 +78,36 @@ public class Console {
 	
 	/**
 	 * Append the given html string to the console.
+	 * (This method will correctly invoke later on the event dispatcher thread.)
 	 * @param s The html string to append.
 	 */
 	public void append(String s) {
+		SwingUtilities.invokeLater(() -> { invokeAppend(s); });
+	}
+	
+	/**
+	 * Implementation of append(s). Should only be called from the event dispatcher thread.
+	 * @param s The html string to append.
+	 */
+	private void invokeAppend(String s) {
 		content.append(s);
 		textPane.setText(content.toString());
 	}
 	
 	/**
 	 * Append the given html string to the console, followed by a new line (html br tag).
+	 * (This method will correctly invoke later on the event dispatcher thread.)
 	 * @param s The html string to append.
 	 */
 	public void appendLine(String s) {
+		SwingUtilities.invokeLater(() -> { invokeAppendLine(s); });
+	}
+	
+	/**
+	 * Implementation of appendLine(s). Should only be called from the event dispatcher thread.
+	 * @param s The html string to append.
+	 */
+	private void invokeAppendLine(String s) {
 		content.append(s);
 		content.append("<br />");
 		textPane.setText(content.toString());
