@@ -2,6 +2,8 @@ package controller;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
@@ -18,6 +20,7 @@ import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import workspace.Console;
 import workspace.SearchBar;
 import workspace.SearchableContainer;
 import workspace.Workspace;
@@ -499,6 +502,8 @@ public class WorkspaceController {
 //        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         
         frame.setBounds(0, 0, 800, 600);
+        frame.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
         
         //create search bar
         SearchBar searchBar = new SearchBar("Search blocks", "Search for blocks in the drawers and workspace", workspace);
@@ -517,11 +522,22 @@ public class WorkspaceController {
         searchBar.getComponent().setPreferredSize(new Dimension(130, 23));
         topPane.add(searchBar.getComponent());
         //topPane.add(saveButton);
-        frame.add(topPane, BorderLayout.PAGE_START);
-        frame.add(wc.getWorkspacePanel(), BorderLayout.CENTER);
         
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridheight = 1;
+        gbc.gridwidth = 1;
+        frame.add(topPane, gbc);
+        
+        gbc.gridy = 1;
+        frame.add(wc.getWorkspacePanel(), gbc);
+        
+        gbc.gridy = 2;
+        gbc.fill  = GridBagConstraints.HORIZONTAL;
+        frame.add(Console.getInstance().getPanel(), gbc);
+        
+        frame.pack();
         frame.setVisible(true);
-        
     }
     
     public static void main(String[] args) {
