@@ -1,5 +1,7 @@
 package controller;
 
+import interpreter.Execution;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -78,6 +80,8 @@ public class WorkspaceController {
     private boolean workspaceLoaded = false;
     
     private Map<String, Image> loadedImages;
+    
+    private Execution execution = new Execution();
     
     /**
      * Constructs a WorkspaceController instance that manages the
@@ -602,6 +606,9 @@ public class WorkspaceController {
         });
 	}
 	
+	/**
+	 * Load images for the workspace controller.
+	 */
 	public void loadImages() {
 		assert loadedImages == null : "Images already loaded.";
 		loadedImages = new HashMap<>();
@@ -620,16 +627,18 @@ public class WorkspaceController {
 		}
 	}
 	
-	private void startProgramExecution() {
-		Console.getInstance().clear();
-		Console.getInstance().appendLine("<b>Parsing Program...</b>");
-		//TODO: Parse
-		Console.getInstance().appendLine("<b>Beginning Execution...</b>");
-		//TODO: Run Interpreter
+	/**
+	 * Start a program execution on a new thread.
+	 */
+	private void startProgramExecution() {	
+		execution.execute();
 	}
 	
+	/**
+	 * Stop an existing program execution.
+	 */
 	private void stopProgramExecution() {
-		//TODO: Halt program execution thread
+		execution.stop();
 	}
 	
 	private void exitRoutine(Component c) {

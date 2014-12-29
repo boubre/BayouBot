@@ -15,19 +15,16 @@ import javax.swing.border.BevelBorder;
  * @author Brandon Oubre
  */
 public class Console {
-	private static Console instance = null;
+	private static Console instance = new Console();
 	private JTextPane textPane;
 	private JPanel panel;
 	private StringBuilder content;
 	
 	/**
 	 * Used to retrieve a singleton instance of this class.
-	 * Will create a new instance on the first call.
 	 * @return The singleton instance of this class.
 	 */
 	public static Console getInstance() {
-		if (instance == null)
-			instance = new Console();
 		return instance;
 	}
 	
@@ -72,7 +69,7 @@ public class Console {
 	 */
 	private void invokeClear() {
 		content.setLength(0);
-		content.append("<html><head></head><body>");
+		content.append("<html><head><style type=\"text/css\"> .error { color: red; } </style></head><body>");
 		textPane.setText(content.toString());
 	}
 	
