@@ -69,7 +69,7 @@ public class Console {
 	 */
 	private void invokeClear() {
 		content.setLength(0);
-		content.append("<html><head><style type=\"text/css\"> .error { color: red; } </style></head><body>");
+		content.append("<html><head><style type=\"text/css\"> .error { color: red; } .warning { color: orange; } </style></head><body>");
 		textPane.setText(content.toString());
 	}
 	
