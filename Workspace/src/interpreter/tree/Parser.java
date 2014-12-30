@@ -3,6 +3,7 @@ package interpreter.tree;
 import renderable.RenderableBlock;
 import workspace.Console;
 import codeblocks.Block;
+import codeblocks.BlockConnector;
 
 /**
  * This class is responsible for parsing a program given by the workspace.
@@ -50,11 +51,51 @@ public class Parser {
 				Console.getInstance().appendLine("<span class=\"warning\">Parse Warning: Orphaned top-level blocks will not be executed.</span>");
 			}
 		}
+		
 		if (setup == null) {
 			Console.getInstance().appendLine("<span class=\"warning\">Parse Warning: No setup block. Assuming no setup routine.</span>");
+		} else {
+			parse(setup);
+		}	
+		
+		return new Program(setup);
+	}
+	
+	/**
+	 * Parse the setup procedure.
+	 * @param setup The setup procedure.
+	 */
+	private void parse(Setup setup) {
+		BlockConnector connector = setup.block.getSocketAt(0);
+		while (connector.hasBlock()) {
+			Block block = Block.getBlock(connector.getBlockID());
+			setup.addCommand(parseCommand(block));
+			connector = block.getAfterConnector();
 		}
-		
-		
-		return null;
+	}
+	
+	/**
+	 * Parse a command block.
+	 * @param b The block to parse.
+	 * @return The resulting parse tree node.
+	 */
+	private Command parseCommand(Block b) {
+		switch (b.getGenusName()) {
+		case "print":
+			return parsePrint(b);
+		default:
+			assert false : "Unrecognized block genus. (Should not occur.)";
+			return null; //Code should not be reached.
+		}
+	}
+	
+	/**
+	 * Parse a print block.
+	 * @param b The block to parse.
+	 * @return The resulting parse tree node.
+	 */
+	private Print parsePrint(Block b) {
+		assert b.getGenusName().equals("print") : "Method incorrectly called.";
+		return new Print(b);
 	}
 }

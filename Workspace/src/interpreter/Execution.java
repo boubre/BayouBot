@@ -41,11 +41,7 @@ public class Execution implements Runnable {
 		Console.getInstance().appendLine("<b>Beginning Execution...</b>");
 		//TODO: Run Interpreter
 		
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e)  {
-			e.printStackTrace();
-		}
+		System.out.println(program.parseDump());
 		
 		Console.getInstance().appendLine("<b>Execution Complete.</b>");
 	}
