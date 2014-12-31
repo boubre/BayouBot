@@ -98,7 +98,7 @@ BlockGenuses are first loaded.
 			</BlockConnectors>
 		</BlockGenus>
 		
-		<BlockGenus name="int-to-string" kind="function" initlabel="to text" color="45 201 255">
+		<BlockGenus name="num-to-string" kind="function" initlabel="to text" color="45 201 255">
 			<description>
 				<text>
 					Returns a text representation of the given block connected to this.
@@ -167,7 +167,7 @@ BlockGenuses are first loaded.
 			</BlockDrawer>
 			<BlockDrawer name="Strings" type="factory" button-color="255 0 255">
 				<BlockGenusMember>string</BlockGenusMember>
-				<BlockGenusMember>int-to-string</BlockGenusMember>
+				<BlockGenusMember>num-to-string</BlockGenusMember>
 				<BlockGenusMember>bool-to-string</BlockGenusMember>
 				<BlockGenusMember>string-append</BlockGenusMember>
 			</BlockDrawer>
