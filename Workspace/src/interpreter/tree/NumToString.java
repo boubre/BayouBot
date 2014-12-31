@@ -21,11 +21,7 @@ public class NumToString extends Function implements StringResult {
 
 	@Override
 	public String getResult() {
-		if (arg.isInteger()) {
-			return String.valueOf(arg.getIntegerResult());
-		} else {
-			return String.valueOf(arg.getDoubleResult());
-		}
+		return String.valueOf(arg.getResult());
 	}
 
 	@Override

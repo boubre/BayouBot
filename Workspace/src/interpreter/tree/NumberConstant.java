@@ -3,29 +3,29 @@ package interpreter.tree;
 import codeblocks.Block;
 
 /**
- * A numeric constant. (Double or Integer) (number genus)
+ * A numeric constant. (number genus)
  * @author Brandon Oubre
  */
-public abstract class NumberConstant extends Constant implements NumberResult {
+public class NumberConstant extends Constant implements NumberResult {
+	private double value;
+	
 	/**
 	 * Create a new numeric constant.
 	 * @param block The associated block.
 	 */
 	protected NumberConstant(Block block) {
 		super(block);
+		value = Double.parseDouble(block.getBlockLabel());
 	}
-	
-	/**
-	 * Creates an appropriate number constant for the block.
-	 * @param b The block to parse.
-	 * @return An {@link IntegerConstant} or a {@link DoubleConstant}, depending on the value of the block label.
-	 */
-	public static NumberConstant createNumberConstant(Block b) {
-		double value = Double.parseDouble(b.getBlockLabel());
-		if ((value == Math.floor(value)) && !Double.isInfinite(value)) {
-			return new IntegerConstant(b, (int)value);
-		} else {
-			return new DoubleConstant(b, value);
-		}
+
+	@Override
+	public double getResult() {
+		return value;
+	}
+
+	@Override
+	public void parseDump(StringBuilder sb, int indent) {
+		indent(sb, indent);
+		sb.append(toString() + " => " + getResult() + "\n");
 	}
 }

@@ -15,22 +15,7 @@ public class Parser {
 	 */
 	private static final StringResult DEFAULT_STRING_RESULT = () -> "";
 	private static final BooleanResult DEFAULT_BOOLEAN_RESULT = () -> false;
-	private static final NumberResult DEFAULT_NUMBER_RESULT = new NumberResult() {
-		@Override
-		public boolean isInteger() {
-			return true;
-		}
-
-		@Override
-		public int getIntegerResult() {
-			return 0;
-		}
-
-		@Override
-		public double getDoubleResult() {
-			return 0;
-		};	
-	};
+	private static final NumberResult DEFAULT_NUMBER_RESULT = () -> 0;
 	
 	/*
 	 * The top-level blocks for each page.
@@ -142,7 +127,7 @@ public class Parser {
 	private NumberResult parseNumberResult(Block b) {
 		switch (b.getGenusName()) {
 		case "number":
-			return NumberConstant.createNumberConstant(b);
+			return new NumberConstant(b);
 		default:
 			assert false : "Unrecognized block genus. (Should not occur.)";
 			return null; //Code should not be reached.
