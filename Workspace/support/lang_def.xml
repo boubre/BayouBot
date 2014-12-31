@@ -41,6 +41,9 @@ BlockGenuses are first loaded.
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="number" position-type="mirror"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Number"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="string" kind="data" initlabel="abc" editable-label="yes" is-label-value="yes" color="255 0 255">
@@ -52,6 +55,9 @@ BlockGenuses are first loaded.
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="string" position-type="mirror"></BlockConnector>		
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="String"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="true" kind="data" initlabel="true" color="255 0 255">
@@ -63,6 +69,9 @@ BlockGenuses are first loaded.
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="boolean" position-type="mirror"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="True"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="false" kind="data" initlabel="false" color="255 0 255">
@@ -74,6 +83,9 @@ BlockGenuses are first loaded.
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="boolean" position-type="mirror"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="False"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="setup" kind="command" initlabel="Setup" editable-label="no" label-unique="yes" is-starter="yes" is-terminator="yes" color="139 0 0">
@@ -85,6 +97,9 @@ BlockGenuses are first loaded.
 			<BlockConnectors>
 				<BlockConnector label="" connector-kind="socket" connector-type="cmd"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Setup Procedure"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="print" kind="command" initlabel="print" color="45 201 255">
@@ -96,6 +111,9 @@ BlockGenuses are first loaded.
 			<BlockConnectors>
 				<BlockConnector connector-kind="socket" connector-type="string"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Print"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="num-to-string" kind="function" initlabel="to text" color="45 201 255">
@@ -108,6 +126,9 @@ BlockGenuses are first loaded.
 				<BlockConnector label="" connector-kind="plug" connector-type="string"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="number"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Number-To-String"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="bool-to-string" kind="function" initlabel="to text" color="45 201 255">
@@ -120,6 +141,9 @@ BlockGenuses are first loaded.
 				<BlockConnector label="" connector-kind="plug" connector-type="string"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="boolean"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Boolean-To-String"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="string-append" kind="function" initlabel="+" color="45 201 255">
@@ -134,6 +158,9 @@ BlockGenuses are first loaded.
 				<BlockConnector label="" connector-kind="socket" connector-type="string" position-type="bottom"></BlockConnector>
 				<BlockConnector label="" connector-kind="socket" connector-type="string" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="String Concatenation"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>	
 	
 		<!-- MATH -->
@@ -147,6 +174,9 @@ BlockGenuses are first loaded.
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="number" position-type="mirror"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="pi Constant"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="e" kind="function" initlabel="e" color="255 0 255">
@@ -158,6 +188,9 @@ BlockGenuses are first loaded.
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="number" position-type="mirror"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="e Constant"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="sum" kind="function" initlabel="+" color="15 20 220">
@@ -171,6 +204,9 @@ BlockGenuses are first loaded.
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Sum"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="difference" kind="function" initlabel="-" color="15 20 220">
@@ -184,6 +220,9 @@ BlockGenuses are first loaded.
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Difference"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="product" kind="function" initlabel="x" color="15 20 220">
@@ -197,6 +236,9 @@ BlockGenuses are first loaded.
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Produce"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="quotient" kind="function" initlabel="/" color="15 20 220">
@@ -210,6 +252,9 @@ BlockGenuses are first loaded.
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Quotient"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="num-equals" kind="function" initlabel="=" color="15 20 220">
@@ -223,6 +268,9 @@ BlockGenuses are first loaded.
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Equals (Numeric)"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="num-not-equals" kind="function" initlabel="&lt;&gt;" color="15 20 220">
@@ -236,6 +284,9 @@ BlockGenuses are first loaded.
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Not Equals (Numeric)"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="lessthan" kind="function" initlabel="&lt;" color="15 20 220">
@@ -249,6 +300,9 @@ BlockGenuses are first loaded.
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Less Than"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="lessthanorequalto" kind="function" initlabel="&lt;=" color="15 20 220">
@@ -262,6 +316,9 @@ BlockGenuses are first loaded.
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Less Than or Equal To"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="greaterthan" kind="function" initlabel="&gt;" color="15 20 220">
@@ -275,6 +332,9 @@ BlockGenuses are first loaded.
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 				<BlockConnector label="" connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Greater Than"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="greaterthanorequalto" kind="function" initlabel="&gt;=" color="15 20 220">
@@ -288,6 +348,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Greater Than or Equal To"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="atan" kind="function" initlabel="atan" color="15 20 220">
@@ -296,6 +359,9 @@ BlockGenuses are first loaded.
 				<BlockConnector label="x" connector-kind="socket" connector-type="number"></BlockConnector>
 				<BlockConnector label="y" connector-kind="socket" connector-type="number"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="ArcTangent"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="random" kind="function" initlabel="random" color="15 20 220">
@@ -310,6 +376,9 @@ BlockGenuses are first loaded.
 					<DefaultArg genus-name="number" label="10" />
 				</BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Random"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="round" kind="function" initlabel="round" color="15 20 220">
@@ -322,6 +391,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="plug" connector-type="number"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="number"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Round"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="int" kind="function" initlabel="int" color="15 20 220">
@@ -334,6 +406,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="plug" connector-type="number"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="number"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="To Integer"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="remainder" kind="function" initlabel="remainder" color="15 20 220">
@@ -347,6 +422,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Remainder"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="min" kind="function" initlabel="min" color="15 20 220">
@@ -360,6 +438,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Minimum"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="max" kind="function" initlabel="max" color="15 20 220">
@@ -373,6 +454,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Maximum"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="power" kind="function" initlabel="^" color="15 20 220">
@@ -386,6 +470,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="number" position-type="bottom"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Power"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="abs" kind="function" initlabel="abs" color="15 20 220">
@@ -398,6 +485,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="plug" connector-type="number"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="number"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Absolute Value"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="sqrt" kind="function" initlabel="sqrt" color="15 20 220">
@@ -410,6 +500,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="plug" connector-type="number"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="number"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Square Root"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="sin" kind="function" initlabel="sin" color="15 20 220">
@@ -422,6 +515,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="plug" connector-type="number"></BlockConnector>
 				<BlockConnector label="degs" connector-kind="socket" connector-type="number"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Sine"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="cos" kind="function" initlabel="cos" color="15 20 220">
@@ -434,6 +530,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="plug" connector-type="number"></BlockConnector>
 				<BlockConnector label="degs" connector-kind="socket" connector-type="number"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Cosine"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="tan" kind="function" initlabel="tan" color="15 20 220">
@@ -446,6 +545,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="plug" connector-type="number"></BlockConnector>
 				<BlockConnector label="degs" connector-kind="socket" connector-type="number"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Tangent"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="asin" kind="function" initlabel="asin" color="15 20 220">
@@ -458,6 +560,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="plug" connector-type="number"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="number"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="ArcSine"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="acos" kind="function" initlabel="acos" color="15 20 220">
@@ -470,6 +575,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="plug" connector-type="number"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="number"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="ArcCosine"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="log" kind="function" initlabel="log" color="15 20 220">
@@ -482,6 +590,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="plug" connector-type="number"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="number"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Logarithm"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 		
 		<BlockGenus name="ln" kind="function" initlabel="ln" color="15 20 220">
@@ -494,6 +605,9 @@ BlockGenuses are first loaded.
 				<BlockConnector connector-kind="plug" connector-type="number"></BlockConnector>
 				<BlockConnector connector-kind="socket" connector-type="number"></BlockConnector>
 			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Natural Logarithm"></LangSpecProperty>
+			</LangSpecProperties>	
 		</BlockGenus>
 	</BlockGenuses>
 	
