@@ -2,12 +2,20 @@ package interpreter.tree;
 
 import codeblocks.Block;
 
+/**
+ * An element of the parse tree that has an associated block.
+ * @author Brandon Oubre
+ */
 public abstract class BlockNode {
-	public static final int DUMP_INDENT = 3;
+	public static final int DUMP_INDENT = 2;
 	
 	public Block block = null;
 	
-	public BlockNode(Block block) {
+	/**
+	 * Create a new BlockNode.
+	 * @param block The block this node represents.
+	 */
+	protected BlockNode(Block block) {
 		this.block = block;
 	}
 	

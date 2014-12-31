@@ -10,7 +10,31 @@ import codeblocks.BlockConnector;
  * @author Brandon Oubre
  */
 public class Parser {
-	//private Program tree;
+	/*
+	 * Default results for missing arguments.
+	 */
+	private static final StringResult DEFAULT_STRING_RESULT = () -> "";
+	private static final BooleanResult DEFAULT_BOOLEAN_RESULT = () -> false;
+	private static final NumberResult DEFAULT_NUMBER_RESULT = new NumberResult() {
+		@Override
+		public boolean isInteger() {
+			return true;
+		}
+
+		@Override
+		public int getIntegerResult() {
+			return 0;
+		}
+
+		@Override
+		public double getDoubleResult() {
+			return 0;
+		};	
+	};
+	
+	/*
+	 * The top-level blocks for each page.
+	 */
 	private Iterable<RenderableBlock> setupTopBlocks = null;
 	//private Iterable<RenderableBlock> runtimeTopBlocks = null;
 	
@@ -90,12 +114,133 @@ public class Parser {
 	}
 	
 	/**
+	 * Parse a StringResult block.
+	 * @param b The block to parse.
+	 * @return The resulting parse tree node.
+	 */
+	private StringResult parseStringResult(Block b) {
+		switch (b.getGenusName()) {
+		case "string":
+			return new StringConstant(b);
+		case "string-append":
+			return parseStringConcat(b);
+		case "num-to-string":
+			return parseNumToString(b);
+		case "bool-to-string":
+			return parseBoolToString(b);
+		default:
+			assert false : "Unrecognized block genus. (Should not occur.)";
+			return null; //Code should not be reached.
+		}
+	}
+	
+	/**
+	 * Parse a NumberResult block.
+	 * @param b The block to parse.
+	 * @return The resulting parse tree node.
+	 */
+	private NumberResult parseNumberResult(Block b) {
+		switch (b.getGenusName()) {
+		case "number":
+			return NumberConstant.createNumberConstant(b);
+		default:
+			assert false : "Unrecognized block genus. (Should not occur.)";
+			return null; //Code should not be reached.
+		}
+	}
+	
+	/**
+	 * Parse a NumberResult block.
+	 * @param b The block to parse.
+	 * @return The resulting parse tree node.
+	 */
+	private BooleanResult parseBooleanResult(Block b) { 
+		switch (b.getGenusName()) {
+		case "true": //Combined case intentional.
+		case "false":
+			return new BooleanConstant(b);
+		default:
+			assert false : "Unrecognized block genus. (Should not occur.)";
+			return null; //Code should not be reached.
+		}
+	}
+	
+	/**
 	 * Parse a print block.
 	 * @param b The block to parse.
 	 * @return The resulting parse tree node.
 	 */
 	private Print parsePrint(Block b) {
 		assert b.getGenusName().equals("print") : "Method incorrectly called.";
-		return new Print(b);
+		BlockConnector socket = b.getSocketAt(0);
+		if (socket.hasBlock()) {
+			return new Print(b, parseStringResult(Block.getBlock(socket.getBlockID())));
+		} else {
+			Console.getInstance().appendLine("<span class=\"warning\">Parse Warning: Print block missing argument. Assuming empty string.</span>");
+			return new Print(b, DEFAULT_STRING_RESULT);
+		}
+	}
+	
+	/**
+	 * Parse a string concatenation block.
+	 * @param b The block to parse.
+	 * @return The resulting parse tree node.
+	 */
+	private StringConcat parseStringConcat(Block b) {
+		assert b.getGenusName().equals("string-append") : "Method incorrectly called.";
+		BlockConnector socket1 = b.getSocketAt(0);
+		BlockConnector socket2 = b.getSocketAt(1);
+		
+		StringResult arg1, arg2;
+		
+		if (socket1.hasBlock()) {
+			arg1 = parseStringResult(Block.getBlock(socket1.getBlockID()));
+		} else {
+			Console.getInstance().appendLine("<span class=\"warning\">Parse Warning: String append block missing argument. Assuming empty string.</span>");
+			arg1 = DEFAULT_STRING_RESULT;
+		}
+		
+		if (socket2.hasBlock()) {
+			arg2 = parseStringResult(Block.getBlock(socket2.getBlockID()));
+		} else {
+			Console.getInstance().appendLine("<span class=\"warning\">Parse Warning: String append block missing argument. Assuming empty string.</span>");
+			arg2 = DEFAULT_STRING_RESULT;
+		}
+		
+		return new StringConcat(b, arg1, arg2);
+	}
+	
+	/**
+	 * Parse a number to string block.
+	 * @param b The block to parse.
+	 * @return The resulting parse tree node.
+	 */
+	private NumToString parseNumToString(Block b) {
+		assert b.getGenusName().equals("num-to-string") : "Method incorrectly called.";
+		BlockConnector socket = b.getSocketAt(0);
+		
+		if (socket.hasBlock()) {
+			return new NumToString(b, parseNumberResult(Block.getBlock(socket.getBlockID())));
+		} else {
+			Console.getInstance().appendLine("<span class=\"warning\">Parse Warning: Number-To-String block missing argument. Assuming 0 as value.</span>");
+			return new NumToString(b, DEFAULT_NUMBER_RESULT);
+		}
+	}
+	
+	/**
+	 * Parse a boolean to string block.
+	 * @param b The block to parse.
+	 * @return The resulting parse tree node.
+	 */
+	private BoolToString parseBoolToString(Block b) {
+		assert b.getGenusName().equals("bool-to-string") : "Method incorrectly called.";
+		BlockConnector socket = b.getSocketAt(0);
+		
+		if (socket.hasBlock()) {
+			return new BoolToString(b, parseBooleanResult(Block.getBlock(socket.getBlockID())));
+		} else {
+			Console.getInstance().appendLine("<span class=\"warning\">Parse Warning: Boolean-To-String block missing argument. Assuming false as value.</span>");
+			return new BoolToString(b, DEFAULT_BOOLEAN_RESULT);
+		}
 	}
 }
