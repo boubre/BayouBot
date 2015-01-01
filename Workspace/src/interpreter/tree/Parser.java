@@ -148,7 +148,7 @@ public class Parser {
 			return new Print(b, parseStringArgument(b, 0));
 		default:
 			assert false : "Unrecognized block genus. (Should not occur.)";
-			return null; //Code should not be reached.
+		return null; //Code should not be reached.
 		}
 	}
 	
@@ -169,7 +169,7 @@ public class Parser {
 			return new BoolToString(b, parseBooleanArgument(b, 0));
 		default:
 			assert false : "Unrecognized block genus. (Should not occur.)";
-			return null; //Code should not be reached.
+		return null; //Code should not be reached.
 		}
 	}
 	
@@ -196,9 +196,41 @@ public class Parser {
 			return new Quotient(b, parseNumericArgument(b, 0), parseNumericArgument(b, 1));
 		case "power":
 			return new Power(b, parseNumericArgument(b, 0), parseNumericArgument(b, 1));
+		case "min":
+			return new Min(b, parseNumericArgument(b, 0), parseNumericArgument(b, 1));
+		case "max":
+			return new Max(b, parseNumericArgument(b, 0), parseNumericArgument(b, 1));
+		case "remainder":
+			return new Remainder(b, parseNumericArgument(b, 0), parseNumericArgument(b, 1));
+		case "random":
+			return new RandomInt(b, parseNumericArgument(b, 0));
+		case "round":
+			return new Round(b, parseNumericArgument(b, 0));
+		case "int":
+			return new Int(b, parseNumericArgument(b, 0));
+		case "abs":
+			return new AbsoluteValue(b, parseNumericArgument(b, 0));
+		case "sqrt":
+			return new SquareRoot(b, parseNumericArgument(b, 0));
+		case "sin":
+			return new Sine(b, parseNumericArgument(b, 0));
+		case "cos":
+			return new Cosine(b, parseNumericArgument(b, 0));
+		case "tan":
+			return new Tangent(b, parseNumericArgument(b, 0));
+		case "asin":
+			return new ArcSine(b, parseNumericArgument(b, 0));
+		case "acos":
+			return new ArcCosine(b, parseNumericArgument(b, 0));
+		case "atan":
+			return new ArcTangent(b, parseNumericArgument(b, 0), parseNumericArgument(b, 1));
+		case "log":
+			return new Logarithm(b, parseNumericArgument(b, 0));
+		case "ln":
+			return new NaturalLogarithm(b, parseNumericArgument(b, 0));
 		default:
 			assert false : "Unrecognized block genus. (Should not occur.)";
-			return null; //Code should not be reached.
+		return null; //Code should not be reached.
 		}
 	}
 	
@@ -212,9 +244,21 @@ public class Parser {
 		case "true": //Combined case intentional.
 		case "false":
 			return new BooleanConstant(b);
+		case "num-equals":
+			return new NumericEquals(b, parseNumericArgument(b, 0), parseNumericArgument(b, 1));
+		case "num-not-equals":
+			return new NumericNotEquals(b, parseNumericArgument(b, 0), parseNumericArgument(b, 1));
+		case "lessthan":
+			return new LessThan(b, parseNumericArgument(b, 0), parseNumericArgument(b, 1));
+		case "greaterthan":
+			return new GreaterThan(b, parseNumericArgument(b, 0), parseNumericArgument(b, 1));
+		case "lessthanorequalto":
+			return new LessThanOrEqual(b, parseNumericArgument(b, 0), parseNumericArgument(b, 1));
+		case "greaterthanorequalto":
+			return new GreaterThanOrEqual(b, parseNumericArgument(b, 0), parseNumericArgument(b, 1));
 		default:
 			assert false : "Unrecognized block genus. (Should not occur.)";
-			return null; //Code should not be reached.
+		return null; //Code should not be reached.
 		}
 	}
 	

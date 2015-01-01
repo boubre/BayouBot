@@ -354,6 +354,11 @@ BlockGenuses are first loaded.
 		</BlockGenus>
 		
 		<BlockGenus name="atan" kind="function" initlabel="atan" color="15 20 220">
+			<description>
+				<text>
+					Trigonometric function that reports the arctangent of y/x.  All angles are reported in degrees.
+				</text>
+			</description>
 			<BlockConnectors>
 				<BlockConnector connector-kind="plug" connector-type="number"></BlockConnector>
 				<BlockConnector label="x" connector-kind="socket" connector-type="number"></BlockConnector>
@@ -414,7 +419,7 @@ BlockGenuses are first loaded.
 		<BlockGenus name="remainder" kind="function" initlabel="remainder" color="15 20 220">
 			<description>
 				<text>
-					Reports the integer remainder of the first argument divided by second argument.
+					Reports the remainder of the first argument divided by second argument.
 				</text>
 			</description>
 			<BlockConnectors>
