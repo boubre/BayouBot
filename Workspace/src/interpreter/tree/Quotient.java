@@ -6,7 +6,7 @@ import codeblocks.Block;
  * The division function. (quotient genus)
  * @author Brandon Oubre
  */
-public class Quotient extends ArithmeticOperation {
+public class Quotient extends BinaryOperator<NumberResult, NumberResult> implements NumberResult {
 	/**
 	 * Create a new quotient function.
 	 * @param block The associated block.

@@ -6,7 +6,7 @@ import codeblocks.Block;
  * The exponentiation function. (power genus)
  * @author Brandon Oubre
  */
-public class Power extends ArithmeticOperation {
+public class Power extends BinaryOperator<NumberResult, NumberResult> implements NumberResult {
 	/**
 	 * Create a new power function.
 	 * @param block The associated block.

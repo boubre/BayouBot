@@ -6,7 +6,7 @@ import codeblocks.Block;
  * The multiplication function. (product genus)
  * @author Brandon Oubre
  */
-public class Product extends ArithmeticOperation {
+public class Product extends BinaryOperator<NumberResult, NumberResult> implements NumberResult {
 	/**
 	 * Create a new product function.
 	 * @param block The associated block.

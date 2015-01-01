@@ -6,7 +6,7 @@ import codeblocks.Block;
  * The difference function. (difference genus)
  * @author Brandon Oubre
  */
-public class Difference extends ArithmeticOperation {
+public class Difference extends BinaryOperator<NumberResult, NumberResult> implements NumberResult {
 	/**
 	 * Create a new difference function.
 	 * @param block The associated block.

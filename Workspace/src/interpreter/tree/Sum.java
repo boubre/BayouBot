@@ -6,7 +6,7 @@ import codeblocks.Block;
  * The sum function. (sum genus)
  * @author Brandon Oubre
  */
-public class Sum extends ArithmeticOperation {
+public class Sum extends BinaryOperator<NumberResult, NumberResult> implements NumberResult {
 	/**
 	 * Create a new sum function.
 	 * @param block The associated block.

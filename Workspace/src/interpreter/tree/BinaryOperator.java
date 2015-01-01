@@ -3,20 +3,22 @@ package interpreter.tree;
 import codeblocks.Block;
 
 /**
- * A superclass for basic arithmetic operations.
+ * A function that takes a two arguments.
+ * @param <T> The type of the first, or left, argument.
+ * @param <U> The type of the second, or right, argument.
  * @author Brandon Oubre
  */
-public abstract class ArithmeticOperation extends Function implements
-		NumberResult {
-	protected NumberResult arg1, arg2;
+public abstract class BinaryOperator<T, U> extends Function {
+	protected T arg1;
+	protected U arg2;
 	
 	/**
-	 * Create a new arithmetic operation.
+	 * Create a new binary operator.
 	 * @param block The associated block.
-	 * @param arg1 The first argument.
-	 * @param arg2 The second argument.
+	 * @param arg1 The first, or left, argument.
+	 * @param arg2 The second, or right, argument.
 	 */
-	protected ArithmeticOperation(Block block, NumberResult arg1, NumberResult arg2) {
+	protected BinaryOperator(Block block, T arg1, U arg2) {
 		super(block);
 		this.arg1 = arg1;
 		this.arg2 = arg2;
