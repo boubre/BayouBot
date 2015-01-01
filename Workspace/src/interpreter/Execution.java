@@ -1,5 +1,6 @@
 package interpreter;
 
+import interpreter.tree.ParseError;
 import interpreter.tree.Parser;
 import interpreter.tree.Program;
 import workspace.Console;
@@ -33,9 +34,17 @@ public class Execution implements Runnable {
 		//TODO: Parse
 		Parser parser = new Parser(workspace.getPageNamed("Setup").getTopLevelBlocks(), workspace.getPageNamed("Runtime").getTopLevelBlocks());
 		Program program = parser.parse();
-		if (program == null) {	
-			Console.getInstance().appendLine("<span class=\"error\"><b>Parse could not complete because of errors.</b></span>");
-			return;
+		if (program == null || !parser.getErrors().isEmpty()) {	
+			Console.getInstance().appendLine("<span class=\"error\"><b>Parse could not complete because of " + parser.getErrors().size() + " errors.</b></span>");
+			for (ParseError e : parser.getErrors()) {
+				Console.getInstance().appendLine("<span class=\"error\">Parse Error: " + e.getMessage() + "</span>");
+			}
+			return; //Do not proceed with execution
+		} else if (!parser.getWarnings().isEmpty()) {
+			Console.getInstance().appendLine("<span class=\"warning\"><b>Parse completed with " + parser.getWarnings().size() + " warnings.</b></span>");
+			for (ParseError e : parser.getWarnings()) {
+				Console.getInstance().appendLine("<span class=\"warning\">Parse Warning: " + e.getMessage() + "</span>");
+			}	
 		}
 		
 		Console.getInstance().appendLine("<b>Beginning Execution...</b>");
