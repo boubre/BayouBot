@@ -1,5 +1,7 @@
 package interpreter.tree;
 
+import java.util.List;
+
 import codeblocks.Block;
 
 /**
@@ -10,9 +12,10 @@ public class Setup extends Procedure {
 	/**
 	 * Create a new setup procedure.
 	 * @param block The associated block.
+	 * @param commands The commands associated with the setup procedure.
 	 */
-	public Setup(Block block) {
-		super(block);
+	public Setup(Block block, List<Command> commands) {
+		super(block, commands);
 	}
 
 	@Override

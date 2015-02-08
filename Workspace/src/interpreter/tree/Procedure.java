@@ -1,6 +1,5 @@
 package interpreter.tree;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import codeblocks.Block;
@@ -15,17 +14,10 @@ public abstract class Procedure extends BlockNode {
 	/**
 	 * Create a new procedure.
 	 * @param block The associated block.
+	 * @param commands The commands associated with this procedure.
 	 */
-	protected Procedure(Block block) {
+	protected Procedure(Block block, List<Command> commands) {
 		super(block);
-		commandList = new LinkedList<>();
-	}
-	
-	/**
-	 * Add a command to the procedure.
-	 * @param c The command to add.
-	 */
-	public void addCommand(Command c) {
-		commandList.add(c);
+		commandList = commands;
 	}
 }

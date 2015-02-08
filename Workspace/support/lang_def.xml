@@ -616,6 +616,117 @@ BlockGenuses are first loaded.
 		</BlockGenus>
 	</BlockGenuses>
 	
+	<!-- Logic -->
+	<BlockGenus name="if" kind="command" initlabel="if" color="255 80 0">
+			<description>
+				<text>
+					If the condition is true, the agent will run the blocks attached to it.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector label="test" connector-kind="socket" connector-type="boolean"></BlockConnector>
+				<BlockConnector label="then" connector-kind="socket" connector-type="cmd"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="If"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="ifelse" kind="command" initlabel="ifelse" color="255 80 0">
+			<description>
+				<text>
+					Does the first set of commands if the condition specified is true, otherwise it will do the second set of commands.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector label="test" connector-kind="socket" connector-type="boolean"></BlockConnector>
+				<BlockConnector label="then" connector-kind="socket" connector-type="cmd"></BlockConnector>
+				<BlockConnector label="else" connector-kind="socket" connector-type="cmd"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="If-Else"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="or" kind="function" initlabel="or" color="15 20 220">
+			<description>
+				<text>
+					Reports true if one or both of the two conditions are true.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="boolean" position-type="mirror"></BlockConnector>
+				<BlockConnector label="" connector-kind="socket" connector-type="boolean" position-type="bottom"></BlockConnector>
+				<BlockConnector label="" connector-kind="socket" connector-type="boolean" position-type="bottom"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Logical Or"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="and" kind="function" initlabel="and" color="15 20 220">
+			<description>
+				<text>
+					Reports true if both of the two conditions are true.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="boolean" position-type="mirror"></BlockConnector>
+				<BlockConnector label="" connector-kind="socket" connector-type="boolean" position-type="bottom"></BlockConnector>
+				<BlockConnector label="" connector-kind="socket" connector-type="boolean" position-type="bottom"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Logical And"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="not" kind="function" initlabel="not" color="15 20 220">
+			<description>
+				<text>
+					Reports the opposite of the argument.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="boolean"></BlockConnector>
+				<BlockConnector label="" connector-kind="socket" connector-type="boolean"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Logical Not"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="bool-equals" kind="function" initlabel="=" color="15 20 220">
+			<description>
+				<text>
+					Determines if two quantaties are equal.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector label="" connector-kind="plug" connector-type="boolean" position-type="mirror"></BlockConnector>
+				<BlockConnector label="" connector-kind="socket" connector-type="boolean" position-type="bottom"></BlockConnector>
+				<BlockConnector label="" connector-kind="socket" connector-type="boolean" position-type="bottom"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Equals (Boolean)"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="bool-not-equals" kind="function" initlabel="&lt;&gt;" color="15 20 220">
+			<description>
+				<text>
+					Determines if two quantities are different.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector label="" connector-kind="plug" connector-type="boolean" position-type="mirror"></BlockConnector>
+				<BlockConnector label="" connector-kind="socket" connector-type="boolean" position-type="bottom"></BlockConnector>
+				<BlockConnector label="" connector-kind="socket" connector-type="boolean" position-type="bottom"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Not Equals (Boolean)"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+	
 	<!--
 	BLOCK FAMILIES
 	-->
@@ -659,6 +770,14 @@ BlockGenuses are first loaded.
 			<FamilyMember>quotient</FamilyMember>
 			<FamilyMember>product</FamilyMember>
 			<FamilyMember>power</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>bool-equals</FamilyMember>
+			<FamilyMember>bool-not-equals</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>and</FamilyMember>
+			<FamilyMember>or</FamilyMember>
 		</BlockFamily>
 	</BlockFamilies>
 	
@@ -714,6 +833,17 @@ BlockGenuses are first loaded.
 				<BlockGenusMember>num-to-string</BlockGenusMember>
 				<BlockGenusMember>bool-to-string</BlockGenusMember>
 				<BlockGenusMember>string-append</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="Logic" type="factory" button-color="255 173 0">
+				<BlockGenusMember>if</BlockGenusMember>
+				<BlockGenusMember>ifelse</BlockGenusMember>
+				<BlockGenusMember>and</BlockGenusMember>
+				<BlockGenusMember>or</BlockGenusMember>
+				<BlockGenusMember>not</BlockGenusMember>
+				<BlockGenusMember>bool-equals</BlockGenusMember>
+				<BlockGenusMember>bool-not-equals</BlockGenusMember>
+				<BlockGenusMember>true</BlockGenusMember>
+				<BlockGenusMember>false</BlockGenusMember>
 			</BlockDrawer>
 		</BlockDrawerSet>
 	</BlockDrawerSets>
