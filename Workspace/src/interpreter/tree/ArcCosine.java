@@ -1,5 +1,6 @@
 package interpreter.tree;
 
+import interpreter.ProgramExecutionException;
 import codeblocks.Block;
 
 /**
@@ -17,7 +18,7 @@ public class ArcCosine extends UnaryOperator<NumberResult> implements NumberResu
 	}
 
 	@Override
-	public double getResult() {
+	public double getResult() throws ProgramExecutionException {
 		return Math.toDegrees(Math.acos(arg.getResult()));
 	}
 }

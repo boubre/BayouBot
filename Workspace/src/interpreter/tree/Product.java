@@ -1,5 +1,6 @@
 package interpreter.tree;
 
+import interpreter.ProgramExecutionException;
 import codeblocks.Block;
 
 /**
@@ -18,7 +19,7 @@ public class Product extends BinaryOperator<NumberResult, NumberResult> implemen
 	}
 
 	@Override
-	public double getResult() {
+	public double getResult() throws ProgramExecutionException {
 		return arg1.getResult() * arg2.getResult();
 	}
 }

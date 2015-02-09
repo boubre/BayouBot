@@ -8,7 +8,7 @@ import codeblocks.Block;
  * @param <U> The type of the second, or right, argument.
  * @author Brandon Oubre
  */
-public abstract class BinaryOperator<T, U> extends Function {
+public abstract class BinaryOperator<T extends Result, U extends Result> extends Function {
 	protected T arg1;
 	protected U arg2;
 	

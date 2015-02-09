@@ -1,5 +1,7 @@
 package interpreter.tree;
 
+import interpreter.ProgramExecutionException;
+
 import java.util.List;
 
 import codeblocks.Block;
@@ -30,7 +32,7 @@ public class If extends Command {
 	}
 	
 	@Override
-	public void execute() {
+	public void execute() throws ProgramExecutionException {
 		if (condition.getResult()) {
 			for (Command c : trueCase) {
 				c.execute();

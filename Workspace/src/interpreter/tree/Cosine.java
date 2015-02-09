@@ -1,5 +1,6 @@
 package interpreter.tree;
 
+import interpreter.ProgramExecutionException;
 import codeblocks.Block;
 
 /**
@@ -17,7 +18,7 @@ public class Cosine extends UnaryOperator<NumberResult> implements NumberResult 
 	}
 
 	@Override
-	public double getResult() {
+	public double getResult() throws ProgramExecutionException {
 		return Math.cos(Math.toRadians(arg.getResult()));
 	}
 }

@@ -1,5 +1,6 @@
 package interpreter.tree;
 
+import interpreter.ProgramExecutionException;
 import codeblocks.Block;
 
 /**
@@ -17,7 +18,7 @@ public class BoolToString extends UnaryOperator<BooleanResult> implements String
 	}
 
 	@Override
-	public String getResult() {
+	public String getResult() throws ProgramExecutionException {
 		return String.valueOf(arg.getResult());
 	}
 }

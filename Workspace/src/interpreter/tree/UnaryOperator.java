@@ -7,7 +7,7 @@ import codeblocks.Block;
  * @param <T> The type of the argument.
  * @author Brandon Oubre
  */
-public abstract class UnaryOperator<T> extends Function {
+public abstract class UnaryOperator<T extends Result> extends Function {
 	protected T arg;
 	
 	/**

@@ -1,5 +1,6 @@
 package interpreter.tree;
 
+import interpreter.ProgramExecutionException;
 import codeblocks.Block;
 
 /**
@@ -18,7 +19,7 @@ public class BooleanNotEquals extends BinaryOperator<BooleanResult, BooleanResul
 	}
 
 	@Override
-	public boolean getResult() {
+	public boolean getResult() throws ProgramExecutionException {
 		return arg1.getResult() != arg2.getResult();
 	}
 }

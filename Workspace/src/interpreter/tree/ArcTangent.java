@@ -1,5 +1,6 @@
 package interpreter.tree;
 
+import interpreter.ProgramExecutionException;
 import codeblocks.Block;
 
 /**
@@ -18,7 +19,7 @@ public class ArcTangent extends BinaryOperator<NumberResult, NumberResult> imple
 	}
 
 	@Override
-	public double getResult() {
+	public double getResult() throws ProgramExecutionException {
 		//Remember that atan2 is (y,x). ie arg2 is the first argument.
 		return Math.toDegrees(Math.atan2(arg2.getResult(), arg1.getResult()));
 	}

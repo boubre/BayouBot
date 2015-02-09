@@ -1,8 +1,10 @@
 package interpreter.tree;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import renderable.RenderableBlock;
 import codeblocks.Block;
@@ -32,6 +34,11 @@ public class Parser {
 	private Iterable<RenderableBlock> setupTopBlocks = null;
 	//private Iterable<RenderableBlock> runtimeTopBlocks = null;
 	
+	/*
+	 * Global variable look-up table.
+	 */
+	Map<String, Result> lookupTable;
+	
 	/**
 	 * Create a new parser.
 	 * @param setupTopBlocks The top-level blocks from the setup page.
@@ -43,6 +50,7 @@ public class Parser {
 		
 		errors = new LinkedList<>();
 		warnings = new LinkedList<>();
+		lookupTable = new HashMap<>();
 	}
 	
 	/**
@@ -149,6 +157,12 @@ public class Parser {
 			return new If(b, parseBooleanArgument(b, 0), parseCommandList(b, 1), null);
 		case "ifelse":
 			return new If(b, parseBooleanArgument(b, 0), parseCommandList(b, 1), parseCommandList(b, 2));
+		case "setvar-num":
+			return new SetVariable<NumberResult>(b, lookupTable, parseStringArgument(b, 0), parseNumericArgument(b, 1));
+		case "setvar-string":
+			return new SetVariable<StringResult>(b, lookupTable, parseStringArgument(b, 0), parseStringArgument(b, 1));
+		case "setvar-bool":
+			return new SetVariable<BooleanResult>(b, lookupTable, parseStringArgument(b, 0), parseBooleanArgument(b, 1));
 		default:
 			assert false : "Unrecognized block genus. (Should not occur.)";
 		return null; //Code should not be reached.
@@ -164,6 +178,8 @@ public class Parser {
 		switch (b.getGenusName()) {
 		case "string":
 			return new StringConstant(b);
+		case "var-string":
+			return new StringVariable(b, lookupTable);
 		case "string-append":
 			return new StringConcat(b, parseStringArgument(b, 0), parseStringArgument(b, 1));
 		case "num-to-string":
@@ -185,6 +201,8 @@ public class Parser {
 		switch (b.getGenusName()) {
 		case "number":
 			return new NumberConstant(b);
+		case "var-number":
+			return new NumberVariable(b, lookupTable);
 		case "pi":
 			return new NumberConstant(b, Math.PI);
 		case "e":
@@ -247,6 +265,8 @@ public class Parser {
 		case "true": //Combined case intentional.
 		case "false":
 			return new BooleanConstant(b);
+		case "var-bool":
+			return new BooleanVariable(b, lookupTable);
 		case "and":
 			return new LogicAnd(b, parseBooleanArgument(b, 0), parseBooleanArgument(b, 1));
 		case "or":

@@ -1,5 +1,6 @@
 package interpreter.tree;
 
+import interpreter.ProgramExecutionException;
 import codeblocks.Block;
 
 /**
@@ -18,7 +19,7 @@ public class Round extends UnaryOperator<NumberResult> implements NumberResult {
 	}
 
 	@Override
-	public double getResult() {
+	public double getResult() throws ProgramExecutionException {
 		return Math.round(arg.getResult());
 	}
 }

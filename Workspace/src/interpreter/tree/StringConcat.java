@@ -1,5 +1,6 @@
 package interpreter.tree;
 
+import interpreter.ProgramExecutionException;
 import codeblocks.Block;
 
 /**
@@ -18,7 +19,7 @@ public class StringConcat extends BinaryOperator<StringResult, StringResult> imp
 	}
 
 	@Override
-	public String getResult() {
+	public String getResult() throws ProgramExecutionException {
 		return arg1.getResult() + arg2.getResult();
 	}
 }

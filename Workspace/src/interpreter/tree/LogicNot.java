@@ -1,5 +1,6 @@
 package interpreter.tree;
 
+import interpreter.ProgramExecutionException;
 import codeblocks.Block;
 
 /**
@@ -17,7 +18,7 @@ public class LogicNot extends UnaryOperator<BooleanResult> implements BooleanRes
 	}
 
 	@Override
-	public boolean getResult() {
+	public boolean getResult() throws ProgramExecutionException {
 		return !arg.getResult();
 	}
 }

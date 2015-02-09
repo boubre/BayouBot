@@ -1,5 +1,6 @@
 package interpreter.tree;
 
+import interpreter.ProgramExecutionException;
 import workspace.Console;
 import codeblocks.Block;
 
@@ -21,7 +22,7 @@ public class Print extends Command {
 	}
 
 	@Override
-	public void execute() {
+	public void execute() throws ProgramExecutionException {
 		Console.getInstance().appendLine(socket.getResult());
 	}
 	

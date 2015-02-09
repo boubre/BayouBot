@@ -1,5 +1,7 @@
 package interpreter.tree;
 
+import interpreter.ProgramExecutionException;
+
 import java.util.Random;
 
 import codeblocks.Block;
@@ -23,7 +25,7 @@ public class RandomInt extends UnaryOperator<NumberResult> implements NumberResu
 	}
 
 	@Override
-	public double getResult() {
+	public double getResult() throws ProgramExecutionException {
 		return randGen.nextInt(((int)arg.getResult()) + 1);
 	}
 }
