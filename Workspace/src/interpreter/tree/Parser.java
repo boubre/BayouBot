@@ -281,6 +281,10 @@ public class Parser {
 			return new BooleanEquals(b, parseBooleanArgument(b, 0), parseBooleanArgument(b, 1));
 		case "bool-not-equals":
 			return new BooleanNotEquals(b, parseBooleanArgument(b, 0), parseBooleanArgument(b, 1));
+		case "string-equals":
+			return new StringEquals(b, parseStringArgument(b, 0), parseStringArgument(b, 1));
+		case "string-not-equals":
+			return new StringNotEquals(b, parseStringArgument(b, 0), parseStringArgument(b, 1));
 		case "lessthan":
 			return new LessThan(b, parseNumericArgument(b, 0), parseNumericArgument(b, 1));
 		case "greaterthan":
