@@ -680,6 +680,36 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
+		<BlockGenus name="repeat" kind="command" initlabel="repeat" color="255 80 0">
+			<description>
+				<text>
+					Repeats commands the given number of times.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector label="times" connector-kind="socket" connector-type="number"></BlockConnector>
+				<BlockConnector label="do" connector-kind="socket" connector-type="cmd"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Repeat"></LangSpecProperty>
+			</LangSpecProperties>
+		</BlockGenus>
+		
+		<BlockGenus name="while" kind="command" initlabel="repeat" color="255 80 0">
+			<description>
+				<text>
+					Repeats commands as long as the condition is true
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector label="while" connector-kind="socket" connector-type="boolean"></BlockConnector>
+				<BlockConnector label="do" connector-kind="socket" connector-type="cmd"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Repeat While"></LangSpecProperty>
+			</LangSpecProperties>
+		</BlockGenus>
+		
 		<BlockGenus name="or" kind="function" initlabel="or" color="15 20 220">
 			<description>
 				<text>
@@ -965,6 +995,8 @@ BlockGenuses are first loaded.
 			<BlockDrawer name="Logic" type="factory" button-color="255 173 0">
 				<BlockGenusMember>if</BlockGenusMember>
 				<BlockGenusMember>ifelse</BlockGenusMember>
+				<BlockGenusMember>repeat</BlockGenusMember>
+				<BlockGenusMember>while</BlockGenusMember>
 				<BlockGenusMember>and</BlockGenusMember>
 				<BlockGenusMember>or</BlockGenusMember>
 				<BlockGenusMember>not</BlockGenusMember>

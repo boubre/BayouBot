@@ -157,6 +157,10 @@ public class Parser {
 			return new If(b, parseBooleanArgument(b, 0), parseCommandList(b, 1), null);
 		case "ifelse":
 			return new If(b, parseBooleanArgument(b, 0), parseCommandList(b, 1), parseCommandList(b, 2));
+		case "repeat":
+			return new Repeat(b, parseNumericArgument(b, 0), parseCommandList(b, 1));
+		case "while":
+			return new RepeatWhile(b, parseBooleanArgument(b, 0), parseCommandList(b, 1));
 		case "setvar-num":
 			return new SetVariable<NumberResult>(b, lookupTable, parseStringArgument(b, 0), parseNumericArgument(b, 1));
 		case "setvar-string":
