@@ -250,6 +250,13 @@ https://catalog.precisionmicrodrives.com/order-parts/product/304-103-4mm-vibrati
 <text x="-2.936" y="-2.204" size="1.27" layer="25" rot="R90">&gt;NAME</text>
 <text x="4.094" y="-2.316" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
 </package>
+<package name="20MM_COIN">
+<description>Footprint for a 20mm coin cell battery holder. &lt;br /&gt;
+http://www.digikey.com/product-detail/en/BH800S/BH800S-ND/221549</description>
+<pad name="-" x="0" y="6.5" drill="0.8" shape="square"/>
+<pad name="+" x="0" y="-14" drill="0.8" shape="square"/>
+<circle x="0" y="0" radius="11.5" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="LIN_REG">
@@ -388,6 +395,17 @@ http://www.digikey.com/product-detail/en/TB6552FNG,8,EL/TB6552FNG8ELCT-ND/173012
 <pin name="BIN2" x="15.24" y="3.81" length="middle" rot="R180"/>
 <pin name="BIN1" x="15.24" y="6.35" length="middle" rot="R180"/>
 <pin name="VCC" x="15.24" y="8.89" length="middle" rot="R180"/>
+</symbol>
+<symbol name="COIN_CELL">
+<description>Scematic Symbiol for coin cell battery.</description>
+<wire x1="-5.08" y1="2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
+<pin name="+" x="0" y="7.62" visible="pad" length="middle" rot="R270"/>
+<pin name="-" x="0" y="-10.16" visible="pad" length="middle" rot="R90"/>
+<text x="1.27" y="3.81" size="1.778" layer="94">+</text>
+<text x="1.27" y="-7.62" size="1.778" layer="94">-</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -592,6 +610,25 @@ http://www.digikey.com/product-detail/en/TB6552FNG,8,EL/TB6552FNG8ELCT-ND/173012
 <connect gate="G$1" pin="PGND" pad="9"/>
 <connect gate="G$1" pin="VCC" pad="16"/>
 <connect gate="G$1" pin="VMTR" pad="6"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="20MM_COIN">
+<description>&lt;b&gt;20mm Coin Cell Battery Holder&lt;/b&gt;&lt;br /&gt;
+A 20mm coin cell stack holder from: &lt;br /&gt;
+http://www.digikey.com/product-detail/en/BH800S/BH800S-ND/221549</description>
+<gates>
+<gate name="G$1" symbol="COIN_CELL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="20MM_COIN">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
 </connects>
 <technologies>
 <technology name=""/>
