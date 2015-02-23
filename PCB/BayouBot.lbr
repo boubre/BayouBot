@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="mm"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -210,6 +210,46 @@ Source: http://www.zetex.com/3.0/pdf/ZXSC300.pdf</description>
 <text x="-1.905" y="1.905" size="1.27" layer="25">&gt;NAME</text>
 <text x="-1.905" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
 </package>
+<package name="PICO_VIBE_MTR">
+<description>Footprint for a Pico Vibe SMD vibration motor.
+https://catalog.precisionmicrodrives.com/order-parts/product/304-103-4mm-vibration-motor-6mm-type</description>
+<wire x1="-2" y1="3.6" x2="2" y2="3.6" width="0.127" layer="21"/>
+<wire x1="2" y1="3.6" x2="2" y2="-3.8" width="0.127" layer="21"/>
+<wire x1="2" y1="-3.8" x2="-2" y2="-3.8" width="0.127" layer="21"/>
+<wire x1="-2" y1="-3.8" x2="-2" y2="3.6" width="0.127" layer="21"/>
+<wire x1="2" y1="-3.8" x2="2" y2="-6.6" width="0.127" layer="21"/>
+<wire x1="2" y1="-6.6" x2="-2" y2="-6.6" width="0.127" layer="21"/>
+<wire x1="-2" y1="-6.6" x2="-2" y2="-3.8" width="0.127" layer="21"/>
+<smd name="+" x="-1.75" y="2.55" dx="1.7" dy="1.3" layer="1" rot="R90"/>
+<smd name="-" x="1.75" y="2.55" dx="1.7" dy="1.3" layer="1" rot="R90"/>
+<smd name="PAD" x="0" y="-1.05" dx="3.8" dy="4.3" layer="1"/>
+</package>
+<package name="SSOP16">
+<description>&lt;b&gt;Small Shrink Outline Package&lt;/b&gt; 16 pin</description>
+<wire x1="-2.568" y1="2.145" x2="2.568" y2="2.145" width="0.2032" layer="21"/>
+<wire x1="2.568" y1="2.145" x2="2.568" y2="-2.145" width="0.2032" layer="21"/>
+<wire x1="2.568" y1="-2.145" x2="-2.568" y2="-2.145" width="0.2032" layer="21"/>
+<wire x1="-2.568" y1="-2.145" x2="-2.568" y2="2.145" width="0.2032" layer="21"/>
+<circle x="-1.885" y="-1.495" radius="0.39" width="0.2032" layer="21"/>
+<smd name="1" x="-2.275" y="-2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="2" x="-1.625" y="-2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="3" x="-0.975" y="-2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="4" x="-0.325" y="-2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="5" x="0.325" y="-2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="6" x="0.975" y="-2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="7" x="1.625" y="-2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="8" x="2.275" y="-2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="9" x="2.275" y="2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="10" x="1.625" y="2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="11" x="0.975" y="2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="12" x="0.325" y="2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="13" x="-0.325" y="2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="14" x="-0.975" y="2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="15" x="-1.625" y="2.925" dx="0.4" dy="1.2" layer="1"/>
+<smd name="16" x="-2.275" y="2.925" dx="0.4" dy="1.2" layer="1"/>
+<text x="-2.936" y="-2.204" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="4.094" y="-2.316" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="LIN_REG">
@@ -311,6 +351,43 @@ Source: http://www.zetex.com/3.0/pdf/ZXSC300.pdf</description>
 <wire x1="-10.16" y1="-2.54" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
 <wire x1="10.16" y1="1.27" x2="7.62" y2="1.27" width="0.254" layer="94"/>
 <wire x1="10.16" y1="-1.27" x2="7.62" y2="-1.27" width="0.254" layer="94"/>
+</symbol>
+<symbol name="PICO_VIBE_MTR">
+<description>Symbol for a SMD vibration motor. Specifically:
+https://catalog.precisionmicrodrives.com/order-parts/product/304-103-4mm-vibration-motor-6mm-type</description>
+<circle x="0" y="0" radius="3.5921" width="0.254" layer="94"/>
+<text x="-2.032" y="-1.778" size="3.556" layer="94">M</text>
+<pin name="+" x="0" y="10.16" length="middle" rot="R270"/>
+<pin name="-" x="0" y="-10.16" length="middle" rot="R90"/>
+<pin name="PAD" x="-10.16" y="0" visible="pad" length="middle"/>
+<wire x1="0" y1="5.08" x2="0" y2="3.556" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="0" x2="-3.556" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="-5.08" x2="0" y2="-3.556" width="0.254" layer="94"/>
+<text x="-8.636" y="0" size="1.778" layer="94">Pad</text>
+</symbol>
+<symbol name="SMD_H-BRIDGE">
+<description>Pinout for a smd h bridge motor driver.
+http://www.digikey.com/product-detail/en/TB6552FNG,8,EL/TB6552FNG8ELCT-ND/1730120</description>
+<wire x1="-10.16" y1="11.43" x2="10.16" y2="11.43" width="0.254" layer="94"/>
+<wire x1="10.16" y1="11.43" x2="10.16" y2="-11.43" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-11.43" x2="-10.16" y2="-11.43" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-11.43" x2="-10.16" y2="11.43" width="0.254" layer="94"/>
+<pin name="GND" x="-15.24" y="8.89" length="middle"/>
+<pin name="AIN1" x="-15.24" y="6.35" length="middle"/>
+<pin name="AIN2" x="-15.24" y="3.81" length="middle"/>
+<pin name="APWM" x="-15.24" y="1.27" length="middle"/>
+<pin name="ASTBY" x="-15.24" y="-1.27" length="middle"/>
+<pin name="VMTR" x="-15.24" y="-3.81" length="middle"/>
+<pin name="AO1" x="-15.24" y="-6.35" length="middle"/>
+<pin name="AO2" x="-15.24" y="-8.89" length="middle"/>
+<pin name="PGND" x="15.24" y="-8.89" length="middle" rot="R180"/>
+<pin name="BO2" x="15.24" y="-6.35" length="middle" rot="R180"/>
+<pin name="BO1" x="15.24" y="-3.81" length="middle" rot="R180"/>
+<pin name="BSTBY" x="15.24" y="-1.27" length="middle" rot="R180"/>
+<pin name="BPWM" x="15.24" y="1.27" length="middle" rot="R180"/>
+<pin name="BIN2" x="15.24" y="3.81" length="middle" rot="R180"/>
+<pin name="BIN1" x="15.24" y="6.35" length="middle" rot="R180"/>
+<pin name="VCC" x="15.24" y="8.89" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -462,6 +539,59 @@ Part was made for the following components:
 <connect gate="G$1" pin="GND" pad="2"/>
 <connect gate="G$1" pin="VIN" pad="1"/>
 <connect gate="G$1" pin="VOUT" pad="5"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="PICO_VIBE_MTR">
+<description>&lt;b&gt;Pico Vibe Vibration Motor&lt;/b&gt;
+A sufrace mounted vibration motor. &lt;br /&gt;
+https://catalog.precisionmicrodrives.com/order-parts/product/304-103-4mm-vibration-motor-6mm-type</description>
+<gates>
+<gate name="G$1" symbol="PICO_VIBE_MTR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="PICO_VIBE_MTR">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
+<connect gate="G$1" pin="PAD" pad="PAD"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SMD_H-BRIDGE">
+<description>An SMD H Bridge motor driver.
+&lt;br /&gt;
+http://www.digikey.com/product-detail/en/TB6552FNG,8,EL/TB6552FNG8ELCT-ND/1730120</description>
+<gates>
+<gate name="G$1" symbol="SMD_H-BRIDGE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SSOP16">
+<connects>
+<connect gate="G$1" pin="AIN1" pad="2"/>
+<connect gate="G$1" pin="AIN2" pad="3"/>
+<connect gate="G$1" pin="AO1" pad="7"/>
+<connect gate="G$1" pin="AO2" pad="8"/>
+<connect gate="G$1" pin="APWM" pad="4"/>
+<connect gate="G$1" pin="ASTBY" pad="5"/>
+<connect gate="G$1" pin="BIN1" pad="15"/>
+<connect gate="G$1" pin="BIN2" pad="14"/>
+<connect gate="G$1" pin="BO1" pad="11"/>
+<connect gate="G$1" pin="BO2" pad="10"/>
+<connect gate="G$1" pin="BPWM" pad="13"/>
+<connect gate="G$1" pin="BSTBY" pad="12"/>
+<connect gate="G$1" pin="GND" pad="1"/>
+<connect gate="G$1" pin="PGND" pad="9"/>
+<connect gate="G$1" pin="VCC" pad="16"/>
+<connect gate="G$1" pin="VMTR" pad="6"/>
 </connects>
 <technologies>
 <technology name=""/>
