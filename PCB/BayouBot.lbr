@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.1.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -156,50 +156,59 @@
 &lt;p&gt;
 Footprint for DealExtreme SKU 80711 bluetooth trasnceiver.
 &lt;p&gt;</description>
-<wire x1="6.5" y1="13.45" x2="6.5" y2="6.35" width="0" layer="21"/>
-<wire x1="6.5" y1="6.35" x2="6.5" y2="-11.66" width="0" layer="21"/>
-<wire x1="6.5" y1="-11.66" x2="6.5" y2="-13.45" width="0" layer="21"/>
-<wire x1="-6.5" y1="13.45" x2="-6.5" y2="6.35" width="0" layer="21"/>
-<wire x1="-6.5" y1="6.35" x2="-6.5" y2="-11.66" width="0" layer="21"/>
-<wire x1="-6.5" y1="-11.66" x2="-6.5" y2="-13.45" width="0" layer="21"/>
+<wire x1="6.5" y1="13.45" x2="6.5" y2="-13.45" width="0" layer="21"/>
+<wire x1="-6.5" y1="13.45" x2="-6.5" y2="-13.45" width="0" layer="21"/>
 <wire x1="-6.5" y1="13.45" x2="6.5" y2="13.45" width="0" layer="21"/>
-<wire x1="-6.5" y1="-13.45" x2="-5.23" y2="-13.45" width="0" layer="21"/>
-<wire x1="-5.23" y1="-13.45" x2="5.2" y2="-13.45" width="0" layer="21"/>
-<wire x1="5.2" y1="-13.45" x2="6.5" y2="-13.45" width="0" layer="21"/>
-<smd name="GND@2" x="-5.23" y="-13" dx="1" dy="0.9" layer="1"/>
-<smd name="USB-D-" x="-3.73" y="-13" dx="1" dy="0.9" layer="1"/>
-<smd name="SPI-CSB" x="-2.23" y="-13" dx="1" dy="0.9" layer="1"/>
-<smd name="SPI-MOSI" x="-0.73" y="-13" dx="1" dy="0.9" layer="1"/>
-<smd name="SPI-MISO" x="0.77" y="-13" dx="1" dy="0.9" layer="1"/>
-<smd name="SPI-CLK" x="2.27" y="-13" dx="1" dy="0.9" layer="1"/>
-<smd name="USB-D+" x="3.77" y="-13" dx="1" dy="0.9" layer="1"/>
-<smd name="GND@3" x="5.27" y="-13" dx="1" dy="0.9" layer="1"/>
-<smd name="GND@1" x="-6.05" y="-11.66" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="3.3V" x="-6.05" y="-10.16" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="RESETB" x="-6.05" y="-8.66" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="AIO(1)" x="-6.05" y="-7.16" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="AIO(0)" x="-6.05" y="-5.66" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PCM-SYNC" x="-6.05" y="-4.16" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PCM-IN" x="-6.05" y="-2.66" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PCM-OUT" x="-6.05" y="-1.16" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PCM-CLK" x="-6.05" y="0.34" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="UART-RTS" x="-6.05" y="1.84" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="UART-CTS" x="-6.05" y="3.34" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="UART-RX" x="-6.05" y="4.84" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="UART-TX" x="-6.05" y="6.34" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="GND@4" x="6.05" y="-11.66" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PIO(0)" x="6.05" y="-10.16" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PIO(1)" x="6.05" y="-8.66" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PIO(2)" x="6.05" y="-7.16" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PIO(3)" x="6.05" y="-5.66" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PIO(4)" x="6.05" y="-4.16" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PIO(5)" x="6.05" y="-2.66" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PIO(6)" x="6.05" y="-1.16" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PIO(7)" x="6.05" y="0.34" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PIO(8)" x="6.05" y="1.84" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PIO(9)" x="6.05" y="3.34" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PIO(10)" x="6.05" y="4.84" dx="1" dy="0.9" layer="1" rot="R270"/>
-<smd name="PIO(11)" x="6.05" y="6.34" dx="1" dy="0.9" layer="1" rot="R270"/>
+<wire x1="-6.5" y1="-13.45" x2="6.5" y2="-13.45" width="0" layer="21"/>
+<smd name="GND@2" x="-5.23" y="-13.3" dx="1" dy="1.5" layer="1"/>
+<smd name="USB-D-" x="-3.73" y="-13.3" dx="1" dy="1.5" layer="1"/>
+<smd name="SPI-CSB" x="-2.23" y="-13.3" dx="1" dy="1.5" layer="1"/>
+<smd name="SPI-MOSI" x="-0.73" y="-13.3" dx="1" dy="1.5" layer="1"/>
+<smd name="SPI-MISO" x="0.77" y="-13.3" dx="1" dy="1.5" layer="1"/>
+<smd name="SPI-CLK" x="2.27" y="-13.3" dx="1" dy="1.5" layer="1"/>
+<smd name="USB-D+" x="3.77" y="-13.3" dx="1" dy="1.5" layer="1"/>
+<smd name="GND@3" x="5.27" y="-13.3" dx="1" dy="1.5" layer="1"/>
+<smd name="GND@1" x="-6.35" y="-11.66" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="3.3V" x="-6.35" y="-10.16" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="RESETB" x="-6.35" y="-8.66" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="AIO(1)" x="-6.35" y="-7.16" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="AIO(0)" x="-6.35" y="-5.66" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PCM-SYNC" x="-6.35" y="-4.16" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PCM-IN" x="-6.35" y="-2.66" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PCM-OUT" x="-6.35" y="-1.16" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PCM-CLK" x="-6.35" y="0.34" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="UART-RTS" x="-6.35" y="1.84" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="UART-CTS" x="-6.35" y="3.34" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="UART-RX" x="-6.35" y="4.84" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="UART-TX" x="-6.35" y="6.34" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="GND@4" x="6.35" y="-11.66" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PIO(0)" x="6.35" y="-10.16" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PIO(1)" x="6.35" y="-8.66" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PIO(2)" x="6.35" y="-7.16" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PIO(3)" x="6.35" y="-5.66" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PIO(4)" x="6.35" y="-4.16" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PIO(5)" x="6.35" y="-2.66" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PIO(6)" x="6.35" y="-1.16" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PIO(7)" x="6.35" y="0.34" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PIO(8)" x="6.35" y="1.84" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PIO(9)" x="6.35" y="3.34" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PIO(10)" x="6.35" y="4.84" dx="1" dy="1.5" layer="1" rot="R270"/>
+<smd name="PIO(11)" x="6.35" y="6.34" dx="1" dy="1.5" layer="1" rot="R270"/>
+</package>
+<package name="SOT23-5">
+<description>&lt;b&gt;SOT23-5&lt;/b&gt; Zetex&lt;p&gt;
+Source: http://www.zetex.com/3.0/pdf/ZXSC300.pdf</description>
+<wire x1="-1.45" y1="-0.8" x2="1.45" y2="-0.8" width="0.2032" layer="51"/>
+<wire x1="1.45" y1="-0.8" x2="1.45" y2="0.8" width="0.2032" layer="21"/>
+<wire x1="1.45" y1="0.8" x2="-1.45" y2="0.8" width="0.2032" layer="51"/>
+<wire x1="-1.45" y1="0.8" x2="-1.45" y2="-0.8" width="0.2032" layer="21"/>
+<smd name="2" x="0" y="-1.2" dx="0.5" dy="1" layer="1"/>
+<smd name="1" x="-0.95" y="-1.2" dx="0.5" dy="1" layer="1"/>
+<smd name="3" x="0.95" y="-1.2" dx="0.5" dy="1" layer="1"/>
+<smd name="4" x="0.95" y="1.2" dx="0.5" dy="1" layer="1"/>
+<smd name="5" x="-0.95" y="1.2" dx="0.5" dy="1" layer="1"/>
+<text x="-1.905" y="1.905" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1.905" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>
@@ -280,6 +289,28 @@ Footprint for DealExtreme SKU 80711 bluetooth trasnceiver.
 <pin name="GND@2" x="-5.08" y="-22.86" visible="pin" length="middle" direction="pwr" rot="R90"/>
 <pin name="GND@3" x="-7.62" y="-22.86" visible="pin" length="middle" direction="pwr" rot="R90"/>
 <pin name="GND@4" x="-2.54" y="-22.86" visible="pin" length="middle" direction="pwr" rot="R90"/>
+</symbol>
+<symbol name="SPX3819">
+<description>Pinout for the SPX3819 series of SOT23-5 SMD voltage regulators.</description>
+<wire x1="-7.62" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="1.27" width="0.254" layer="94"/>
+<wire x1="7.62" y1="1.27" x2="7.62" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-1.27" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-5.08" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
+<pin name="VIN" x="-11.43" y="2.54" length="short"/>
+<pin name="GND" x="-11.43" y="0" length="short"/>
+<pin name="EN" x="-11.43" y="-2.54" length="short"/>
+<pin name="VOUT" x="11.43" y="1.27" length="short" rot="R180"/>
+<pin name="BYP" x="11.43" y="-1.27" length="short" rot="R180"/>
+<wire x1="-7.62" y1="-2.54" x2="-7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="0" x2="-7.62" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="2.54" x2="-7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="2.54" x2="-10.16" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="0" x2="-7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-2.54" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="10.16" y1="1.27" x2="7.62" y2="1.27" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-1.27" x2="7.62" y2="-1.27" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -404,6 +435,33 @@ DealExtreme SKU 80711 bluetooth trasnceiver.
 <connect gate="G$1" pin="UART-TX" pad="UART-TX"/>
 <connect gate="G$1" pin="USB-D+" pad="USB-D+"/>
 <connect gate="G$1" pin="USB-D-" pad="USB-D-"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SPX3819" uservalue="yes">
+<description>&lt;b&gt;SPX3819&lt;/b&gt;
+SMD linear volate regulator. &lt;br /&gt;
+Part was made for the following components:
+&lt;ul&gt;
+&lt;li&gt;(5V reg) SPX3819M5-L-5-0/TR&lt;/li&gt;
+&lt;li&gt;(3.3V reg) SPX3819M5-L-3-3/TR&lt;/li&gt;
+&lt;li&gt;(Adjustable reg) SPX3819M5-L/TR&lt;/li&gt;
+&lt;/ul&gt;</description>
+<gates>
+<gate name="G$1" symbol="SPX3819" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT23-5">
+<connects>
+<connect gate="G$1" pin="BYP" pad="4"/>
+<connect gate="G$1" pin="EN" pad="3"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="VIN" pad="1"/>
+<connect gate="G$1" pin="VOUT" pad="5"/>
 </connects>
 <technologies>
 <technology name=""/>
