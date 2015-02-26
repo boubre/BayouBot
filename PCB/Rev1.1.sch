@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -145,18 +145,6 @@ http://www.digikey.com/product-detail/en/BH800S/BH800S-ND/221549</description>
 <pad name="+" x="0" y="-14" drill="0.8" shape="square"/>
 <circle x="0" y="0" radius="11.5" width="0.127" layer="21"/>
 </package>
-<package name="POWER_BTN">
-<description>A SPST pushbutton power switch. &lt;br/&gt;
-http://www.mouser.com/ProductDetail/TE-Connectivity/1571634-2/?qs=%2fha2pyFadui2HzHiT1GcjLJGX5s1RLrmiOtkOC0QRmbWcn%2fKgC%252bE3Q%3d%3d</description>
-<smd name="P$1" x="-4.45" y="2" dx="3.1" dy="1" layer="1"/>
-<smd name="P$2" x="4.45" y="2" dx="3.1" dy="1" layer="1"/>
-<smd name="P$3" x="-4.45" y="-2" dx="3.1" dy="1" layer="1"/>
-<smd name="P$4" x="4.45" y="-2" dx="3.1" dy="1" layer="1"/>
-<wire x1="-3.1" y1="3.1" x2="3.1" y2="3.1" width="0.127" layer="21"/>
-<wire x1="3.1" y1="3.1" x2="3.1" y2="-3.1" width="0.127" layer="21"/>
-<wire x1="3.1" y1="-3.1" x2="-3.1" y2="-3.1" width="0.127" layer="21"/>
-<wire x1="-3.1" y1="-3.1" x2="-3.1" y2="3.1" width="0.127" layer="21"/>
-</package>
 <package name="SOT23-5">
 <description>&lt;b&gt;SOT23-5&lt;/b&gt; Zetex&lt;p&gt;
 Source: http://www.zetex.com/3.0/pdf/ZXSC300.pdf</description>
@@ -256,6 +244,18 @@ Footprint for DealExtreme SKU 80711 bluetooth trasnceiver.
 <smd name="PIO(10)" x="6.35" y="4.84" dx="1" dy="1.5" layer="1" rot="R270"/>
 <smd name="PIO(11)" x="6.35" y="6.34" dx="1" dy="1.5" layer="1" rot="R270"/>
 </package>
+<package name="POWER_BTN">
+<description>A SPST pushbutton power switch. &lt;br/&gt;
+http://www.mouser.com/ProductDetail/TE-Connectivity/1571634-2/?qs=%2fha2pyFadui2HzHiT1GcjLJGX5s1RLrmiOtkOC0QRmbWcn%2fKgC%252bE3Q%3d%3d</description>
+<smd name="P$1" x="-4.45" y="2" dx="3.1" dy="1" layer="1"/>
+<smd name="P$2" x="4.45" y="2" dx="3.1" dy="1" layer="1"/>
+<smd name="P$3" x="-4.45" y="-2" dx="3.1" dy="1" layer="1"/>
+<smd name="P$4" x="4.45" y="-2" dx="3.1" dy="1" layer="1"/>
+<wire x1="-3.1" y1="3.1" x2="3.1" y2="3.1" width="0.127" layer="21"/>
+<wire x1="3.1" y1="3.1" x2="3.1" y2="-3.1" width="0.127" layer="21"/>
+<wire x1="3.1" y1="-3.1" x2="-3.1" y2="-3.1" width="0.127" layer="21"/>
+<wire x1="-3.1" y1="-3.1" x2="-3.1" y2="3.1" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="COIN_CELL">
@@ -268,19 +268,6 @@ Footprint for DealExtreme SKU 80711 bluetooth trasnceiver.
 <pin name="-" x="0" y="-10.16" visible="pad" length="middle" rot="R90"/>
 <text x="1.27" y="3.81" size="1.778" layer="94">+</text>
 <text x="1.27" y="-7.62" size="1.778" layer="94">-</text>
-</symbol>
-<symbol name="POWER_BTN">
-<description>Schematic for a SPST button.
-http://www.mouser.com/ProductDetail/TE-Connectivity/1571634-2/?qs=%2fha2pyFadui2HzHiT1GcjLJGX5s1RLrmiOtkOC0QRmbWcn%2fKgC%252bE3Q%3d%3d</description>
-<wire x1="-7.62" y1="0" x2="-2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="0" x2="2.54" y2="2.54" width="0.254" layer="94"/>
-<wire x1="2.54" y1="0" x2="7.62" y2="0" width="0.254" layer="94"/>
-<wire x1="-7.62" y1="2.54" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="7.62" y1="2.54" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
-<pin name="P$1" x="-12.7" y="2.54" visible="pad" length="middle"/>
-<pin name="P$2" x="12.7" y="2.54" visible="pad" length="middle" rot="R180"/>
-<pin name="P$3" x="-12.7" y="-2.54" visible="pad" length="middle"/>
-<pin name="P$4" x="12.7" y="-2.54" visible="pad" length="middle" rot="R180"/>
 </symbol>
 <symbol name="SPX3819">
 <description>Pinout for the SPX3819 series of SOT23-5 SMD voltage regulators.</description>
@@ -381,6 +368,19 @@ https://catalog.precisionmicrodrives.com/order-parts/product/304-103-4mm-vibrati
 <pin name="GND@3" x="-7.62" y="-22.86" visible="pin" length="middle" direction="pwr" rot="R90"/>
 <pin name="GND@4" x="-2.54" y="-22.86" visible="pin" length="middle" direction="pwr" rot="R90"/>
 </symbol>
+<symbol name="POWER_BTN">
+<description>Schematic for a SPST button.
+http://www.mouser.com/ProductDetail/TE-Connectivity/1571634-2/?qs=%2fha2pyFadui2HzHiT1GcjLJGX5s1RLrmiOtkOC0QRmbWcn%2fKgC%252bE3Q%3d%3d</description>
+<wire x1="-7.62" y1="0" x2="-2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="2.54" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="2.54" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
+<pin name="P$1" x="-12.7" y="2.54" visible="pad" length="middle"/>
+<pin name="P$2" x="12.7" y="2.54" visible="pad" length="middle" rot="R180"/>
+<pin name="P$3" x="-12.7" y="-2.54" visible="pad" length="middle"/>
+<pin name="P$4" x="12.7" y="-2.54" visible="pad" length="middle" rot="R180"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="20MM_COIN">
@@ -395,27 +395,6 @@ http://www.digikey.com/product-detail/en/BH800S/BH800S-ND/221549</description>
 <connects>
 <connect gate="G$1" pin="+" pad="+"/>
 <connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="POWER_BTN">
-<description>&lt;b&gt;SPST Power Button&lt;/b&gt;&lt;br /&gt;
-See 
-http://www.mouser.com/ProductDetail/TE-Connectivity/1571634-2/?qs=%2fha2pyFadui2HzHiT1GcjLJGX5s1RLrmiOtkOC0QRmbWcn%2fKgC%252bE3Q%3d%3d</description>
-<gates>
-<gate name="G$1" symbol="POWER_BTN" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="POWER_BTN">
-<connects>
-<connect gate="G$1" pin="P$1" pad="P$1"/>
-<connect gate="G$1" pin="P$2" pad="P$2"/>
-<connect gate="G$1" pin="P$3" pad="P$3"/>
-<connect gate="G$1" pin="P$4" pad="P$4"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -548,6 +527,27 @@ DealExtreme SKU 80711 bluetooth trasnceiver.
 <connect gate="G$1" pin="UART-TX" pad="UART-TX"/>
 <connect gate="G$1" pin="USB-D+" pad="USB-D+"/>
 <connect gate="G$1" pin="USB-D-" pad="USB-D-"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="POWER_BTN">
+<description>&lt;b&gt;SPST Power Button&lt;/b&gt;&lt;br /&gt;
+See 
+http://www.mouser.com/ProductDetail/TE-Connectivity/1571634-2/?qs=%2fha2pyFadui2HzHiT1GcjLJGX5s1RLrmiOtkOC0QRmbWcn%2fKgC%252bE3Q%3d%3d</description>
+<gates>
+<gate name="G$1" symbol="POWER_BTN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="POWER_BTN">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$3"/>
+<connect gate="G$1" pin="P$3" pad="P$2"/>
+<connect gate="G$1" pin="P$4" pad="P$4"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -3378,7 +3378,6 @@ Source: http://www.osram.convergy.de/</description>
 </classes>
 <parts>
 <part name="U$1" library="BayouBot" deviceset="20MM_COIN" device=""/>
-<part name="U$2" library="BayouBot" deviceset="POWER_BTN" device=""/>
 <part name="SUPPLY1" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
 <part name="SUPPLY2" library="SparkFun-Aesthetics" deviceset="3.3V" device=""/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -3436,6 +3435,7 @@ Source: http://www.osram.convergy.de/</description>
 <part name="GND22" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="LED2" library="adafruit" deviceset="LED" device="CHIP-LED0805" value="red"/>
 <part name="R6" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="150Ω"/>
+<part name="U$2" library="BayouBot" deviceset="POWER_BTN" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3443,7 +3443,6 @@ Source: http://www.osram.convergy.de/</description>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="22.86" y="55.88" rot="R180"/>
-<instance part="U$2" gate="G$1" x="22.86" y="30.48" rot="R270"/>
 <instance part="SUPPLY1" gate="G$1" x="71.12" y="8.89" rot="R270"/>
 <instance part="SUPPLY2" gate="G$1" x="71.12" y="-8.89" rot="R270"/>
 <instance part="GND1" gate="1" x="22.86" y="71.12" rot="R180"/>
@@ -3501,6 +3500,7 @@ Source: http://www.osram.convergy.de/</description>
 <instance part="GND22" gate="1" x="83.82" y="48.26" rot="R90"/>
 <instance part="LED2" gate="G$1" x="73.66" y="48.26" rot="R90"/>
 <instance part="R6" gate="G$1" x="63.5" y="48.26" rot="R180"/>
+<instance part="U$2" gate="G$1" x="22.86" y="30.48" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -3509,11 +3509,11 @@ Source: http://www.osram.convergy.de/</description>
 <segment>
 <pinref part="U$1" gate="G$1" pin="+"/>
 <wire x1="22.86" y1="48.26" x2="22.86" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="P$3"/>
 <wire x1="22.86" y1="43.18" x2="20.32" y2="43.18" width="0.1524" layer="91"/>
 <junction x="22.86" y="43.18"/>
-<pinref part="U$2" gate="G$1" pin="P$1"/>
 <wire x1="22.86" y1="43.18" x2="25.4" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="P$1"/>
+<pinref part="U$2" gate="G$1" pin="P$3"/>
 </segment>
 </net>
 <net name="GND" class="1">
@@ -3646,8 +3646,6 @@ Source: http://www.osram.convergy.de/</description>
 </net>
 <net name="N$2" class="1">
 <segment>
-<pinref part="U$2" gate="G$1" pin="P$4"/>
-<pinref part="U$2" gate="G$1" pin="P$2"/>
 <wire x1="20.32" y1="17.78" x2="22.86" y2="17.78" width="0.1524" layer="91"/>
 <junction x="22.86" y="17.78"/>
 <wire x1="22.86" y1="17.78" x2="25.4" y2="17.78" width="0.1524" layer="91"/>
@@ -3675,6 +3673,8 @@ Source: http://www.osram.convergy.de/</description>
 <junction x="22.86" y="-12.7"/>
 <junction x="22.86" y="-25.4"/>
 <junction x="22.86" y="-30.48"/>
+<pinref part="U$2" gate="G$1" pin="P$2"/>
+<pinref part="U$2" gate="G$1" pin="P$4"/>
 </segment>
 </net>
 <net name="5V" class="1">
@@ -3774,6 +3774,14 @@ Source: http://www.osram.convergy.de/</description>
 <wire x1="58.42" y1="-26.67" x2="58.42" y2="-25.4" width="0.1524" layer="91"/>
 <label x="124.46" y="-62.23" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U3" gate="G$1" pin="VMTR"/>
+<wire x1="124.46" y1="-62.23" x2="127" y2="-62.23" width="0.1524" layer="91"/>
+<junction x="127" y="-62.23"/>
+<wire x1="127" y1="-62.23" x2="144.78" y2="-62.23" width="0.1524" layer="91"/>
+<pinref part="C5" gate="G$1" pin="2"/>
+<wire x1="127" y1="-66.04" x2="127" y2="-62.23" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="N$3" class="1">
 <segment>
@@ -3820,16 +3828,6 @@ Source: http://www.osram.convergy.de/</description>
 <wire x1="205.74" y1="-64.77" x2="205.74" y2="-81.28" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$8" class="0">
-<segment>
-<pinref part="U3" gate="G$1" pin="VMTR"/>
-<wire x1="124.46" y1="-62.23" x2="127" y2="-62.23" width="0.1524" layer="91"/>
-<junction x="127" y="-62.23"/>
-<wire x1="127" y1="-62.23" x2="144.78" y2="-62.23" width="0.1524" layer="91"/>
-<pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="127" y1="-66.04" x2="127" y2="-62.23" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="MCU_PB0" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="PB0"/>
@@ -3837,9 +3835,9 @@ Source: http://www.osram.convergy.de/</description>
 <label x="121.92" y="17.78" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="GPIO" gate="A" pin="6"/>
-<wire x1="144.78" y1="96.52" x2="121.92" y2="96.52" width="0.1524" layer="91"/>
-<label x="121.92" y="96.52" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="GPIO" gate="A" pin="14"/>
+<wire x1="144.78" y1="76.2" x2="121.92" y2="76.2" width="0.1524" layer="91"/>
+<label x="121.92" y="76.2" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MCU_PB1" class="0">
@@ -3911,9 +3909,9 @@ Source: http://www.osram.convergy.de/</description>
 <label x="121.92" y="2.54" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="GPIO" gate="A" pin="11"/>
-<wire x1="144.78" y1="83.82" x2="137.16" y2="83.82" width="0.1524" layer="91"/>
-<label x="137.16" y="83.82" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="GPIO" gate="A" pin="9"/>
+<wire x1="144.78" y1="88.9" x2="137.16" y2="88.9" width="0.1524" layer="91"/>
+<label x="137.16" y="88.9" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MCU_PB7" class="0">
@@ -4034,9 +4032,9 @@ Source: http://www.osram.convergy.de/</description>
 <label x="185.42" y="12.7" size="1.778" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="GPIO" gate="A" pin="7"/>
-<wire x1="144.78" y1="93.98" x2="137.16" y2="93.98" width="0.1524" layer="91"/>
-<label x="137.16" y="93.98" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="GPIO" gate="A" pin="13"/>
+<wire x1="144.78" y1="78.74" x2="137.16" y2="78.74" width="0.1524" layer="91"/>
+<label x="137.16" y="78.74" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MCU_PD6" class="0">
@@ -4046,9 +4044,9 @@ Source: http://www.osram.convergy.de/</description>
 <label x="165.1" y="15.24" size="1.778" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="GPIO" gate="A" pin="8"/>
-<wire x1="144.78" y1="91.44" x2="121.92" y2="91.44" width="0.1524" layer="91"/>
-<label x="121.92" y="91.44" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="GPIO" gate="A" pin="12"/>
+<wire x1="144.78" y1="81.28" x2="121.92" y2="81.28" width="0.1524" layer="91"/>
+<label x="121.92" y="81.28" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MCU_PD5" class="0">
@@ -4058,9 +4056,9 @@ Source: http://www.osram.convergy.de/</description>
 <label x="185.42" y="17.78" size="1.778" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="GPIO" gate="A" pin="9"/>
-<wire x1="144.78" y1="88.9" x2="137.16" y2="88.9" width="0.1524" layer="91"/>
-<label x="137.16" y="88.9" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="GPIO" gate="A" pin="11"/>
+<wire x1="144.78" y1="83.82" x2="137.16" y2="83.82" width="0.1524" layer="91"/>
+<label x="137.16" y="83.82" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MCU_PD4" class="0">
@@ -4070,9 +4068,9 @@ Source: http://www.osram.convergy.de/</description>
 <label x="165.1" y="20.32" size="1.778" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="GPIO" gate="A" pin="12"/>
-<wire x1="144.78" y1="81.28" x2="121.92" y2="81.28" width="0.1524" layer="91"/>
-<label x="121.92" y="81.28" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="GPIO" gate="A" pin="8"/>
+<wire x1="144.78" y1="91.44" x2="121.92" y2="91.44" width="0.1524" layer="91"/>
+<label x="121.92" y="91.44" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MCU_PD3" class="0">
@@ -4082,9 +4080,9 @@ Source: http://www.osram.convergy.de/</description>
 <label x="185.42" y="22.86" size="1.778" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="GPIO" gate="A" pin="13"/>
-<wire x1="144.78" y1="78.74" x2="137.16" y2="78.74" width="0.1524" layer="91"/>
-<label x="137.16" y="78.74" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="GPIO" gate="A" pin="7"/>
+<wire x1="144.78" y1="93.98" x2="137.16" y2="93.98" width="0.1524" layer="91"/>
+<label x="137.16" y="93.98" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MCU_PD2" class="0">
@@ -4094,9 +4092,9 @@ Source: http://www.osram.convergy.de/</description>
 <label x="165.1" y="25.4" size="1.778" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="GPIO" gate="A" pin="14"/>
-<wire x1="144.78" y1="76.2" x2="121.92" y2="76.2" width="0.1524" layer="91"/>
-<label x="121.92" y="76.2" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="GPIO" gate="A" pin="6"/>
+<wire x1="144.78" y1="96.52" x2="121.92" y2="96.52" width="0.1524" layer="91"/>
+<label x="121.92" y="96.52" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MCU-&gt;BT" class="0">
