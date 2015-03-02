@@ -6,3 +6,6 @@
 *.jar
 *.war
 *.ear
+
+# Include Dependencies
+!/JavaCore/dependencies/*
