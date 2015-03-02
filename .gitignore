@@ -9,3 +9,4 @@
 
 # Include Dependencies
 !/JavaCore/dependencies/*
+!/Workspace/lib/*
