@@ -31,12 +31,15 @@ public class BluetoothBayouBot extends BayouBot {
 	 * Initialize special pins, such as drive pins.
 	 */
 	private void init() {
-		//Set drive pins (13-16) to outputs.
+		//Set drive pins to outputs.
 		Instruction instr = Instruction.SET_DDRC;
 		byte pins = (byte)0;
-		for (int pin = 13; pin <= 16; pin++) {
-			pins |= (byte)Pin.getPin(pin).getPortBit();
-		}
+		pins |= Pin.MTR_AIN1.getPortBit();
+		pins |= Pin.MTR_AIN2.getPortBit();
+		pins |= Pin.MTR_BIN1.getPortBit();
+		pins |= Pin.MTR_BIN2.getPortBit();
+		pins |= Pin.MTR_STBY.getPortBit();
+		
 		try {
 			bbWrite.write(Instruction.makeInstruction(instr, new byte[] { pins }));
 			bbWrite.flush();
@@ -227,15 +230,17 @@ public class BluetoothBayouBot extends BayouBot {
 		//Clear all drive pins
 		Instruction clearInstr = Instruction.CLEAR_PORTC;
 		byte clearPins = (byte)0;
-		for (int pin = 13; pin <= 16; pin++) {
-			clearPins |= (byte)Pin.getPin(pin).getPortBit();
-		}
+		clearPins |= Pin.MTR_AIN1.getPortBit();
+		clearPins |= Pin.MTR_AIN2.getPortBit();
+		clearPins |= Pin.MTR_BIN1.getPortBit();
+		clearPins |= Pin.MTR_BIN2.getPortBit();
+		clearPins |= Pin.MTR_STBY.getPortBit();
 
 		//Set forward drive ports
 		Instruction driveInstr = Instruction.SET_PORTC;
 		byte setPins = (byte)0;
-		setPins |= (byte)Pin.PIN_15.getPortBit();
-		setPins |= (byte)Pin.PIN_14.getPortBit();
+		//setPins |= (byte)Pin.PIN_15.getPortBit();
+		//setPins |= (byte)Pin.PIN_14.getPortBit();
 
 		//Send instructions
 		try {
@@ -253,15 +258,17 @@ public class BluetoothBayouBot extends BayouBot {
 		//Clear all drive pins
 		Instruction clearInstr = Instruction.CLEAR_PORTC;
 		byte clearPins = (byte)0;
-		for (int pin = 13; pin <= 16; pin++) {
-			clearPins |= (byte)Pin.getPin(pin).getPortBit();
-		}
+		clearPins |= Pin.MTR_AIN1.getPortBit();
+		clearPins |= Pin.MTR_AIN2.getPortBit();
+		clearPins |= Pin.MTR_BIN1.getPortBit();
+		clearPins |= Pin.MTR_BIN2.getPortBit();
+		clearPins |= Pin.MTR_STBY.getPortBit();
 
 		//Set forward drive ports
 		Instruction driveInstr = Instruction.SET_PORTC;
 		byte setPins = (byte)0;
-		setPins |= (byte)Pin.PIN_16.getPortBit();
-		setPins |= (byte)Pin.PIN_13.getPortBit();
+		//setPins |= (byte)Pin.PIN_16.getPortBit();
+		//setPins |= (byte)Pin.PIN_13.getPortBit();
 
 		//Send instructions
 		try {
@@ -279,15 +286,17 @@ public class BluetoothBayouBot extends BayouBot {
 		//Clear all drive pins
 		Instruction clearInstr = Instruction.CLEAR_PORTC;
 		byte clearPins = (byte)0;
-		for (int pin = 13; pin <= 16; pin++) {
-			clearPins |= (byte)Pin.getPin(pin).getPortBit();
-		}
+		clearPins |= Pin.MTR_AIN1.getPortBit();
+		clearPins |= Pin.MTR_AIN2.getPortBit();
+		clearPins |= Pin.MTR_BIN1.getPortBit();
+		clearPins |= Pin.MTR_BIN2.getPortBit();
+		clearPins |= Pin.MTR_STBY.getPortBit();
 		
 		//Set forward drive ports
 		Instruction driveInstr = Instruction.SET_PORTC;
 		byte setPins = (byte)0;
-		setPins |= (byte)Pin.PIN_16.getPortBit();
-		setPins |= (byte)Pin.PIN_14.getPortBit();
+		//setPins |= (byte)Pin.PIN_16.getPortBit();
+		//setPins |= (byte)Pin.PIN_14.getPortBit();
 
 		//Send instructions
 		try {
@@ -305,15 +314,17 @@ public class BluetoothBayouBot extends BayouBot {
 		//Clear all drive pins
 		Instruction clearInstr = Instruction.CLEAR_PORTC;
 		byte clearPins = (byte)0;
-		for (int pin = 13; pin <= 16; pin++) {
-			clearPins |= (byte)Pin.getPin(pin).getPortBit();
-		}
+		clearPins |= Pin.MTR_AIN1.getPortBit();
+		clearPins |= Pin.MTR_AIN2.getPortBit();
+		clearPins |= Pin.MTR_BIN1.getPortBit();
+		clearPins |= Pin.MTR_BIN2.getPortBit();
+		clearPins |= Pin.MTR_STBY.getPortBit();
 
 		//Set forward drive ports
 		Instruction driveInstr = Instruction.SET_PORTC;
 		byte setPins = (byte)0;
-		setPins |= (byte)Pin.PIN_15.getPortBit();
-		setPins |= (byte)Pin.PIN_13.getPortBit();
+		//setPins |= (byte)Pin.PIN_15.getPortBit();
+		//setPins |= (byte)Pin.PIN_13.getPortBit();
 
 		//Send instructions
 		try {
@@ -331,9 +342,11 @@ public class BluetoothBayouBot extends BayouBot {
 		//Clear all drive pins
 		Instruction clearInstr = Instruction.CLEAR_PORTC;
 		byte clearPins = (byte)0;
-		for (int pin = 13; pin <= 16; pin++) {
-			clearPins |= (byte)Pin.getPin(pin).getPortBit();
-		}
+		clearPins |= Pin.MTR_AIN1.getPortBit();
+		clearPins |= Pin.MTR_AIN2.getPortBit();
+		clearPins |= Pin.MTR_BIN1.getPortBit();
+		clearPins |= Pin.MTR_BIN2.getPortBit();
+		clearPins |= Pin.MTR_STBY.getPortBit();
 		
 		//Send instructions
 		try {
