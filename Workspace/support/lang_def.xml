@@ -21,9 +21,9 @@ BlockGenuses are first loaded.
 		<BlockConnectorShape shape-type="string" shape-number="7"></BlockConnectorShape>
 		<BlockConnectorShape shape-type="string-list" shape-number="8"></BlockConnectorShape>
 		<BlockConnectorShape shape-type="string-inv" shape-number="9"></BlockConnectorShape>
-		<BlockConnectorShape shape-type="poly" shape-number="10"></BlockConnectorShape>
-		<BlockConnectorShape shape-type="poly-list" shape-number="11"></BlockConnectorShape>
-		<BlockConnectorShape shape-type="poly-inv" shape-number="12"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="pin" shape-number="10"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="pin-list" shape-number="11"></BlockConnectorShape>
+		<BlockConnectorShape shape-type="pin-inv" shape-number="12"></BlockConnectorShape>
 		<BlockConnectorShape shape-type="proc-param" shape-number="13"></BlockConnectorShape>
 		<BlockConnectorShape shape-type="cmd" shape-number="14"></BlockConnectorShape>
 	</BlockConnectorShapes>
@@ -877,6 +877,301 @@ BlockGenuses are first loaded.
 				<LangSpecProperty key="friendlyName" value="Set Variable (Boolean)"></LangSpecProperty>
 			</LangSpecProperties>	
 		</BlockGenus>
+		
+		<!-- Hardware -->
+		<BlockGenus name="pin1" kind="data" initlabel="Pin 1" editable-label="no" is-label-value="no" color="255 0 255">
+			<description>
+				<text>
+					Pin 1 on the BayouBot.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="pin" position-type="mirror"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Pin 1"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="pin2" kind="data" initlabel="Pin 2" editable-label="no" is-label-value="no" color="255 0 255">
+			<description>
+				<text>
+					Pin 2 on the BayouBot.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="pin" position-type="mirror"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Pin 2"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="pin3" kind="data" initlabel="Pin 3" editable-label="no" is-label-value="no" color="255 0 255">
+			<description>
+				<text>
+					Pin 3 on the BayouBot.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="pin" position-type="mirror"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Pin 3"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="pin4" kind="data" initlabel="Pin 4" editable-label="no" is-label-value="no" color="255 0 255">
+			<description>
+				<text>
+					Pin 4 on the BayouBot.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="pin" position-type="mirror"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Pin 4"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="pin5" kind="data" initlabel="Pin 5" editable-label="no" is-label-value="no" color="255 0 255">
+			<description>
+				<text>
+					Pin 5 on the BayouBot.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="pin" position-type="mirror"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Pin 5"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="pin6" kind="data" initlabel="Pin 6" editable-label="no" is-label-value="no" color="255 0 255">
+			<description>
+				<text>
+					Pin 6 on the BayouBot.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="pin" position-type="mirror"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Pin 6"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="pin7" kind="data" initlabel="Pin 7" editable-label="no" is-label-value="no" color="255 0 255">
+			<description>
+				<text>
+					Pin 7 on the BayouBot.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="pin" position-type="mirror"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Pin 7"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="pin8" kind="data" initlabel="Pin 8" editable-label="no" is-label-value="no" color="255 0 255">
+			<description>
+				<text>
+					Pin 8 on the BayouBot.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="pin" position-type="mirror"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Pin 8"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="pin9" kind="data" initlabel="Pin 9" editable-label="no" is-label-value="no" color="255 0 255">
+			<description>
+				<text>
+					Pin 9 on the BayouBot.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="pin" position-type="mirror"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Pin 9"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="pin10" kind="data" initlabel="Pin 10" editable-label="no" is-label-value="no" color="255 0 255">
+			<description>
+				<text>
+					Pin 10 on the BayouBot.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="pin" position-type="mirror"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Pin 10"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="pin11" kind="data" initlabel="Pin 11" editable-label="no" is-label-value="no" color="255 0 255">
+			<description>
+				<text>
+					Pin 11 on the BayouBot.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="pin" position-type="mirror"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Pin 11"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="pin12" kind="data" initlabel="Pin 12" editable-label="no" is-label-value="no" color="255 0 255">
+			<description>
+				<text>
+					Pin 12 on the BayouBot.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="pin" position-type="mirror"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Pin 12"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="setPinLow" kind="command" initlabel="Set Low" color="255 0 255">
+			<description>
+				<text>
+					Sets the specified pin to low (0V).
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="socket" connector-type="pin"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Set Low"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="setPinHigh" kind="command" initlabel="Set High" color="255 0 255">
+			<description>
+				<text>
+					Sets the specified pin to high (5V).
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="socket" connector-type="pin"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Set High"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="setPinOutput" kind="command" initlabel="Set Output" color="255 0 255">
+			<description>
+				<text>
+					Sets a pin as an output pin.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="socket" connector-type="pin"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Set Output"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="setPinInput" kind="command" initlabel="Set Input" color="255 0 255">
+			<description>
+				<text>
+					Sets a pin as an input pin.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="socket" connector-type="pin"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Set Input"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="isHigh" kind="function" initlabel="is High?" color="45 201 255">
+			<description>
+				<text>
+					Returns true if the input pin is high.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector label="" connector-kind="plug" connector-type="boolean"></BlockConnector>
+				<BlockConnector connector-kind="socket" connector-type="pin"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="is High?"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="turnRight" kind="command" initlabel="Turn Right" color="255 0 255">
+			<description>
+				<text>
+					Turn the BayouBot right.
+				</text>
+			</description>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Turn Right"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="turnLeft" kind="command" initlabel="Turn Left" color="255 0 255">
+			<description>
+				<text>
+					Turn the BayouBot left.
+				</text>
+			</description>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Turn Left"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="moveForward" kind="command" initlabel="Move Forward" color="255 0 255">
+			<description>
+				<text>
+					Move the BayouBot forward.
+				</text>
+			</description>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Move Forward"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="moveBackward" kind="command" initlabel="Move Backward" color="255 0 255">
+			<description>
+				<text>
+					Move the BayouBot backward.
+				</text>
+			</description>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Move Backward"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="moveStop" kind="command" initlabel="Stop Moving" color="255 0 255">
+			<description>
+				<text>
+					Tell the BayouBot to stop moving or turning.
+				</text>
+			</description>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Stop Moving"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
 	</BlockGenuses>
 	
 	<!--
@@ -935,6 +1230,35 @@ BlockGenuses are first loaded.
 			<FamilyMember>and</FamilyMember>
 			<FamilyMember>or</FamilyMember>
 		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>pin1</FamilyMember>
+			<FamilyMember>pin2</FamilyMember>
+			<FamilyMember>pin3</FamilyMember>
+			<FamilyMember>pin4</FamilyMember>
+			<FamilyMember>pin5</FamilyMember>
+			<FamilyMember>pin6</FamilyMember>
+			<FamilyMember>pin7</FamilyMember>
+			<FamilyMember>pin8</FamilyMember>
+			<FamilyMember>pin9</FamilyMember>
+			<FamilyMember>pin10</FamilyMember>
+			<FamilyMember>pin11</FamilyMember>
+			<FamilyMember>pin12</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>setPinHigh</FamilyMember>
+			<FamilyMember>setPinLow</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>setPinInput</FamilyMember>
+			<FamilyMember>setPinOutput</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>turnLeft</FamilyMember>
+			<FamilyMember>turnRight</FamilyMember>
+			<FamilyMember>moveForward</FamilyMember>
+			<FamilyMember>moveBackward</FamilyMember>
+			<FamilyMember>moveStop</FamilyMember>
+		</BlockFamily>
 	</BlockFamilies>
 	
 	<!--
@@ -951,6 +1275,7 @@ BlockGenuses are first loaded.
 				<BlockGenusMember>string</BlockGenusMember>
 				<BlockGenusMember>true</BlockGenusMember>
 				<BlockGenusMember>false</BlockGenusMember>
+				<BlockGenusMember>pin1</BlockGenusMember>
 			</BlockDrawer>
 			<BlockDrawer name="Math" type="factory" button-color="102 129 255">
 				<BlockGenusMember>number</BlockGenusMember>
@@ -1012,6 +1337,30 @@ BlockGenuses are first loaded.
 				<BlockGenusMember>setvar-num</BlockGenusMember>
 				<BlockGenusMember>setvar-string</BlockGenusMember>
 				<BlockGenusMember>setvar-bool</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="BayouBot" type="factory" button-color="255 0 255">
+				<BlockGenusMember>turnLeft</BlockGenusMember>
+				<BlockGenusMember>turnRight</BlockGenusMember>
+				<BlockGenusMember>moveForward</BlockGenusMember>
+				<BlockGenusMember>moveBackward</BlockGenusMember>
+				<BlockGenusMember>moveStop</BlockGenusMember>
+				<BlockGenusMember>setPinHigh</BlockGenusMember>
+				<BlockGenusMember>setPinLow</BlockGenusMember>
+				<BlockGenusMember>setPinInput</BlockGenusMember>
+				<BlockGenusMember>setPinOutput</BlockGenusMember>
+				<BlockGenusMember>isHigh</BlockGenusMember>
+				<BlockGenusMember>pin1</BlockGenusMember>
+				<BlockGenusMember>pin2</BlockGenusMember>
+				<BlockGenusMember>pin3</BlockGenusMember>
+				<BlockGenusMember>pin4</BlockGenusMember>
+				<BlockGenusMember>pin5</BlockGenusMember>
+				<BlockGenusMember>pin6</BlockGenusMember>
+				<BlockGenusMember>pin7</BlockGenusMember>
+				<BlockGenusMember>pin8</BlockGenusMember>
+				<BlockGenusMember>pin9</BlockGenusMember>
+				<BlockGenusMember>pin10</BlockGenusMember>
+				<BlockGenusMember>pin11</BlockGenusMember>
+				<BlockGenusMember>pin12</BlockGenusMember>
 			</BlockDrawer>
 		</BlockDrawerSet>
 	</BlockDrawerSets>
