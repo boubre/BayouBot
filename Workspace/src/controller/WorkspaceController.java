@@ -1,5 +1,6 @@
 package controller;
 
+import interpreter.DummyBayouBot;
 import interpreter.Execution;
 
 import java.awt.BorderLayout;
@@ -542,6 +543,10 @@ public class WorkspaceController {
         executeBtn.setPreferredSize(new Dimension(32, 32));
         executeBtn.addActionListener(ae -> {startProgramExecution();});
         
+        JButton checkBtn = new JButton(new ImageIcon(loadedImages.get("check")));
+        checkBtn.setPreferredSize(new Dimension(32, 32));
+        checkBtn.addActionListener(ae -> {checkProgram();});
+        
         JButton stopExecBtn = new JButton(new ImageIcon(loadedImages.get("stop")));
         stopExecBtn.setPreferredSize(new Dimension(32, 32));
         stopExecBtn.addActionListener(ae -> {stopProgramExecution();});
@@ -550,6 +555,7 @@ public class WorkspaceController {
         searchBar.getComponent().setPreferredSize(new Dimension(230, 23));
         topPane.add(searchBar.getComponent());
         //topPane.add(saveButton);
+        topPane.add(checkBtn);
         topPane.add(executeBtn);
         topPane.add(stopExecBtn);
         
@@ -586,6 +592,8 @@ public class WorkspaceController {
                 wc.setLangDefFilePath(LANG_DEF_FILEPATH);
                 wc.loadFreshWorkspace();
                 wc.createAndShowGUI();
+                
+                wc.execution.setBayouBot(new DummyBayouBot());
             }
         });
     }
@@ -620,6 +628,10 @@ public class WorkspaceController {
 			img = ImageIO.read(new File(IMAGE_FOLDER + "Stop.png"));
 			img = img.getScaledInstance(32, 32, Image.SCALE_SMOOTH);
 			loadedImages.put("stop", img);
+			
+			img = ImageIO.read(new File(IMAGE_FOLDER + "Check.png"));
+			img = img.getScaledInstance(32, 32, Image.SCALE_SMOOTH);
+			loadedImages.put("check", img);
 		} catch (IOException ex) {
 			System.err.println("Failed to load image.");
 			ex.printStackTrace();
@@ -639,6 +651,17 @@ public class WorkspaceController {
 	 */
 	private void stopProgramExecution() {
 		execution.stop();
+	}
+	
+	/**
+	 * Parse the current program with no intention of running it to perform checks.
+	 */
+	private void checkProgram() {
+		if (execution.isRunning()) 
+			return;
+		
+		Console.getInstance().clear();
+		System.out.println(Execution.parse(workspace, null).parseDump());
 	}
 	
 	private void exitRoutine(Component c) {
