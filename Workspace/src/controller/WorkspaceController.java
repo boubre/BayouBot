@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -20,12 +21,16 @@ import java.util.Map;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+
+import jssc.SerialPortList;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -60,7 +65,7 @@ public class WorkspaceController {
                 
     private static String LANG_DEF_FILEPATH;
     private static final String IMAGE_FOLDER = "support/images/";
-    private static final String VERSION = "0.1";
+    private static final String VERSION = "1.0";
     
     private static Element langDefRoot;
     
@@ -73,6 +78,7 @@ public class WorkspaceController {
     protected JPanel workspacePanel;
     protected static Workspace workspace;
     protected SearchBar searchBar;
+    private JComboBox<String> serialPortComboBox;
     
     //flag to indicate if a new lang definition file has been set
     private boolean langDefDirty = true;
@@ -569,11 +575,47 @@ public class WorkspaceController {
         frame.add(getWorkspacePanel(), gbc);
         
         gbc.gridy = 2;
-        gbc.fill  = GridBagConstraints.HORIZONTAL;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         frame.add(Console.getInstance().getPanel(), gbc);
+        
+        gbc.gridy = 3;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
+        frame.add(makeBayouBotConnectionPanel(), gbc);
         
         frame.pack();
         frame.setVisible(true);
+    }
+    
+    private JPanel makeBayouBotConnectionPanel() {
+    	JPanel panel = new JPanel(new GridBagLayout());
+    	
+    	JButton refreshBtn = new JButton(new ImageIcon(loadedImages.get("refresh")));
+        refreshBtn.setPreferredSize(new Dimension(16, 16));
+        refreshBtn.addActionListener(ae -> {refreshSerialPortList();});
+        
+        serialPortComboBox = new JComboBox<>();
+        refreshSerialPortList();
+        
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridheight = 1;
+        gbc.gridwidth = 1;
+        gbc.insets = new Insets(0, 5, 5, 5);
+        panel.add(new JLabel("BayouBot Port:"), gbc);
+        
+        gbc.gridx = 1;
+        gbc.insets = new Insets(0, 0, 5, 10);
+        panel.add(serialPortComboBox, gbc);
+        
+       
+        gbc.gridx = 2;
+        gbc.insets = new Insets(0, 0, 5, 0);
+        panel.add(refreshBtn, gbc);
+        
+        
+    	return panel;
     }
     
     public static void main(String[] args) {
@@ -632,6 +674,10 @@ public class WorkspaceController {
 			img = ImageIO.read(new File(IMAGE_FOLDER + "Check.png"));
 			img = img.getScaledInstance(32, 32, Image.SCALE_SMOOTH);
 			loadedImages.put("check", img);
+			
+			img = ImageIO.read(new File(IMAGE_FOLDER + "Refresh.jpg"));
+			img = img.getScaledInstance(16, 16, Image.SCALE_SMOOTH);
+			loadedImages.put("refresh", img);
 		} catch (IOException ex) {
 			System.err.println("Failed to load image.");
 			ex.printStackTrace();
@@ -662,6 +708,20 @@ public class WorkspaceController {
 		
 		Console.getInstance().clear();
 		System.out.println(Execution.parse(workspace, null).parseDump());
+	}
+	
+	/**
+	 * Refresh the serial port drop down box.
+	 */
+	private void refreshSerialPortList() {
+		try {
+		serialPortComboBox.removeAllItems();
+		for (String port : SerialPortList.getPortNames())
+			serialPortComboBox.addItem(port);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private void exitRoutine(Component c) {
