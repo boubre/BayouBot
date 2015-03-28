@@ -116,6 +116,31 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
+		<BlockGenus name="procedure" kind="command" initlabel="Procedure Name" editable-label="yes" label-unique="no" is-starter="yes" is-terminator="yes" color="139 0 0">
+			<description>
+				<text>
+					A user defined procedure. The procedure can be called from other procedures.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector label="" connector-kind="socket" connector-type="cmd"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Procedure"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="call-proc" kind="command" initlabel="Call Procedure" editable-label="yes" color="139 0 0">
+			<description>
+				<text>
+					Calls the specified procedure.
+				</text>
+			</description>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Procedure Call"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
 		<BlockGenus name="sleep-ms" kind="command" initlabel="Sleep (mSec)" color="45 201 255">
 			<description>
 				<text>
@@ -1297,6 +1322,8 @@ BlockGenuses are first loaded.
 			<BlockDrawer name="Commands" type="factory" button-color="45 201 255">
 				<BlockGenusMember>setup</BlockGenusMember>
 				<BlockGenusMember>mainLoop</BlockGenusMember>
+				<BlockGenusMember>procedure</BlockGenusMember>
+				<BlockGenusMember>call-proc</BlockGenusMember>
 				<BlockGenusMember>sleep-ms</BlockGenusMember>
 				<BlockGenusMember>print</BlockGenusMember>
 			</BlockDrawer>
@@ -1401,5 +1428,6 @@ BlockGenuses are first loaded.
 	<Pages drawer-with-page="yes">
 		<Page page-name="Setup" page-width="400"></Page>
 		<Page page-name="Main Loop" page-width="1200"></Page>
+		<Page page-name="Procedures" page-width="1200"></Page>
 	</Pages>
 </BlockLangDef>

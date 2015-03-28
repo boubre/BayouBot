@@ -39,11 +39,18 @@ public class Parser {
 	 */
 	private Iterable<RenderableBlock> setupTopBlocks = null;
 	private Iterable<RenderableBlock> mainLoopTopBlocks = null;
+	private Iterable<RenderableBlock> procedureTopBlocks = null;
 	
 	/*
 	 * Global variable look-up table.
 	 */
 	private Map<String, Result> lookupTable;
+	
+	/*
+	 * Procedure look-up table.
+	 */
+	private Map<String, Procedure> procedures;
+	private List<String> procedureNames;
 	
 	/*
 	 * A reference to the bayou bot this program is controlling.
@@ -55,14 +62,22 @@ public class Parser {
 	 * @param bayouBot The BayouBot this code will be controlling.
 	 * @param setupTopBlocks The top-level blocks from the setup page.
 	 * @param mainLoopTopBlocks The top-level blocks from the main loop page.
+	 * @param procedureTopBlocks The top-level blocks from the procedures page.
 	 */
-	public Parser(BayouBot bayouBot, Iterable<RenderableBlock> setupTopBlocks, Iterable<RenderableBlock> mainLoopTopBlocks) {
+	public Parser(BayouBot bayouBot, 
+			Iterable<RenderableBlock> setupTopBlocks, 
+			Iterable<RenderableBlock> mainLoopTopBlocks, 
+			Iterable<RenderableBlock> procedureTopBlocks) {
 		this.bayouBot = bayouBot;
 		this.setupTopBlocks = setupTopBlocks;
 		this.mainLoopTopBlocks = mainLoopTopBlocks;	
+		this.procedureTopBlocks = procedureTopBlocks;
+		
 		errors = new LinkedList<>();
 		warnings = new LinkedList<>();
 		lookupTable = new HashMap<>();
+		procedures = new HashMap<>();
+		procedureNames = new ArrayList<>();
 	}
 	
 	/**
@@ -113,6 +128,10 @@ public class Parser {
 		//Clear errors and warnings.
 		errors.clear();
 		warnings.clear();
+		//Clear tables and associations from the last parse.
+		lookupTable.clear();
+		procedures.clear();
+		procedureNames.clear();
 		
 		//Do we have a program to parse?
 		if (setupTopBlocks == null) {
@@ -127,13 +146,28 @@ public class Parser {
 			return null;
 		}
 		
-		return new Program(parseProcedure(setupBlock), parseProcedure(mainLoopBlock));		
+		//Find and parse user-defined procedure blocks.
+		List<Block> procBlocks = findProcedureBlocks(procedureTopBlocks);
+		for (Block b : procBlocks) { //Load names first so we can check call validity later.
+			String name = b.getBlockLabel();
+			if (procedureNames.contains(name)) {
+				raiseError(b, "Duplicate Procedure name. Please ensure all procedures are uniquely named.");
+				return null;
+			} else {
+				procedureNames.add(name);
+			}			
+		}
+		for (Block b : procBlocks) {
+			procedures.put(b.getBlockLabel(), parseProcedure(b));
+		}
+		
+		return new Program(parseProcedure(setupBlock), parseProcedure(mainLoopBlock), procedures);		
 	}
 	
 	/**
 	 * Find a unique top level procedure block of the given genus.
 	 * @param genus The genus of block to find.
-	 * @param topBlocks The top level blocks of a given page.
+	 * @param topBlocks The top-level blocks of a given page.
 	 * @return The unique block found. Will return <tt>null</tt> if no blocks are found or if duplicate blocks are found.
 	 */
 	private Block findUniqueProcedureBlock(String genus, Iterable<RenderableBlock> topBlocks) {
@@ -157,6 +191,25 @@ public class Parser {
 		}
 		
 		return uniqueBlock;
+	}
+	
+	/**
+	 * Find all top-level procedure blocks.
+	 * @param topBlocks The top-level blocks of a given page.
+	 * @return A list of all top-level procedure blocks on the page.
+	 */
+	private List<Block> findProcedureBlocks(Iterable<RenderableBlock> topBlocks) {
+		List<Block> procs = new ArrayList<>();
+		for (RenderableBlock rb : topBlocks) {
+			Block b = rb.getBlock();
+			if (b.getGenusName().equals("procedure")) {
+				procs.add(b);
+			} else {
+				raiseWarning(b, "Orphaned top-level blocks will not be executed.");
+			}
+		}
+		
+		return procs;
 	}
 	
 	/**
@@ -211,6 +264,11 @@ public class Parser {
 			return new MoveStop(b, bayouBot);
 		case "sleep-ms":
 			return new Sleep(b, parseNumericArgument(b, 0));
+		case "call-proc":
+			if (!procedureNames.contains(b.getBlockLabel())) {
+				raiseError(b, "Attempt to call procedure that does not exist.");
+			}
+			return new CallProcedure(b, procedures);
 		default:
 			assert false : "Unrecognized block genus. (Should not occur.)";
 		return null; //Code should not be reached.

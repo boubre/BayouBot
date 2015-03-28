@@ -2,6 +2,7 @@ package bayoubot.core;
 
 import jssc.SerialPort;
 import jssc.SerialPortException;
+import jssc.SerialPortList;
 
 public class SerialPortBayouBot extends BayouBot {
 	private SerialPort serialPort;
@@ -31,6 +32,14 @@ public class SerialPortBayouBot extends BayouBot {
 		// Set drive ports to outputs.
 	}
 
+	/**
+	 * This method is here so that client code can enumerate all serial port names without needing to directly reference jssc.
+	 * @return An array of all system serial port names.
+	 */
+	public static String[] getSerialPortNames() {
+		return SerialPortList.getPortNames();
+	}
+	
 	@Override
 	public void setPinMode(Pin pin, PinMode mode) {
 		Instruction instr = null;

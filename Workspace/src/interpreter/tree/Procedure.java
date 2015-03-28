@@ -1,5 +1,7 @@
 package interpreter.tree;
 
+import interpreter.ProgramExecutionException;
+
 import java.util.List;
 
 import codeblocks.Block;
@@ -9,7 +11,7 @@ import codeblocks.Block;
  * @author Brandon Oubre
  */
 public class Procedure extends BlockNode {
-	public List<Command> commandList;
+	private List<Command> commandList;
 	private String name;
 	
 	/**
@@ -29,6 +31,12 @@ public class Procedure extends BlockNode {
 	 */
 	public String getName() {
 		return name;
+	}
+	
+	public void execute() throws ProgramExecutionException {
+		for (Command c : commandList) {
+			c.execute();
+		}
 	}
 	
 	@Override
