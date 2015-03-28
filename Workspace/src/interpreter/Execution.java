@@ -32,7 +32,9 @@ public class Execution implements Runnable {
 		
 		Console.getInstance().appendLine("<b>Parsing Program...</b>");
 		//TODO: Parse
-		Parser parser = new Parser(workspace.getPageNamed("Setup").getTopLevelBlocks(), workspace.getPageNamed("Runtime").getTopLevelBlocks());
+		Parser parser = new Parser(null,
+				workspace.getPageNamed("Setup").getTopLevelBlocks(),
+				workspace.getPageNamed("Main Loop").getTopLevelBlocks());
 		Program program = parser.parse();
 		if (program == null || !parser.getErrors().isEmpty()) {	
 			Console.getInstance().appendLine("<span class=\"error\"><b>Parse could not complete because of " + parser.getErrors().size() + " errors.</b></span>");

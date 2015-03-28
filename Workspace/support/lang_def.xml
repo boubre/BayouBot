@@ -102,6 +102,34 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
+		<BlockGenus name="mainLoop" kind="command" initlabel="Main Loop" editable-label="no" label-unique="yes" is-starter="yes" is-terminator="yes" color="139 0 0">
+			<description>
+				<text>
+					Entry point for the robot main loop routine.
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector label="" connector-kind="socket" connector-type="cmd"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Main Loop Procedure"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
+		<BlockGenus name="sleep-ms" kind="command" initlabel="Sleep (mSec)" color="45 201 255">
+			<description>
+				<text>
+					Tell the program to sleep (wait) for the specified number of milliseconds. (1000 mSec = 1 Second.)
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="socket" connector-type="number"></BlockConnector>
+			</BlockConnectors>
+			<LangSpecProperties>
+				<LangSpecProperty key="friendlyName" value="Sleep"></LangSpecProperty>
+			</LangSpecProperties>	
+		</BlockGenus>
+		
 		<BlockGenus name="print" kind="command" initlabel="print" color="45 201 255">
 			<description>
 				<text>
@@ -1268,6 +1296,8 @@ BlockGenuses are first loaded.
 		<BlockDrawerSet name="factory" type="stack" location="southwest" window-per-drawer="no" drawer-draggable="no" >
 			<BlockDrawer name="Commands" type="factory" button-color="45 201 255">
 				<BlockGenusMember>setup</BlockGenusMember>
+				<BlockGenusMember>mainLoop</BlockGenusMember>
+				<BlockGenusMember>sleep-ms</BlockGenusMember>
 				<BlockGenusMember>print</BlockGenusMember>
 			</BlockDrawer>
 			<BlockDrawer name="Constants" type="factory" button-color="255 0 255">
@@ -1370,6 +1400,6 @@ BlockGenuses are first loaded.
 	-->
 	<Pages drawer-with-page="yes">
 		<Page page-name="Setup" page-width="400"></Page>
-		<Page page-name="Runtime" page-width="1200"></Page>
+		<Page page-name="Main Loop" page-width="1200"></Page>
 	</Pages>
 </BlockLangDef>

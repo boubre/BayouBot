@@ -6,14 +6,16 @@ package interpreter.tree;
  * @author Brandon Oubre
  */
 public class Program {
-	public Setup setup;
+	public Procedure setup,  mainLoop;
 	
 	/**
 	 * Create a new program.
 	 * @param setup The unique setup procedure.
+	 * @param mainLoop The unique main loop procedure.
 	 */
-	public Program(Setup setup) {
+	public Program(Procedure setup, Procedure mainLoop) {
 		this.setup = setup;
+		this.mainLoop = mainLoop;
 	}
 	
 	/**
@@ -23,6 +25,8 @@ public class Program {
 		StringBuilder sb = new StringBuilder("Program\n");
 		if (setup != null) 
 			setup.parseDump(sb, BlockNode.DUMP_INDENT);
+		if (mainLoop != null) 
+			mainLoop.parseDump(sb, BlockNode.DUMP_INDENT);
 		return sb.toString();
 	}
 }
