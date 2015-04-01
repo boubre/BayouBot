@@ -2,6 +2,7 @@ package controller;
 
 import interpreter.DummyBayouBot;
 import interpreter.Execution;
+import interpreter.tree.Program;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -472,6 +473,7 @@ public class WorkspaceController {
         workspacePanel.setLayout(new BorderLayout());
         //workspacePanel.add(topPane, BorderLayout.PAGE_START);
         workspacePanel.add(workspace, BorderLayout.CENTER);
+        workspacePanel.setPreferredSize(new Dimension(800, 400));
         
         isWorkspacePanelInitialized = true;
     }
@@ -529,7 +531,7 @@ public class WorkspaceController {
         });
         
         frame.setBounds(0, 0, 800, 600);
-        frame.setLayout(new GridBagLayout());
+        JPanel content = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         
         //create search bar
@@ -569,20 +571,22 @@ public class WorkspaceController {
         gbc.gridy = 0;
         gbc.gridheight = 1;
         gbc.gridwidth = 1;
-        frame.add(topPane, gbc);
+        content.add(topPane, gbc);
         
         gbc.gridy = 1;
-        frame.add(getWorkspacePanel(), gbc);
+        workspace.setPreferredSize(new Dimension(800, 400));
+        content.add(workspace, gbc);
         
         gbc.gridy = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        frame.add(Console.getInstance().getPanel(), gbc);
+        content.add(Console.getInstance().getPanel(), gbc);
         
         gbc.gridy = 3;
         gbc.fill = GridBagConstraints.NONE;
         gbc.anchor = GridBagConstraints.WEST;
-        frame.add(makeBayouBotConnectionPanel(), gbc);
+        content.add(makeBayouBotConnectionPanel(), gbc);
         
+        frame.setContentPane(content);
         frame.pack();
         frame.setVisible(true);
     }
@@ -707,7 +711,8 @@ public class WorkspaceController {
 			return;
 		
 		Console.getInstance().clear();
-		System.out.println(Execution.parse(workspace, null).parseDump());
+		Program p = Execution.parse(workspace, null);
+		System.out.println(p == null ? "No program returned." : p.parseDump());
 	}
 	
 	/**
