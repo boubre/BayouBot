@@ -32,7 +32,7 @@ BlockGenuses are first loaded.
 	BLOCK GENUSES
 	-->
 	<BlockGenuses>
-		<BlockGenus name="number" kind="data" initlabel="1" editable-label="yes" is-label-value="yes" color="255 0 255">
+		<BlockGenus name="number" kind="data" initlabel="1" editable-label="yes" is-label-value="yes" color="0 255 0">
 			<description>
 				<text>
 					Reports the number shown.
@@ -60,7 +60,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="true" kind="data" initlabel="true" color="255 0 255">
+		<BlockGenus name="true" kind="data" initlabel="true" color="0 255 0">
 			<description>
 				<text>
 					Reports the boolean true.
@@ -74,7 +74,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="false" kind="data" initlabel="false" color="255 0 255">
+		<BlockGenus name="false" kind="data" initlabel="false" color="0 255 0">
 			<description>
 				<text>
 					Reports the boolean false.
@@ -169,7 +169,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="num-to-string" kind="function" initlabel="to text" color="45 201 255">
+		<BlockGenus name="num-to-string" kind="function" initlabel="to text" color="255 0 255">
 			<description>
 				<text>
 					Returns a text representation of the given block connected to this.
@@ -184,7 +184,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="bool-to-string" kind="function" initlabel="to text" color="45 201 255">
+		<BlockGenus name="bool-to-string" kind="function" initlabel="to text" color="255 0 255">
 			<description>
 				<text>
 					Returns a text representation of the given block connected to this.
@@ -199,7 +199,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="string-append" kind="function" initlabel="+" color="45 201 255">
+		<BlockGenus name="string-append" kind="function" initlabel="+" color="255 0 255">
 			<description>
 				<text>
 					Appends the second string to the end of the first string.
@@ -216,7 +216,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>	
 		
-		<BlockGenus name="string-equals" kind="function" initlabel="=" color="15 20 220">
+		<BlockGenus name="string-equals" kind="function" initlabel="=" color="255 0 255">
 			<description>
 				<text>
 					Determines if two strings are equal (Including case).
@@ -232,7 +232,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="string-not-equals" kind="function" initlabel="&lt;&gt;" color="15 20 220">
+		<BlockGenus name="string-not-equals" kind="function" initlabel="&lt;&gt;" color="255 0 255">
 			<description>
 				<text>
 					Determines if two strings are different (Including case).
@@ -250,7 +250,7 @@ BlockGenuses are first loaded.
 	
 		<!-- MATH -->
 		
-		<BlockGenus name="pi" kind="function" initlabel="pi" color="255 0 255">
+		<BlockGenus name="pi" kind="function" initlabel="pi" color="0 255 0">
 			<description>
 				<text>
 					Reports the value of PI (approximately 3.14).
@@ -264,7 +264,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="e" kind="function" initlabel="e" color="255 0 255">
+		<BlockGenus name="e" kind="function" initlabel="e" color="0 255 0">
 			<description>
 				<text>
 					Reports the mathematical number <em>e</em>, which is about 2.718.
@@ -932,7 +932,7 @@ BlockGenuses are first loaded.
 		</BlockGenus>
 		
 		<!-- Hardware -->
-		<BlockGenus name="pin1" kind="data" initlabel="Pin 1" editable-label="no" is-label-value="no" color="255 0 255">
+		<BlockGenus name="pin1" kind="data" initlabel="Pin 1" editable-label="no" is-label-value="no" color="0 255 0">
 			<description>
 				<text>
 					Pin 1 on the BayouBot.
@@ -946,7 +946,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="pin2" kind="data" initlabel="Pin 2" editable-label="no" is-label-value="no" color="255 0 255">
+		<BlockGenus name="pin2" kind="data" initlabel="Pin 2" editable-label="no" is-label-value="no" color="0 255 0">
 			<description>
 				<text>
 					Pin 2 on the BayouBot.
@@ -960,7 +960,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="pin3" kind="data" initlabel="Pin 3" editable-label="no" is-label-value="no" color="255 0 255">
+		<BlockGenus name="pin3" kind="data" initlabel="Pin 3" editable-label="no" is-label-value="no" color="0 255 0">
 			<description>
 				<text>
 					Pin 3 on the BayouBot.
@@ -974,7 +974,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="pin4" kind="data" initlabel="Pin 4" editable-label="no" is-label-value="no" color="255 0 255">
+		<BlockGenus name="pin4" kind="data" initlabel="Pin 4" editable-label="no" is-label-value="no" color="0 255 0">
 			<description>
 				<text>
 					Pin 4 on the BayouBot.
@@ -988,7 +988,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="pin5" kind="data" initlabel="Pin 5" editable-label="no" is-label-value="no" color="255 0 255">
+		<BlockGenus name="pin5" kind="data" initlabel="Pin 5" editable-label="no" is-label-value="no" color="0 255 0">
 			<description>
 				<text>
 					Pin 5 on the BayouBot.
@@ -1002,7 +1002,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="pin6" kind="data" initlabel="Pin 6" editable-label="no" is-label-value="no" color="255 0 255">
+		<BlockGenus name="pin6" kind="data" initlabel="Pin 6" editable-label="no" is-label-value="no" color="0 255 0">
 			<description>
 				<text>
 					Pin 6 on the BayouBot.
@@ -1016,7 +1016,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="pin7" kind="data" initlabel="Pin 7" editable-label="no" is-label-value="no" color="255 0 255">
+		<BlockGenus name="pin7" kind="data" initlabel="Pin 7" editable-label="no" is-label-value="no" color="0 255 0">
 			<description>
 				<text>
 					Pin 7 on the BayouBot.
@@ -1030,7 +1030,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="pin8" kind="data" initlabel="Pin 8" editable-label="no" is-label-value="no" color="255 0 255">
+		<BlockGenus name="pin8" kind="data" initlabel="Pin 8" editable-label="no" is-label-value="no" color="0 255 0">
 			<description>
 				<text>
 					Pin 8 on the BayouBot.
@@ -1044,7 +1044,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="pin9" kind="data" initlabel="Pin 9" editable-label="no" is-label-value="no" color="255 0 255">
+		<BlockGenus name="pin9" kind="data" initlabel="Pin 9" editable-label="no" is-label-value="no" color="0 255 0">
 			<description>
 				<text>
 					Pin 9 on the BayouBot.
@@ -1058,7 +1058,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="pin10" kind="data" initlabel="Pin 10" editable-label="no" is-label-value="no" color="255 0 255">
+		<BlockGenus name="pin10" kind="data" initlabel="Pin 10" editable-label="no" is-label-value="no" color="0 255 0">
 			<description>
 				<text>
 					Pin 10 on the BayouBot.
@@ -1072,7 +1072,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="pin11" kind="data" initlabel="Pin 11" editable-label="no" is-label-value="no" color="255 0 255">
+		<BlockGenus name="pin11" kind="data" initlabel="Pin 11" editable-label="no" is-label-value="no" color="0 255 0">
 			<description>
 				<text>
 					Pin 11 on the BayouBot.
@@ -1086,7 +1086,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="pin12" kind="data" initlabel="Pin 12" editable-label="no" is-label-value="no" color="255 0 255">
+		<BlockGenus name="pin12" kind="data" initlabel="Pin 12" editable-label="no" is-label-value="no" color="0 255 0">
 			<description>
 				<text>
 					Pin 12 on the BayouBot.
@@ -1100,7 +1100,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="setPinLow" kind="command" initlabel="Set Low" color="255 0 255">
+		<BlockGenus name="setPinLow" kind="command" initlabel="Set Low" color="102 0 204">
 			<description>
 				<text>
 					Sets the specified pin to low (0V).
@@ -1114,7 +1114,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="setPinHigh" kind="command" initlabel="Set High" color="255 0 255">
+		<BlockGenus name="setPinHigh" kind="command" initlabel="Set High" color="102 0 204">
 			<description>
 				<text>
 					Sets the specified pin to high (5V).
@@ -1128,7 +1128,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="setPinOutput" kind="command" initlabel="Set Output" color="255 0 255">
+		<BlockGenus name="setPinOutput" kind="command" initlabel="Set Output" color="102 0 204">
 			<description>
 				<text>
 					Sets a pin as an output pin.
@@ -1142,7 +1142,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="setPinInput" kind="command" initlabel="Set Input" color="255 0 255">
+		<BlockGenus name="setPinInput" kind="command" initlabel="Set Input" color="102 0 204">
 			<description>
 				<text>
 					Sets a pin as an input pin.
@@ -1156,7 +1156,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="isHigh" kind="function" initlabel="is High?" color="45 201 255">
+		<BlockGenus name="isHigh" kind="function" initlabel="is High?" color="102 0 204">
 			<description>
 				<text>
 					Returns true if the input pin is high.
@@ -1171,7 +1171,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="turnRight" kind="command" initlabel="Turn Right" color="255 0 255">
+		<BlockGenus name="turnRight" kind="command" initlabel="Turn Right" color="102 0 204">
 			<description>
 				<text>
 					Turn the BayouBot right.
@@ -1182,7 +1182,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="turnLeft" kind="command" initlabel="Turn Left" color="255 0 255">
+		<BlockGenus name="turnLeft" kind="command" initlabel="Turn Left" color="102 0 204">
 			<description>
 				<text>
 					Turn the BayouBot left.
@@ -1193,7 +1193,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="moveForward" kind="command" initlabel="Move Forward" color="255 0 255">
+		<BlockGenus name="moveForward" kind="command" initlabel="Move Forward" color="102 0 204">
 			<description>
 				<text>
 					Move the BayouBot forward.
@@ -1204,7 +1204,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="moveBackward" kind="command" initlabel="Move Backward" color="255 0 255">
+		<BlockGenus name="moveBackward" kind="command" initlabel="Move Backward" color="102 0 204">
 			<description>
 				<text>
 					Move the BayouBot backward.
@@ -1215,7 +1215,7 @@ BlockGenuses are first loaded.
 			</LangSpecProperties>	
 		</BlockGenus>
 		
-		<BlockGenus name="moveStop" kind="command" initlabel="Stop Moving" color="255 0 255">
+		<BlockGenus name="moveStop" kind="command" initlabel="Stop Moving" color="102 0 204">
 			<description>
 				<text>
 					Tell the BayouBot to stop moving or turning.
@@ -1319,20 +1319,67 @@ BlockGenuses are first loaded.
 	-->
 	<BlockDrawerSets>	
 		<BlockDrawerSet name="factory" type="stack" location="southwest" window-per-drawer="no" drawer-draggable="no" >
-			<BlockDrawer name="Commands" type="factory" button-color="45 201 255">
+			<BlockDrawer name="Procedures" type="factory" button-color="139 0 0">
 				<BlockGenusMember>setup</BlockGenusMember>
 				<BlockGenusMember>mainLoop</BlockGenusMember>
 				<BlockGenusMember>procedure</BlockGenusMember>
 				<BlockGenusMember>call-proc</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="Logic" type="factory" button-color="255 173 0">
+				<BlockGenusMember>if</BlockGenusMember>
+				<BlockGenusMember>ifelse</BlockGenusMember>
+				<BlockGenusMember>repeat</BlockGenusMember>
+				<BlockGenusMember>while</BlockGenusMember>
+				<BlockGenusMember>and</BlockGenusMember>
+				<BlockGenusMember>or</BlockGenusMember>
+				<BlockGenusMember>not</BlockGenusMember>
+				<BlockGenusMember>bool-equals</BlockGenusMember>
+				<BlockGenusMember>bool-not-equals</BlockGenusMember>
+				<BlockGenusMember>true</BlockGenusMember>
+				<BlockGenusMember>false</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="Commands" type="factory" button-color="45 201 255">
 				<BlockGenusMember>sleep-ms</BlockGenusMember>
 				<BlockGenusMember>print</BlockGenusMember>
 			</BlockDrawer>
-			<BlockDrawer name="Constants" type="factory" button-color="255 0 255">
+			<BlockDrawer name="BayouBot" type="factory" button-color="102 0 204">
+				<BlockGenusMember>turnLeft</BlockGenusMember>
+				<BlockGenusMember>turnRight</BlockGenusMember>
+				<BlockGenusMember>moveForward</BlockGenusMember>
+				<BlockGenusMember>moveBackward</BlockGenusMember>
+				<BlockGenusMember>moveStop</BlockGenusMember>
+				<BlockGenusMember>setPinHigh</BlockGenusMember>
+				<BlockGenusMember>setPinLow</BlockGenusMember>
+				<BlockGenusMember>setPinInput</BlockGenusMember>
+				<BlockGenusMember>setPinOutput</BlockGenusMember>
+				<BlockGenusMember>isHigh</BlockGenusMember>
+				<BlockGenusMember>pin1</BlockGenusMember>
+				<BlockGenusMember>pin2</BlockGenusMember>
+				<BlockGenusMember>pin3</BlockGenusMember>
+				<BlockGenusMember>pin4</BlockGenusMember>
+				<BlockGenusMember>pin5</BlockGenusMember>
+				<BlockGenusMember>pin6</BlockGenusMember>
+				<BlockGenusMember>pin7</BlockGenusMember>
+				<BlockGenusMember>pin8</BlockGenusMember>
+				<BlockGenusMember>pin9</BlockGenusMember>
+				<BlockGenusMember>pin10</BlockGenusMember>
+				<BlockGenusMember>pin11</BlockGenusMember>
+				<BlockGenusMember>pin12</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="Constants" type="factory" button-color="0 255 0">
 				<BlockGenusMember>number</BlockGenusMember>
 				<BlockGenusMember>string</BlockGenusMember>
 				<BlockGenusMember>true</BlockGenusMember>
 				<BlockGenusMember>false</BlockGenusMember>
 				<BlockGenusMember>pin1</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer name="Variables" type="factory" button-color="255 235 0">
+				<BlockGenusMember>var-number</BlockGenusMember>
+				<BlockGenusMember>var-string</BlockGenusMember>
+				<BlockGenusMember>var-bool</BlockGenusMember>
+				<BlockGenusMember>setvar-num</BlockGenusMember>
+				<BlockGenusMember>setvar-string</BlockGenusMember>
+				<BlockGenusMember>setvar-bool</BlockGenusMember>
 			</BlockDrawer>
 			<BlockDrawer name="Math" type="factory" button-color="102 129 255">
 				<BlockGenusMember>number</BlockGenusMember>
@@ -1373,51 +1420,6 @@ BlockGenuses are first loaded.
 				<BlockGenusMember>string-append</BlockGenusMember>
 				<BlockGenusMember>string-equals</BlockGenusMember>
 				<BlockGenusMember>string-not-equals</BlockGenusMember>
-			</BlockDrawer>
-			<BlockDrawer name="Logic" type="factory" button-color="255 173 0">
-				<BlockGenusMember>if</BlockGenusMember>
-				<BlockGenusMember>ifelse</BlockGenusMember>
-				<BlockGenusMember>repeat</BlockGenusMember>
-				<BlockGenusMember>while</BlockGenusMember>
-				<BlockGenusMember>and</BlockGenusMember>
-				<BlockGenusMember>or</BlockGenusMember>
-				<BlockGenusMember>not</BlockGenusMember>
-				<BlockGenusMember>bool-equals</BlockGenusMember>
-				<BlockGenusMember>bool-not-equals</BlockGenusMember>
-				<BlockGenusMember>true</BlockGenusMember>
-				<BlockGenusMember>false</BlockGenusMember>
-			</BlockDrawer>
-			<BlockDrawer name="Variables" type="factory" button-color="255 235 0">
-				<BlockGenusMember>var-number</BlockGenusMember>
-				<BlockGenusMember>var-string</BlockGenusMember>
-				<BlockGenusMember>var-bool</BlockGenusMember>
-				<BlockGenusMember>setvar-num</BlockGenusMember>
-				<BlockGenusMember>setvar-string</BlockGenusMember>
-				<BlockGenusMember>setvar-bool</BlockGenusMember>
-			</BlockDrawer>
-			<BlockDrawer name="BayouBot" type="factory" button-color="255 0 255">
-				<BlockGenusMember>turnLeft</BlockGenusMember>
-				<BlockGenusMember>turnRight</BlockGenusMember>
-				<BlockGenusMember>moveForward</BlockGenusMember>
-				<BlockGenusMember>moveBackward</BlockGenusMember>
-				<BlockGenusMember>moveStop</BlockGenusMember>
-				<BlockGenusMember>setPinHigh</BlockGenusMember>
-				<BlockGenusMember>setPinLow</BlockGenusMember>
-				<BlockGenusMember>setPinInput</BlockGenusMember>
-				<BlockGenusMember>setPinOutput</BlockGenusMember>
-				<BlockGenusMember>isHigh</BlockGenusMember>
-				<BlockGenusMember>pin1</BlockGenusMember>
-				<BlockGenusMember>pin2</BlockGenusMember>
-				<BlockGenusMember>pin3</BlockGenusMember>
-				<BlockGenusMember>pin4</BlockGenusMember>
-				<BlockGenusMember>pin5</BlockGenusMember>
-				<BlockGenusMember>pin6</BlockGenusMember>
-				<BlockGenusMember>pin7</BlockGenusMember>
-				<BlockGenusMember>pin8</BlockGenusMember>
-				<BlockGenusMember>pin9</BlockGenusMember>
-				<BlockGenusMember>pin10</BlockGenusMember>
-				<BlockGenusMember>pin11</BlockGenusMember>
-				<BlockGenusMember>pin12</BlockGenusMember>
 			</BlockDrawer>
 		</BlockDrawerSet>
 	</BlockDrawerSets>
