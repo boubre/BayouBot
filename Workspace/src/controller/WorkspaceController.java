@@ -13,7 +13,11 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.HashMap;
@@ -24,8 +28,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -76,9 +85,12 @@ public class WorkspaceController {
     *//** The single instance of the Workspace Controller*//*
     private static WorkspaceController wc = new WorkspaceController();*/
     
+    private JFrame frame;
     protected JPanel workspacePanel;
     protected static Workspace workspace;
     protected SearchBar searchBar;
+    private JLabel bayouBotStatus;
+    private JFileChooser fileChooser;
     private JComboBox<String> serialPortComboBox;
     
     //flag to indicate if a new lang definition file has been set
@@ -491,7 +503,7 @@ public class WorkspaceController {
         System.out.println("Creating GUI...");
         
         //Create and set up the window.
-        JFrame frame = new JFrame("BayouBot Workspace v" + VERSION);
+        frame = new JFrame("BayouBot Workspace v" + VERSION);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.addWindowListener(new WindowAdapter() {
         	@Override
@@ -503,18 +515,44 @@ public class WorkspaceController {
         JPanel content = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         
-        //create search bar
+        fileChooser = new JFileChooser();
+        
+        /*
+         * Menu
+         */
+        JMenuBar menuBar = new JMenuBar();
+        
+        //File Menu
+        JMenu menu = new JMenu("File");
+        menuBar.add(menu);
+        JMenuItem menuItem = new JMenuItem("Save");
+        menuItem.addActionListener(ae -> {saveFile();});
+        menu.add(menuItem);
+        menuItem = new JMenuItem("Load");
+        menuItem.addActionListener(ae -> {loadFile();});
+        menu.add(menuItem);
+        
+        //Help Menu
+        menu = new JMenu("Help");
+        menuBar.add(menu);
+        menuItem = new JMenuItem("About");
+        menuItem.addActionListener(ae -> {
+        	JOptionPane.showMessageDialog(frame,
+        		    "Workspace version 1.0.\nThis workspace is based off of MIT's OpenBlocks and was developed by LSU's Robotics Research Lab.",
+        		    "About BayouBot Programming Workspace",
+        		    JOptionPane.PLAIN_MESSAGE);
+        });
+        menu.add(menuItem);
+        
+        frame.setJMenuBar(menuBar);
+        
+        /*
+         * Top Pane
+         */
         SearchBar searchBar = new SearchBar("Search blocks", "Search for blocks in the drawers and workspace", workspace);
         for(SearchableContainer con : getAllSearchableContainers()){
             searchBar.addSearchableContainer(con);
         }
-        
-        /*JButton saveButton = new JButton("Save");
-        saveButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                System.out.println(wc.getSaveString());
-            }
-        });*/
         
         JButton executeBtn = new JButton(new ImageIcon(loadedImages.get("play")));
         executeBtn.setPreferredSize(new Dimension(32, 32));
@@ -536,6 +574,9 @@ public class WorkspaceController {
         topPane.add(executeBtn);
         topPane.add(stopExecBtn);
         
+        /*
+         * Arrange Everything
+         */
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridheight = 1;
@@ -571,6 +612,8 @@ public class WorkspaceController {
         serialPortComboBox = new JComboBox<>();
         refreshSerialPortList();
         
+        bayouBotStatus = new JLabel("Disconnected.");
+        
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -582,12 +625,13 @@ public class WorkspaceController {
         gbc.gridx = 1;
         gbc.insets = new Insets(0, 0, 5, 10);
         panel.add(serialPortComboBox, gbc);
-        
-       
+               
         gbc.gridx = 2;
-        gbc.insets = new Insets(0, 0, 5, 0);
         panel.add(refreshBtn, gbc);
         
+        gbc.gridx = 3;
+        gbc.insets = new Insets(0, 0, 5, 0);
+        panel.add(bayouBotStatus, gbc);
         
     	return panel;
     }
@@ -709,5 +753,50 @@ public class WorkspaceController {
 		stopProgramExecution();
 		c.setVisible(false);
 		System.exit(0);
+	}
+	
+	/**
+	 * This method is called when a save button is clicked.
+	 */
+	private void saveFile() {
+		int retVal = fileChooser.showSaveDialog(frame);
+		if (retVal == JFileChooser.APPROVE_OPTION) {
+			File file = fileChooser.getSelectedFile();			
+			if (!file.exists()) {
+				try {
+					file.createNewFile();
+				} catch (IOException ex) {
+					ex.printStackTrace();
+				}
+			} 
+			if (file.isFile()) {
+				try (FileWriter writer = new FileWriter(file, false)) {
+					writer.write(getSaveString());
+				} catch (IOException ex) {
+					ex.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	/**
+	 * This method is called when a load button is clicked.
+	 */
+	private void loadFile() {
+		int retVal = fileChooser.showOpenDialog(frame);
+		if (retVal == JFileChooser.APPROVE_OPTION) {
+			File file = fileChooser.getSelectedFile();			
+			if (file.exists() && file.isFile()) {
+				try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+					StringBuilder sb = new StringBuilder();
+					reader.lines().forEach(line -> sb.append(line));
+					loadProject(sb.toString());
+				} catch (FileNotFoundException ex) {
+					Console.getInstance().appendLine("<span class=\"error\"><b>Could not load file because it could not be found.</b></span>");
+				} catch (IOException ex) {
+					ex.printStackTrace();
+				}
+			}
+		}
 	}
 }
