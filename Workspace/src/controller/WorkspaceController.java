@@ -439,39 +439,9 @@ public class WorkspaceController {
      * this function.
      * Should be call only once at application startup.
      */
-    private void initWorkspacePanel(){
-        //workspace = loadFreshWorkspace();
-        
-        /*//create search bar
-        SearchBar searchBar = new SearchBar("Search blocks", "Search for blocks in the drawers and workspace", workspace);
-        for(SearchableContainer con : getAllSearchableContainers()){
-            searchBar.addSearchableContainer(con);
-        }*/
-        
-        //add trashcan and prepare trashcan images
-        //ImageIcon tc = new ImageIcon(workingDirectory + "/support/images/trash.png");
-        //ImageIcon openedtc = new ImageIcon(workingDirectory + "/support/images/trash_open.png");
-        
-        //TrashCan trash = new TrashCan(tc.getImage(), openedtc.getImage());
-        //workspace.addWidget(trash, true, true);
-        
-        //create save button
-        /*JButton saveButton = new JButton("Save");
-        saveButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                System.out.println(WorkspaceController.getInstance().getSaveString());
-            }
-        });*/
-        
+    private void initWorkspacePanel(){      
         workspacePanel = new JPanel();
-        //JPanel topPane = new JPanel();
-        
-        //topPane.add(saveButton);
-        //searchBar.getComponent().setPreferredSize(new Dimension(130, 23));
-        //topPane.add(searchBar.getComponent());
-        
         workspacePanel.setLayout(new BorderLayout());
-        //workspacePanel.add(topPane, BorderLayout.PAGE_START);
         workspacePanel.add(workspace, BorderLayout.CENTER);
         workspacePanel.setPreferredSize(new Dimension(800, 400));
         
@@ -530,7 +500,6 @@ public class WorkspaceController {
         	}
         });
         
-        frame.setBounds(0, 0, 800, 600);
         JPanel content = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         
@@ -574,8 +543,9 @@ public class WorkspaceController {
         content.add(topPane, gbc);
         
         gbc.gridy = 1;
-        workspace.setPreferredSize(new Dimension(800, 400));
-        content.add(workspace, gbc);
+        gbc.fill  = GridBagConstraints.BOTH;
+        workspace.setMinimumSize(new Dimension(800, 400));
+        content.add(getWorkspacePanel(), gbc);
         
         gbc.gridy = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -729,6 +699,10 @@ public class WorkspaceController {
 		}
 	}
 	
+	/**
+	 * Called when the program is closed.
+	 * @param c The program frame.
+	 */
 	private void exitRoutine(Component c) {
 		Console.getInstance().appendLine("<b>Shutting down workspace and ending programs...</b>");
 		System.out.println("Shutting Down...");
