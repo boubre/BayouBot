@@ -3,6 +3,7 @@ package interpreter.tree;
 import interpreter.ProgramExecutionException;
 
 import java.util.Map;
+import java.util.function.BooleanSupplier;
 
 import codeblocks.Block;
 
@@ -31,8 +32,22 @@ public class SetVariable <T extends Result> extends Command {
 	}
 
 	@Override
-	public void execute() throws ProgramExecutionException {
-		lookupTable.put(name.getResult(), value);
+	public void execute(BooleanSupplier testStop) throws ProgramExecutionException {
+		Result toPut = null;
+		//IMNPORTANT: Force evaluation before storing to avoid infinite recursion when referenced.
+		if (value instanceof NumberResult) {
+			double d = ((NumberResult)value).getResult();
+			toPut = (NumberResult)(() -> {return d;});
+		} else if (value instanceof StringResult) {
+			String s = ((StringResult)value).getResult();
+			toPut = (StringResult)(() -> {return s;});
+		} else if (value instanceof BooleanResult) {
+			boolean b = ((BooleanResult)value).getResult();
+			toPut = (BooleanResult)(() -> {return b;});
+		} else {
+			assert false : "Unreachable state.";
+		}
+		lookupTable.put(name.getResult(), toPut);
 	}
 
 	@Override

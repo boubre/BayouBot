@@ -1,5 +1,7 @@
 package interpreter.tree;
 
+import java.util.function.BooleanSupplier;
+
 import interpreter.ProgramExecutionException;
 import bayoubot.core.BayouBot;
 import bayoubot.core.PinState;
@@ -30,7 +32,7 @@ public class SetPinState extends Command {
 	}
 	
 	@Override
-	public void execute() throws ProgramExecutionException {
+	public void execute(BooleanSupplier testStop) throws ProgramExecutionException {
 		bot.setPinState(pin.getResult(), state);
 	}
 

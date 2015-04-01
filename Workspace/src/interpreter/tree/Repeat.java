@@ -3,6 +3,7 @@ package interpreter.tree;
 import interpreter.ProgramExecutionException;
 
 import java.util.List;
+import java.util.function.BooleanSupplier;
 
 import codeblocks.Block;
 
@@ -29,11 +30,14 @@ public class Repeat extends Command {
 	}
 
 	@Override
-	public void execute() throws ProgramExecutionException {
+	public void execute(BooleanSupplier testStop) throws ProgramExecutionException {
 		final int N = (int)nLoops.getResult();
 		for (int i = 0; i < N; i++) {
 			for (Command cmd : body) {
-				cmd.execute();
+				if (testStop.getAsBoolean()) {
+					return;
+				}
+				cmd.execute(testStop);
 			}
 		}
 	}

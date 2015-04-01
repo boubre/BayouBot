@@ -3,6 +3,7 @@ package interpreter.tree;
 import interpreter.ProgramExecutionException;
 
 import java.util.List;
+import java.util.function.BooleanSupplier;
 
 import codeblocks.Block;
 
@@ -33,9 +34,17 @@ public class Procedure extends BlockNode {
 		return name;
 	}
 	
-	public void execute() throws ProgramExecutionException {
+	/**
+	 * Execute the procedure.
+	 * @param testStop Will supply a <tt>true</tt> value if the program should stop execution and return immediately.
+	 * @throws ProgramExecutionException An error occured with the program execution.
+	 */
+	public void execute(BooleanSupplier testStop) throws ProgramExecutionException {
 		for (Command c : commandList) {
-			c.execute();
+			if (testStop.getAsBoolean()) {
+				return;
+			}
+			c.execute(testStop);
 		}
 	}
 	

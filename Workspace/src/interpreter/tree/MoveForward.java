@@ -1,5 +1,7 @@
 package interpreter.tree;
 
+import java.util.function.BooleanSupplier;
+
 import interpreter.ProgramExecutionException;
 import bayoubot.core.BayouBot;
 import codeblocks.Block;
@@ -22,7 +24,7 @@ public class MoveForward extends Command {
 	}
 	
 	@Override
-	public void execute() throws ProgramExecutionException {
+	public void execute(BooleanSupplier testStop) throws ProgramExecutionException {
 		bot.moveForward();
 	}
 

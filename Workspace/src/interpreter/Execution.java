@@ -3,9 +3,13 @@ package interpreter;
 import interpreter.tree.ParseError;
 import interpreter.tree.Parser;
 import interpreter.tree.Program;
+
+import java.util.function.BooleanSupplier;
+
 import workspace.Console;
 import workspace.Workspace;
 import bayoubot.core.BayouBot;
+
 
 /**
  * This class parses and executes a workspace program in a separate thread than the GUI.
@@ -42,9 +46,8 @@ public class Execution implements Runnable {
 			return; //Do not proceed with execution
 		}
 		Console.getInstance().appendLine("<b>Beginning Execution...</b>");
-		//TODO: Run Interpreter
 		
-		System.out.println(program.parseDump());
+		interpret(program);
 		
 		Console.getInstance().appendLine("<b>Execution Complete.</b>");
 	}
@@ -121,4 +124,29 @@ public class Execution implements Runnable {
 	public synchronized boolean isRunning() {
 		return thread != null && thread.isAlive();
 	}
+	
+	/**
+	 * Interpret a program.
+	 * @param p The program to interpret.
+	 */
+	private void interpret(Program p) {
+		try {
+			p.setup.execute(testStop);
+			while (!stop) {
+				p.mainLoop.execute(testStop);
+			}
+			bayouBot.stop();
+		} catch (ProgramExecutionException e) {
+			Console.getInstance().appendLine("<span class=\"error\">Error: Program encountered an unexpected error.</span>");
+			e.printStackTrace();
+		}	
+	}
+	
+	/**
+	 * A method to be passed to procedures and commands that will indicate if they should immediately stop and return.
+	 * @return <tt>true</tt> if the program should come to a halt.
+	 */
+	private BooleanSupplier testStop = () -> {
+		return stop;
+	};
 }

@@ -3,6 +3,7 @@ package interpreter.tree;
 import interpreter.ProgramExecutionException;
 
 import java.util.List;
+import java.util.function.BooleanSupplier;
 
 import codeblocks.Block;
 
@@ -32,15 +33,13 @@ public class If extends Command {
 	}
 	
 	@Override
-	public void execute() throws ProgramExecutionException {
-		if (condition.getResult()) {
-			for (Command c : trueCase) {
-				c.execute();
+	public void execute(BooleanSupplier testStop) throws ProgramExecutionException {
+		List<Command> selectedCase = condition.getResult() ? trueCase : falseCase;
+		for (Command c : selectedCase) {
+			if (testStop.getAsBoolean()) {
+				return;
 			}
-		} else if (falseCase != null) {
-			for (Command c : falseCase) {
-				c.execute();
-			}
+			c.execute(testStop);
 		}
 	}
 

@@ -1,5 +1,7 @@
 package interpreter.tree;
 
+import java.util.function.BooleanSupplier;
+
 import interpreter.ProgramExecutionException;
 import workspace.Console;
 import codeblocks.Block;
@@ -22,7 +24,7 @@ public class Print extends Command {
 	}
 
 	@Override
-	public void execute() throws ProgramExecutionException {
+	public void execute(BooleanSupplier testStop) throws ProgramExecutionException {
 		Console.getInstance().appendLine(socket.getResult());
 	}
 	

@@ -1,5 +1,7 @@
 package interpreter.tree;
 
+import java.util.function.BooleanSupplier;
+
 import interpreter.ProgramExecutionException;
 import codeblocks.Block;
 
@@ -21,7 +23,7 @@ public class Sleep extends Command {
 	}
 
 	@Override
-	public void execute() throws ProgramExecutionException {
+	public void execute(BooleanSupplier testStop) throws ProgramExecutionException {
 		try {
 			Thread.sleep((long)toSleep.getResult());
 		} catch (InterruptedException e) {

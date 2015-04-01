@@ -3,6 +3,7 @@ package interpreter.tree;
 import interpreter.ProgramExecutionException;
 
 import java.util.Map;
+import java.util.function.BooleanSupplier;
 
 import codeblocks.Block;
 
@@ -26,8 +27,8 @@ public class CallProcedure extends Command {
 	}
 	
 	@Override
-	public void execute() throws ProgramExecutionException {
-		procMap.get(procName).execute();
+	public void execute(BooleanSupplier testStop) throws ProgramExecutionException {
+		procMap.get(procName).execute(testStop);
 	}
 
 	@Override
